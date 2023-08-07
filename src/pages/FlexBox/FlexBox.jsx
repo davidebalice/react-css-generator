@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Context } from "../../components/Context/ContextProvider";
+import { Context } from "../../components/Context/BoxContext";
 import { motion } from "framer-motion";
 import copyed from "../../func";
 import "../../style.css";
@@ -13,8 +13,7 @@ export default function FlexBox() {
     "justify-content": "center",
   });
 
-  const { copyClickText, btnCopyTextChange, mainVariant } =
-    useContext(Context);
+  const { copyClickText, btnCopyTextChange, mainVariant } = useContext(Context);
 
   const justifyContentHandler = (e) => {
     setFlex({ ...flex, "justify-content": e.target.value });
@@ -40,10 +39,10 @@ export default function FlexBox() {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="style_Container"
+      className="cssContainer"
     >
-      <span className="titr">FlexBox</span>
-      <div className="top_box">
+      <span className="titleSection">FlexBox</span>
+      <div className="topBox">
         <div className="preview_wraper">
           <span>Preview</span>
           <div
@@ -81,7 +80,6 @@ export default function FlexBox() {
         </div>
       </div>
       <div className="option_wraper">
-        <span>Option</span>
         <div className="options">
           <div className="input_box">
             <label>Justify Content</label>

@@ -14,9 +14,9 @@ import Invert from "./pages/Filter/Invert";
 import Saturate from "./pages/Filter/Saturate";
 import Home from "./pages/Home/Home";
 import DropShadow from "./pages/Filter/DropShadow";
-import BoxShadow from "./pages/Box/BoxShadow";
+import BoxShadow from "./pages/BoxShadow/BoxShadow";
 import { Navigate } from "react-router-dom";
-import Opasity from "./pages/Box/Opacity";
+import Opacity from "./pages/Opacity/Opacity";
 import FontSize from "./pages/Text/FontSize";
 import Textcolor from "./pages/Text/Textcolor";
 import TextDecoration from "./pages/Text/TextDecoration";
@@ -25,13 +25,8 @@ import LetterSpacing from "./pages/Text/LetterSpacing";
 import Lineheight from "./pages/Text/Lineheight";
 import Textalign from "./pages/Text/Textalign";
 import FontWeight from "./pages/Text/FontWeight";
-import ScaleX from "./pages/Transform/ScaleX";
-import ScaleY from "./pages/Transform/ScaleY";
-import TranslateX from "./pages/Transform/TranslateX";
-import TranslateY from "./pages/Transform/TranslateY";
 import Rotate from "./pages/Transform/Rotate";
-import SkewX from "./pages/Transform/SkewX";
-import SkewY from "./pages/Transform/SkewY";
+import Skew from "./pages/Transform/Skew";
 import FlexBox from "./pages/FlexBox/FlexBox";
 
 let router = [
@@ -42,8 +37,8 @@ let router = [
   { path: "/backgroundgradient", element: <Backgroundgradient /> },
   { path: "/border", element: <Border /> },
   { path: "/BorderRadius", element: <BorderRadius /> },
-  { path: "/box/boxshadow", element: <BoxShadow /> },
-  { path: "/box/opasity", element: <Opasity /> },
+  { path: "/boxshadow", element: <BoxShadow /> },
+  { path: "/opacity", element: <Opacity /> },
   { path: "/filter/blur", element: <Blur /> },
   { path: "/filter/sepia", element: <Sepia /> },
   { path: "/filter/brightness", element: <Brightness /> },
@@ -61,13 +56,8 @@ let router = [
   { path: "/text/lineheight", element: <Lineheight /> },
   { path: "/text/textalign", element: <Textalign /> },
   { path: "/text/fontweight", element: <FontWeight /> },
-  { path: "/transform/scaleX", element: <ScaleX /> },
-  { path: "/transform/scaleY", element: <ScaleY /> },
-  { path: "/transform/translateX", element: <TranslateX /> },
-  { path: "/transform/translateY", element: <TranslateY /> },
   { path: "/transform/rotate", element: <Rotate /> },
-  { path: "/transform/skewX", element: <SkewX /> },
-  { path: "/transform/skewY", element: <SkewY /> },
+  { path: "/transform/skew", element: <Skew /> },
   { path: "/flexbox", element: <FlexBox /> },
   { path: "*", element: <Navigate to={"/"} /> },
 ];

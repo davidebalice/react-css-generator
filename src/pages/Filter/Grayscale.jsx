@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Context } from "../../components/Context/ContextProvider";
+import { Context } from "../../components/Context/BoxContext";
 import "../../style.css";
 import "./Filter.css";
 import { motion } from "framer-motion";
@@ -7,8 +7,7 @@ import copyed from "../../func";
 
 export default function Grayscale() {
   const [grayscale, setGrayscale] = useState("50%");
-  const { copyClickText, btnCopyTextChange, mainVariant } =
-    useContext(Context);
+  const { copyClickText, btnCopyTextChange, mainVariant } = useContext(Context);
 
   const grayscaleHandler = (e) => {
     setGrayscale(`${e.target.value}%`);
@@ -25,10 +24,10 @@ export default function Grayscale() {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="style_Container"
+      className="cssContainer"
     >
-      <span className="titr">Grayscale</span>
-      <div className="top_box">
+      <span className="titleSection">Grayscale</span>
+      <div className="topBox">
         <div className="preview_wraper">
           <span>Preview</span>
           <div
@@ -52,7 +51,6 @@ export default function Grayscale() {
         </div>
       </div>
       <div className="option_wraper">
-        <span>Option</span>
         <div className="options">
           <div className="input_box">
             <label>Amount</label>

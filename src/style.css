@@ -1,3 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #222;
+  border-radius: 50px;
+  width: 5px;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background: linear-gradient(
+    70deg,
+    rgb(111, 211, 213) 19%,
+    rgb(14, 148, 153) 48%,
+    rgb(7, 177, 233) 79%
+  );
+  background-position: center center;
+}
+
 @font-face {
   font-family: "Cascadia Code Regular";
   font-style: normal;
@@ -6,42 +49,55 @@
     url("../public/font/Cascadia.woff") format("woff");
 }
 
-.style_Container {
+.cssContainer {
   width: 100%;
   max-width: 1190px;
   display: flex;
   margin: 0 auto;
+  margin-left: 200px;
   flex-direction: column;
   align-items: center;
-  padding: 100px 20px 50px;
+  padding: 100px 120px 50px;
 }
 
-.titr {
+@media (max-width: 767px) {
+  .cssContainer {
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+  }
+}
+
+.titleSection {
   color: #fff;
   align-self: flex-start;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-.top_box {
+.topBox {
   width: 100%;
   display: flex;
   align-items: center;
+  margin-top: 18px;
   justify-content: center;
   gap: 50px;
 }
 
-.preview_wraper {
-  width: 600px;
+.previewText {
+  color: #fff;
+}
+
+.previewContainer {
+  width: 100%;
   height: 350px;
   background: linear-gradient(
     222deg,
     rgba(63, 74, 93, 1) 0%,
     rgba(27, 23, 27, 1) 100%
   );
-  margin-top: 20px;
-  padding: 20px;
+  padding: 0px 10px 10px 10px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -49,9 +105,10 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-.preview_box {
+.previewBox {
   display: flex;
   width: 100%;
+  max-width: 1200px;
   height: 100%;
   background-color: #fff;
   margin-top: 10px;
@@ -59,22 +116,27 @@
   align-items: center;
 }
 
-.preview_div {
-  width: 70%;
+.previewDiv {
+  width: 60%;
   height: 70%;
   margin: 0 auto;
 }
 
-.copy_code_wraper span,
+.copyWraper span,
 .option_wraper span,
 .preview_wraper span {
   color: #fff;
   font-size: 18px;
 }
 
-.code_box {
-  width: 500px;
-  height: 100px;
+.copyWraper {
+  width: 100%;
+  margin-bottom: 58px;
+}
+
+.codeBox {
+  width: 100%;
+  height: 150px;
   background: linear-gradient(
     222deg,
     rgba(63, 74, 93, 1) 0%,
@@ -82,7 +144,6 @@
   );
   padding: 20px;
   border-radius: 5px 5px 0 0;
-  display: flex;
   align-items: center;
   color: #fff;
   margin-top: 5px;
@@ -90,40 +151,46 @@
 }
 
 .copyBtn {
-  width: 500px;
+  width: 100%;
   height: 45px;
   font-size: 18px;
   border-radius: 0 0 5px 5px;
-  outline: none;
+  outline: 2px solid #444;
+  outline-offset: -2px;
   cursor: pointer;
   border: none;
   background: linear-gradient(
     222deg,
-    rgba(94, 1, 152, 1) 0%,
-    rgba(197, 18, 205, 1) 100%
+    rgb(140, 139, 138) 0%,
+    rgb(97, 97, 95) 100%
   );
   color: #fff;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .copyBtn:hover {
-  letter-spacing: 3px;
+  color: #eee;
+  background: linear-gradient(
+    222deg,
+    rgb(174, 171, 170) 0%,
+    rgb(140, 140, 139) 100%
+  );
 }
 
-.code_box span {
+.codeBox span {
   margin: 0 3px;
   font-family: "Cascadia Code Regular";
 }
 
-.code_box span.code_one {
+.codeBox span.code_one {
   color: #80cbc4;
 }
 
-.code_box span.code_two {
+.codeBox span.code_two {
   color: #addb67;
 }
 
-.code_box span.code_three {
+.codeBox span.code_three {
   color: #f78c6c;
 }
 
@@ -240,7 +307,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 
 @media screen and (max-width: 650px) {
   .preview_wraper,
-  .code_box,
+  .codeBox,
   .copyBtn {
     width: 400px;
   }
@@ -259,7 +326,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 
 @media screen and (max-width: 500px) {
   .preview_wraper,
-  .code_box,
+  .codeBox,
   .copyBtn {
     width: 350px;
   }
@@ -284,7 +351,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 
 .columnMenu {
   width: 35%;
-  padding-top: 20px;
+  padding-top: 40px;
   max-width: 300px;
   height: 100%;
   background: #fff;
@@ -296,4 +363,35 @@ input[type="range"]::-webkit-slider-thumb:active {
 
 .menuButton {
   margin-bottom: 10px !important;
+}
+
+@media (max-width: 767px) {
+  .row {
+    display: block;
+    position: relative;
+    height: 100vh;
+  }
+
+  .columnMenu {
+    width: 100%;
+    max-width: 100%;
+    padding-top: 40px;
+    background: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    height: auto;
+    position: none;
+  }
+}
+
+.mobileButtonContainer {
+  width: 100%;
+  height: 40px;
+  clear: both;
+  background: #fff;
+  font-size: 20px;
+  padding-top: 70px;
+  padding-bottom: 40px;
 }

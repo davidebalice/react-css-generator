@@ -4,7 +4,7 @@ import "./Footer.css";
 export default function Footer() {
   return (
     <div>
-      <p className="author">Davide Balice</p>
+      <p className="footer">@Davide Balice - www.davidebalice.dev</p>
     </div>
   );
 }

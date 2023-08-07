@@ -20,48 +20,23 @@ let Datas = [
       },
       {
         id: 6,
-        route: "/BorderRadius",
+        route: "/borderradius",
         name: "Border Radius",
       },
       {
         id: 7,
-        route: "/box/boxshadow",
+        route: "/boxshadow",
         name: "Box-Shadow",
       },
       {
         id: 8,
-        route: "/box/opasity",
-        name: "Opasity",
-      },
-      {
-        id: 29,
-        route: "/transform/translateX",
-        name: "TranslateX",
-      },
-      {
-        id: 30,
-        route: "/transform/translateY",
-        name: "TranslateY",
-      },
-      {
-        id: 31,
-        route: "/transform/scaleX",
-        name: "ScaleX",
-      },
-      {
-        id: 32,
-        route: "/transform/scaleY",
-        name: "ScaleY",
+        route: "/opacity",
+        name: "Opacity",
       },
       {
         id: 33,
-        route: "/transform/skewX",
-        name: "SkewX",
-      },
-      {
-        id: 34,
-        route: "/transform/skewY",
-        name: "SkewY",
+        route: "/transform/skew",
+        name: "Skew",
       },
       {
         id: 35,

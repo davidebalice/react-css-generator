@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
-import { Context } from "../../components/Context/ContextProvider";
+import { Context } from "../../components/Context/BoxContext";
 import "../../style.css";
 import { motion } from "framer-motion";
 import copyed from "../../func";
 
 export default function Texttransform() {
   const [textTransform, settextTransform] = useState("none");
-  const { copyClickText, btnCopyTextChange, mainVariant } =
-    useContext(Context);
+  const { copyClickText, btnCopyTextChange, mainVariant } = useContext(Context);
 
   const textTransformHandler = (e) => {
     settextTransform(`${e.target.value}`);
@@ -25,10 +24,10 @@ export default function Texttransform() {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="style_Container"
+      className="cssContainer"
     >
-      <span className="titr">Text-transform</span>
-      <div className="top_box">
+      <span className="titleSection">Text-transform</span>
+      <div className="topBox">
         <div className="preview_wraper">
           <span>Preview</span>
           <div className="preview_box drop_preview">
@@ -52,7 +51,6 @@ export default function Texttransform() {
         </div>
       </div>
       <div className="option_wraper">
-        <span>Option</span>
         <div className="options">
           <div className="input_box">
             <label>Type</label>

@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
-import Menu from "../../components/Css/Menu";
+import Menu from "../../components/Menu/Menu";
 import Preview from "../../components/Css/Preview";
 import Code from "../../components/Css/Code";
-import { Context } from "../../components/Context/ContextProvider";
+import { Context } from "../../components/Context/BoxContext";
 import { motion } from "framer-motion";
+import Footer from "../../components/Footer/Footer";
 
 export default function Backgroundgradient() {
-  const { mainVariant, state, dispatch } =
-    useContext(Context);
+  const { state, dispatch } = useContext(Context);
 
   const {
     bgType,
@@ -59,84 +59,81 @@ export default function Backgroundgradient() {
   };
 
   return (
-    <div className="row">
-      <Menu />
-      <motion.div
-        variants={mainVariant}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-        className="style_Container"
-      >
-        <span className="titr">Background gradient</span>
+    <>
+      <div className="row">
+        <Menu />
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          className="cssContainer"
+        >
+          <span className="titleSection">Background gradient</span>
 
-        <div>
           <Preview />
-        </div>
 
-        <div className="option_wraper">
-          <span>Option</span>
-          <div className="options">
-            <div className="input_box color_Grid">
-              <div className="col_color">
-                <label>color</label>
-                <input
-                  onChange={(e) => gradientColorOneChange(e)}
-                  type="color"
-                  value={gradientColorOne}
-                />
+          <div className="option_wraper">
+            <div className="options">
+              <div className="input_box color_Grid">
+                <div className="col_color">
+                  <label>color</label>
+                  <input
+                    onChange={(e) => gradientColorOneChange(e)}
+                    type="color"
+                    value={gradientColorOne}
+                  />
+                </div>
+                <dir>
+                  <label>%</label>
+                  <input
+                    onChange={(e) => gradientRateOneChange(e)}
+                    type="number"
+                    value={gradientRateOne.replace("%", "")}
+                  />
+                </dir>
               </div>
-              <dir>
-                <label>%</label>
-                <input
-                  onChange={(e) => gradientRateOneChange(e)}
-                  type="number"
-                  value={gradientRateOne.replace("%", "")}
-                />
-              </dir>
-            </div>
-            <div className="input_box color_Grid">
-              <div className="col_color">
-                <label>color</label>
-                <input
-                  onChange={(e) => gradientColorTowChange(e)}
-                  type="color"
-                  value={gradientColorTwo}
-                />
+              <div className="input_box color_Grid">
+                <div className="col_color">
+                  <label>color</label>
+                  <input
+                    onChange={(e) => gradientColorTowChange(e)}
+                    type="color"
+                    value={gradientColorTwo}
+                  />
+                </div>
+                <div>
+                  <label>%</label>
+                  <input
+                    onChange={(e) => gradientRateTwoChange(e)}
+                    type="number"
+                    value={gradientRateTwo.replace("%", "")}
+                  />
+                </div>
               </div>
-              <div>
-                <label>%</label>
-                <input
-                  onChange={(e) => gradientRateTwoChange(e)}
-                  type="number"
-                  value={gradientRateTwo.replace("%", "")}
-                />
-              </div>
-            </div>
-            {gradientType === "linear-gradient" && (
+              {gradientType === "linear-gradient" && (
+                <div className="input_box">
+                  <label>Angle</label>
+                  <input
+                    onChange={(e) => gradientAngleChange(e)}
+                    type="range"
+                    max={360}
+                  />
+                  <span>{gradientAngle}</span>
+                </div>
+              )}
               <div className="input_box">
-                <label>Angle</label>
-                <input
-                  onChange={(e) => gradientAngleChange(e)}
-                  type="range"
-                  max={360}
-                />
-                <span>{gradientAngle}</span>
+                <label>Type</label>
+                <select onChange={(e) => gradientTypeChange(e)} name="" id="">
+                  <option value="linear-gradient">linear-gradient</option>
+                  <option value="radial-gradient">radial-gradient</option>
+                </select>
               </div>
-            )}
-            <div className="input_box">
-              <label>Type</label>
-              <select onChange={(e) => gradientTypeChange(e)} name="" id="">
-                <option value="linear-gradient">linear-gradient</option>
-                <option value="radial-gradient">radial-gradient</option>
-              </select>
             </div>
           </div>
-        </div>
-        <div>
           <Code />
-        </div>
-      </motion.div>
-    </div>
+        </motion.div>
+      </div>
+      <Footer />
+    </>
   );
 }

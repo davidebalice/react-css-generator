@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "../../style.css";
 import copyed from "../../func";
 import { motion } from "framer-motion";
-import { Context } from "../Context/ContextProvider";
+import { Context } from "../Context/BoxContext";
 
 const Box = () => {
   const { copyClickText, btnCopyTextChange, state } = useContext(Context);
@@ -19,9 +19,16 @@ const Box = () => {
     borderWidth,
     borderColor,
     borderType,
+    borderRadius,
+    boxShadowBlur,
+    boxShadowColor,
+    boxShadowHorizontal,
+    boxShadowVertical,
+    boxShadowSpread,
+    boxShadowInset,
   } = state;
 
-  const bgColorCopyHandler = async () => {
+  const copyHandler = async () => {
     let text = "";
 
     text =
@@ -35,32 +42,16 @@ const Box = () => {
     text +=
       borderActive && `border: ${borderWidth} ${borderType} ${borderColor};`;
 
+    text += borderRadius !== "0px" && `border-radius: ${borderRadius};`;
+
     await copyed(text);
     btnCopyTextChange();
   };
 
-  const backgroundStyle =
-    bgType === "linear"
-      ? { backgroundColor: bgColor }
-      : bgType === "gradient"
-      ? {
-          background: `${gradientType}(${gradientAngle} ${gradientColorOne} ${gradientRateOne}, ${gradientColorTwo} ${gradientRateTwo})`,
-        }
-      : { backgroundColor: "#f1f1f1" };
-
-  const widthStyle = { width: "70%", height: "70%" };
-
-  const borderStyle = borderActive && {
-    border: `${borderWidth} ${borderType} ${borderColor}`,
-  };
-
-  const styles = { ...backgroundStyle, ...widthStyle, ...borderStyle };
-
   return (
-    <div className="top_box">
-      <div className="copy_code_wraper">
-        <span>Code</span>
-        <div className="code_box">
+    <div className="topBox">
+      <div className="copyWraper">
+        <div className="codeBox">
           <pre>
             {bgType === "linear" ? (
               <>
@@ -69,7 +60,6 @@ const Box = () => {
                 <br />
               </>
             ) : null}
-
             {bgType === "gradient" ? (
               <>
                 <span className="code_one">background</span>
@@ -86,7 +76,6 @@ const Box = () => {
                 <br />
               </>
             ) : null}
-
             {borderActive && (
               <>
                 <span className="code_one">border</span>
@@ -97,9 +86,29 @@ const Box = () => {
                 <br />
               </>
             )}
+            {borderRadius !== "0px" && (
+              <>
+                <span className="code_one">border-radius</span>
+                {": "}
+                <span className="code_three">{borderRadius}</span>; <br />
+              </>
+            )}
+
+            {(boxShadowVertical !== "0px" || boxShadowHorizontal !== "0px") && (
+              <>
+                <span className="code_one">box-shadow</span>
+                {": "}
+                <span className="code_three">
+                  {boxShadowHorizontal} {boxShadowVertical} {boxShadowBlur}{" "}
+                  {boxShadowSpread} {boxShadowColor} {boxShadowInset}
+                </span>
+                ;
+                <br />
+              </>
+            )}
           </pre>
         </div>
-        <button onClick={bgColorCopyHandler} className="copyBtn">
+        <button onClick={copyHandler} className="copyBtn">
           {copyClickText ? "Copied!" : "Copy"}
         </button>
       </div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import Datas from "../../Datas";
 import { motion } from "framer-motion";
-import { Context } from "../../components/Context/ContextProvider";
+import { Context } from "../../components/Context/BoxContext";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/themes/theme-blue.css";
 import "./Button.css";

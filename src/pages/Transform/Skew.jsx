@@ -6,12 +6,12 @@ import Menu from "../../components/Menu/Menu";
 import Preview from "../../components/Css/Preview";
 import Code from "../../components/Css/Code";
 
-export default function Rotate() {
-  const [rotate, setRotate] = useState("0");
+export default function SkewX() {
+  const [skewX, setSkewX] = useState("0");
   const { copyClickText, btnCopyTextChange } = useContext(Context);
 
-  const rotateYHandler = (e) => {
-    setRotate(`${e.target.value}deg`);
+  const skewXYHandler = (e) => {
+    setSkewX(`${e.target.value}deg`);
   };
 
   return (
@@ -23,19 +23,19 @@ export default function Rotate() {
         exit="exit"
         className="cssContainer"
       >
-        <span className="titleSection">Rotate</span>
+        <span className="titleSection">SkewX</span>
         <div className="topBox"></div>
         <div className="option_wraper">
           <div className="options">
             <div className="input_box">
               <label>Size</label>
               <input
-                onChange={(e) => rotateYHandler(e)}
+                onChange={(e) => skewXYHandler(e)}
                 type="range"
-                min={-360}
-                max={360}
+                min={-60}
+                max={60}
               />
-              <span>{rotate}</span>
+              <span>{skewX}</span>
             </div>
           </div>
         </div>

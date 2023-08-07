@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
-import { Context } from "../../components/Context/ContextProvider";
+import { Context } from "../../components/Context/BoxContext";
 import "../../style.css";
 import { motion } from "framer-motion";
 import copyed from "../../func";
 
 export default function Textalign() {
   const [textAlign, setTextAlign] = useState("center");
-  const { copyClickText, btnCopyTextChange, mainVariant } =
-    useContext(Context);
+  const { copyClickText, btnCopyTextChange, mainVariant } = useContext(Context);
 
   const textAlignHandler = (e) => {
     setTextAlign(`${e.target.value}`);
@@ -24,10 +23,10 @@ export default function Textalign() {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="style_Container"
+      className="cssContainer"
     >
-      <span className="titr">Text-align</span>
-      <div className="top_box">
+      <span className="titleSection">Text-align</span>
+      <div className="topBox">
         <div className="preview_wraper">
           <span>Preview</span>
           <div className="preview_box">
@@ -57,7 +56,6 @@ export default function Textalign() {
         </div>
       </div>
       <div className="option_wraper">
-        <span>Option</span>
         <div className="options">
           <div className="input_box">
             <label>Type</label>

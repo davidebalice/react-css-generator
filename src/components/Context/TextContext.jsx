@@ -14,6 +14,13 @@ const initialState = {
   borderWidth: "2px",
   borderColor: "#ccc",
   borderType: "solid",
+  borderRadius: "0px",
+  boxShadowBlur: "0px",
+  boxShadowColor: "#000",
+  boxShadowHorizontal: "0px",
+  boxShadowVertical: "0px",
+  boxShadowSpread: "0px",
+  boxShadowInset: "",
 };
 
 const reducer = (state, action) => {
@@ -42,6 +49,20 @@ const reducer = (state, action) => {
       return { ...state, borderColor: action.payload };
     case "SET_BORDER_TYPE":
       return { ...state, borderType: action.payload };
+    case "SET_BORDER_RADIUS":
+      return { ...state, borderRadius: action.payload };
+    case "SET_SHADOW_BLUR":
+      return { ...state, boxShadowBlur: action.payload };
+    case "SET_SHADOW_COLOR":
+      return { ...state, boxShadowColor: action.payload };
+    case "SET_SHADOW_HORIZONTAL":
+      return { ...state, boxShadowHorizontal: action.payload };
+    case "SET_SHADOW_VERTICAL":
+      return { ...state, boxShadowVertical: action.payload };
+    case "SET_SHADOW_SPREAD":
+      return { ...state, boxShadowSpread: action.payload };
+    case "SET_SHADOW_INSET":
+      return { ...state, boxShadowInset: action.payload };
     default:
       return state;
   }
