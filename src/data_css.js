@@ -17,11 +17,13 @@ let Datas = [
         id: 5,
         route: "/border",
         name: "Border",
+        icon: "border"
       },
       {
         id: 6,
         route: "/borderradius",
         name: "Border Radius",
+        icon: "radius"
       },
       {
         id: 7,

@@ -363,6 +363,22 @@ input[type="range"]::-webkit-slider-thumb:active {
 
 .menuButton {
   margin-bottom: 10px !important;
+  width: 90% !important;
+}
+
+.menuButtonInt {
+  display: flex;
+  flex-direction: row;
+  justify-content: start !important;
+  text-align: start !important;
+  align-items: center !important;
+  width: 100% !important;
+  position: initial !important;
+  border: 1px solid #ff0000;
+}
+
+.text-left {
+  text-align: left !important;
 }
 
 @media (max-width: 767px) {
