@@ -1,50 +1,36 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import "./Home.css";
-import Datas from "../../Datas";
 import { motion } from "framer-motion";
-import { Context } from "../../components/Context/BoxContext";
-import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/themes/theme-blue.css";
+import Card from "./Card";
 import "./Button.css";
-import GitHubLink from "../../components/GithubLink/GitHubLink";
 
 export default function Home() {
-  const { mainVariant } = useContext(Context);
 
   return (
     <motion.div
-      variants={mainVariant}
-      initial="hidden"
-      animate="visible"
       exit="exit"
-      className="home_Container"
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: 0.2 }}
+      className="cardContainer"
     >
-      <div key={"css"} className="group_container">
-        <div className="group_btn">
-          <Link key="css_id" to="/backgroundcolor">
-            <AwesomeButton>css</AwesomeButton>
-          </Link>
-        </div>
-      </div>
-
-      <div key={"css"} className="group_container">
-        <div className="group_btn">
-          <Link key="css_id" to="/filter">
-            <AwesomeButton>filter</AwesomeButton>
-          </Link>
-        </div>
-      </div>
-
-      <div key={"css"} className="group_container">
-        <div className="group_btn">
-          <Link key="css_id" to="/flex">
-            <AwesomeButton>flex box</AwesomeButton>
-          </Link>
-        </div>
-      </div>
-
-      <GitHubLink />
+      <Link to="/backgroundcolor">
+        <Card
+          title="Css"
+          description="border, background, radius, shadow, rotate..."
+          delay="0.1"
+          icon="css"
+        />
+      </Link>
+      <Card
+        title="Text"
+        description="font-size, font-family, text-style, text-shadow..."
+        delay="0.2"
+        icon="text"
+      />
+      <Card title="Image filter" description="brightness, blur, contrast, filter..." delay="0.3" icon="image" />
+      <Card title="Flex box" description="display flex, direction, justify content..." delay="0.4" icon="flex" />
     </motion.div>
   );
 }

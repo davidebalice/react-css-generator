@@ -7,7 +7,7 @@ import copyed from "../../func";
 
 export default function Brightness() {
   const [brightness, setBrightness] = useState("10%");
-  const { copyClickText, btnCopyTextChange, mainVariant } = useContext(Context);
+  const { copyClickText, btnCopyTextChange } = useContext(Context);
 
   const brightnessHandler = (e) => {
     setBrightness(`${e.target.value}%`);
@@ -20,9 +20,9 @@ export default function Brightness() {
   };
   return (
     <motion.div
-      variants={mainVariant}
-      initial="hidden"
-      animate="visible"
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: 0.2 }}
       exit="exit"
       className="cssContainer"
     >

@@ -9,7 +9,7 @@ import Footer from "../../components/Footer/Footer";
 
 export default function Opasity() {
   const [opasity, setOpasity] = useState("0.5");
-  const { copyClickText, btnCopyTextChange} = useContext(Context);
+  const { copyClickText, btnCopyTextChange } = useContext(Context);
 
   const opasityHandler = (e) => {
     setOpasity(`${e.target.value / 100}`);
@@ -20,8 +20,9 @@ export default function Opasity() {
       <div className="row">
         <Menu />
         <motion.div
-          initial="hidden"
-          animate="visible"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
           exit="exit"
           className="cssContainer"
         >

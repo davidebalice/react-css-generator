@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
-import { Context } from "../../Context/BoxContext";
+import { Context } from "../Context/BoxContext";
 
 export default function Header() {
   return (
@@ -10,6 +10,7 @@ export default function Header() {
         <img
           src={process.env.PUBLIC_URL + "/images/logo.png"}
           className="logoImg"
+          alt="logo"
         />
         <p>Css Generator</p>
       </Link>

@@ -24,9 +24,9 @@ export default function Textcolor() {
   };
   return (
     <motion.div
-      variants={mainVariant}
-      initial="hidden"
-      animate="visible"
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: 0.2 }}
       exit="exit"
       className="cssContainer"
     >

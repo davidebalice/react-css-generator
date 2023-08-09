@@ -7,7 +7,7 @@ import copyed from "../../func";
 
 export default function Contrast() {
   const [contrast, setContrast] = useState("100%");
-  const { copyClickText, btnCopyTextChange, mainVariant } = useContext(Context);
+  const { copyClickText, btnCopyTextChange } = useContext(Context);
 
   const contrastHandler = (e) => {
     setContrast(`${e.target.value}%`);
@@ -20,9 +20,9 @@ export default function Contrast() {
   };
   return (
     <motion.div
-      variants={mainVariant}
-      initial="hidden"
-      animate="visible"
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: 0.2 }}
       exit="exit"
       className="cssContainer"
     >

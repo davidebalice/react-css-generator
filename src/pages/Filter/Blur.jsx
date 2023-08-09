@@ -7,7 +7,7 @@ import copyed from "../../func";
 
 export default function Blur() {
   const [blur, setBlur] = useState("10px");
-  const { copyClickText, btnCopyTextChange, mainVariant } = useContext(Context);
+  const { copyClickText, btnCopyTextChange } = useContext(Context);
 
   const blurHandler = (e) => {
     setBlur(`${e.target.value}px`);
@@ -20,9 +20,9 @@ export default function Blur() {
   };
   return (
     <motion.div
-      variants={mainVariant}
-      initial="hidden"
-      animate="visible"
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: 0.2 }}
       exit="exit"
       className="cssContainer"
     >
