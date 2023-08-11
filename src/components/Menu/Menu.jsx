@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { PageContext } from "../../components/Context/PageContext";
 import DataCss from "../../data_css";
+import DataText from "../../data_text";
 import { AwesomeButton } from "react-awesome-button";
 import { Link } from "react-router-dom";
-import { AiOutlineBorder, AiOutlineRadiusUpleft } from "react-icons/ai";
 
 const Menu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [Data, setData] = useState(DataCss);
+  const { pageState, pageDispatch } = useContext(PageContext);
+  const { pageType } = pageState;
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -32,8 +36,13 @@ const Menu = () => {
     };
   }, [isMobile]);
 
-  console.log("isMobile");
-  console.log(isMobile);
+  useEffect(() => {
+    if (pageType === "Css") {
+      setData(DataCss);
+    } else if (pageType === "Text") {
+      setData(DataText);
+    }
+  }, []);
 
   return (
     <>
@@ -45,8 +54,18 @@ const Menu = () => {
 
       {isMenuOpen && (
         <div className="columnMenu">
-          {DataCss.map((data) => (
+          {Data.map((data) => (
             <div style={{ height: "100%" }}>
+              <Link key="home" to="/">
+                <AwesomeButton
+                  className="menuButton"
+                  style={{ "::before": "justify-content: start;" }}
+                >
+                  <div className="menuButtonInt">
+                    <p>Home</p>
+                  </div>
+                </AwesomeButton>
+              </Link>
               {data.routeAddress.map((routes) => (
                 <Link key={routes.id} to={routes.route}>
                   <AwesomeButton
@@ -54,8 +73,6 @@ const Menu = () => {
                     style={{ "::before": "justify-content: start;" }}
                   >
                     <div className="menuButtonInt">
-                      {routes.icon === "border" && <AiOutlineBorder />}
-                      {routes.icon === "radius" && <AiOutlineRadiusUpleft />}
                       <p>{routes.name}</p>
                     </div>
                   </AwesomeButton>

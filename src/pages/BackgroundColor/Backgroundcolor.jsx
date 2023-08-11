@@ -4,7 +4,7 @@ import Preview from "../../components/Css/Preview";
 import Code from "../../components/Css/Code";
 import { Context } from "../../components/Context/BoxContext";
 import { motion } from "framer-motion";
-import { CirclePicker, SliderPicker } from "react-color";
+import { CompactPicker } from "react-color";
 import Footer from "../../components/Footer/Footer";
 
 export default function Backgroundcolor() {
@@ -49,13 +49,7 @@ export default function Backgroundcolor() {
                 <span>{bgColor}</span>
               </div>
               <div className="input_box">
-                <CirclePicker
-                  color={bgColor}
-                  onChangeComplete={(e) => handleChangeComplete(e)}
-                />
-              </div>
-              <div className="input_box">
-                <SliderPicker
+                <CompactPicker
                   color={bgColor}
                   onChangeComplete={(e) => handleChangeComplete(e)}
                 />

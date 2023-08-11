@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import "../../style.css";
-import copyed from "../../func";
 import { motion } from "framer-motion";
 import { Context } from "../Context/BoxContext";
 
 const Box = () => {
-  const { copyClickText, btnCopyTextChange, state } = useContext(Context);
+  const { state } = useContext(Context);
   const {
     bgType,
     bgColor,
@@ -26,6 +25,10 @@ const Box = () => {
     boxShadowVertical,
     boxShadowSpread,
     boxShadowInset,
+    opacity,
+    skewX,
+    skewY,
+    rotate,
   } = state;
 
   const backgroundStyle =
@@ -50,11 +53,26 @@ const Box = () => {
     boxShadow: `${boxShadowHorizontal} ${boxShadowVertical} ${boxShadowBlur} ${boxShadowSpread} ${boxShadowColor} ${boxShadowInset}`,
   };
 
+  const opacityStyle = opacity !== "1" && {
+    opacity: `${opacity}`,
+  };
+
+  const skewStyle = skewX !== "0" && {
+    transform: `skew(${skewX}, ${skewY})`,
+  };
+
+  const rotateStyle = rotate !== "0" && {
+    rotate: `${rotate}deg`,
+  };
+
   const styles = {
     ...backgroundStyle,
     ...borderStyle,
     ...borderRadiusStyle,
     ...borderShadowStyle,
+    ...opacityStyle,
+    ...skewStyle,
+    ...rotateStyle,
   };
 
   return (

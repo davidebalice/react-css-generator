@@ -3,7 +3,7 @@ import { Context } from "../../components/Context/BoxContext";
 import "../../style.css";
 import { motion } from "framer-motion";
 import copyed from "../../func";
-import { CirclePicker, SliderPicker } from "react-color";
+import { CompactPicker } from "react-color";
 
 export default function Textcolor() {
   const [textColor, setTextColor] = useState("#f00");
@@ -60,13 +60,7 @@ export default function Textcolor() {
             <span>{textColor}</span>
           </div>
           <div className="input_box">
-            <CirclePicker
-              color={textColor}
-              onChangeComplete={(e) => handleChangeComplete(e)}
-            />
-          </div>
-          <div className="input_box">
-            <SliderPicker
+            <CompactPicker
               color={textColor}
               onChangeComplete={(e) => handleChangeComplete(e)}
             />

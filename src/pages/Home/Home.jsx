@@ -23,12 +23,14 @@ export default function Home() {
           icon="css"
         />
       </Link>
-      <Card
-        title="Text"
-        description="font-size, font-family, text-style, text-shadow..."
-        delay="0.2"
-        icon="text"
-      />
+      <Link to="/fontsize">
+        <Card
+          title="Text"
+          description="font-size, font-family, text-style, text-shadow..."
+          delay="0.2"
+          icon="text"
+        />
+      </Link>
       <Card title="Image filter" description="brightness, blur, contrast, filter..." delay="0.3" icon="image" />
       <Card title="Flex box" description="display flex, direction, justify content..." delay="0.4" icon="flex" />
     </motion.div>

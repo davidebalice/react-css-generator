@@ -26,6 +26,10 @@ const Box = () => {
     boxShadowVertical,
     boxShadowSpread,
     boxShadowInset,
+    opacity,
+    skewX,
+    skewY,
+    rotate,
   } = state;
 
   const copyHandler = async () => {
@@ -43,6 +47,14 @@ const Box = () => {
       borderActive && `border: ${borderWidth} ${borderType} ${borderColor};`;
 
     text += borderRadius !== "0px" && `border-radius: ${borderRadius};`;
+
+    text += opacity !== "1" && `opacity: ${opacity};`;
+
+    text +=
+      (skewX !== "0" || skewY !== "0") &&
+      `transform: skew:(${skewX},${skewY});`;
+
+    text += rotate !== "0" && `rotate: ${rotate};`;
 
     await copyed(text);
     btnCopyTextChange();
@@ -93,7 +105,6 @@ const Box = () => {
                 <span className="code_three">{borderRadius}</span>; <br />
               </>
             )}
-
             {(boxShadowVertical !== "0px" || boxShadowHorizontal !== "0px") && (
               <>
                 <span className="code_one">box-shadow</span>
@@ -104,6 +115,28 @@ const Box = () => {
                 </span>
                 ;
                 <br />
+              </>
+            )}
+            {opacity !== "1" && (
+              <>
+                <span className="code_one">opacity</span>
+                {": "}
+                <span className="code_three">{opacity}</span>; <br />
+              </>
+            )}
+            {(skewX !== 0 || skewY !== 0) && (
+              <>
+                <span className="code_one">transform</span>
+                {": "}
+                <span className="code_three">skew:({`${skewX},${skewY}`})</span>
+                ; <br />
+              </>
+            )}
+            {rotate !== "0" && (
+              <>
+                <span className="code_one">rotate</span>
+                {": "}
+                <span className="code_three">{rotate}</span>; <br />
               </>
             )}
           </pre>

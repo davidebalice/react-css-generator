@@ -21,6 +21,10 @@ const initialState = {
   boxShadowVertical: "0px",
   boxShadowSpread: "0px",
   boxShadowInset: "",
+  opacity: "1",
+  skewX: "0",
+  skewY: "0",
+  rotate: "0",
 };
 
 const reducer = (state, action) => {
@@ -63,6 +67,14 @@ const reducer = (state, action) => {
       return { ...state, boxShadowSpread: action.payload };
     case "SET_SHADOW_INSET":
       return { ...state, boxShadowInset: action.payload };
+    case "SET_OPACITY":
+      return { ...state, opacity: action.payload };
+    case "SET_SKEW_X":
+      return { ...state, skewX: action.payload };
+    case "SET_SKEW_Y":
+      return { ...state, skewY: action.payload };
+    case "SET_ROTATE":
+      return { ...state, rotate: action.payload };
     default:
       return state;
   }

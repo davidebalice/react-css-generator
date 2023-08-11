@@ -1,34 +1,32 @@
-let Datas = [
+let Data = [
   {
     id: 1,
-    title: "Background",
+    title: "Css",
     routeAddress: [
       {
         id: 2,
         route: "/backgroundcolor",
-        name: "Background Color",
+        name: "Background color",
       },
       {
         id: 3,
         route: "/backgroundgradient",
-        name: "Background Gradient",
+        name: "Background gradient",
       },
       {
         id: 5,
         route: "/border",
         name: "Border",
-        icon: "border"
       },
       {
         id: 6,
         route: "/borderradius",
-        name: "Border Radius",
-        icon: "radius"
+        name: "Border radius",
       },
       {
         id: 7,
         route: "/boxshadow",
-        name: "Box-Shadow",
+        name: "Box shadow",
       },
       {
         id: 8,
@@ -49,4 +47,4 @@ let Datas = [
   },
 ];
 
-export default Datas;
+export default Data;

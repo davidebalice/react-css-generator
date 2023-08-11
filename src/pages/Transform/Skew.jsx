@@ -6,12 +6,16 @@ import Menu from "../../components/Menu/Menu";
 import Preview from "../../components/Css/Preview";
 import Code from "../../components/Css/Code";
 
-export default function SkewX() {
-  const [skewX, setSkewX] = useState("0");
-  const { copyClickText, btnCopyTextChange } = useContext(Context);
+export default function Skew() {
+  const { state, dispatch } = useContext(Context);
+  const { skewX, skewY } = state;
 
-  const skewXYHandler = (e) => {
-    setSkewX(`${e.target.value}deg`);
+  const skewHandlerX = (e) => {
+    dispatch({ type: "SET_SKEW_X", payload: `${e.target.value}deg` });
+  };
+
+  const skewHandlerY = (e) => {
+    dispatch({ type: "SET_SKEW_Y", payload: `${e.target.value}deg` });
   };
 
   return (
@@ -24,22 +28,36 @@ export default function SkewX() {
         exit="exit"
         className="cssContainer"
       >
-        <span className="titleSection">SkewX</span>
+        <span className="titleSection">Skew</span>
+        <Preview />
         <div className="topBox"></div>
         <div className="option_wraper">
           <div className="options">
             <div className="input_box">
-              <label>Size</label>
+              <label>X</label>
               <input
-                onChange={(e) => skewXYHandler(e)}
+                onChange={(e) => skewHandlerX(e)}
                 type="range"
                 min={-60}
                 max={60}
+                value={skewX.replace('deg','')}
               />
               <span>{skewX}</span>
             </div>
+            <div className="input_box">
+              <label>Y</label>
+              <input
+                onChange={(e) => skewHandlerY(e)}
+                type="range"
+                min={-60}
+                max={60}
+                value={skewY.replace('deg','')}
+              />
+              <span>{skewY}</span>
+            </div>
           </div>
         </div>
+        <Code />
       </motion.div>
     </div>
   );

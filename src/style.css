@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -114,12 +114,20 @@ body::before {
   margin-top: 10px;
   align-self: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .previewDiv {
-  width: 60%;
+  width: 50%;
   height: 70%;
   margin: 0 auto;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 750px) {
+  .previewDiv {
+    width: 60%;
+  }
 }
 
 .copyWraper span,
@@ -467,12 +475,12 @@ input[type="range"]::-webkit-slider-thumb:active {
 .cardTitle {
   font-size: 30px;
   text-align: center;
-  margin-top:30px;
-  color:#dd574e
+  margin-top: 30px;
+  color: #dd574e;
 }
 
 .cardText {
   font-size: 14px;
   text-align: center;
-  color:#444;
+  color: #444;
 }

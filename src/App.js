@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRoutes, useLocation } from "react-router-dom";
+import PageContextProvider from "./components/Context/PageContext";
 import BoxContextProvider from "./components/Context/BoxContext";
 import TextContextProvider from "./components/Context/TextContext";
 import Header from "./components/Header/Header";
@@ -24,7 +25,8 @@ function App() {
       case "/rotate":
         setCssContext("box");
         break;
-      case "/pageB":
+      case "/fontsize":
+      case "/fontcolor":
         setCssContext("text");
         break;
       default:
@@ -33,20 +35,24 @@ function App() {
     }
   }, [location.pathname]);
 
+  console.log(cssContext);
+
   return (
     <>
       <AnimatePresence>
-        <Header />
-        {cssContext === "box" && (
-          <BoxContextProvider>
-            <div className="container_App">{routes}</div>
-          </BoxContextProvider>
-        )}
-        {cssContext === "text" && (
-          <TextContextProvider>
-            <div className="container_App">{routes}</div>
-          </TextContextProvider>
-        )}
+        <PageContextProvider>
+          <Header />
+          {cssContext === "box" && (
+            <BoxContextProvider>
+              <div className="container_App">{routes}</div>
+            </BoxContextProvider>
+          )}
+          {cssContext === "text" && (
+            <TextContextProvider>
+              <div className="container_App">{routes}</div>
+            </TextContextProvider>
+          )}
+        </PageContextProvider>
       </AnimatePresence>
     </>
   );
