@@ -1,11 +1,10 @@
 import React, { useContext, useEffect } from "react";
-import { Context } from "../../components/Context/TextContext";
-import { PageContext } from "../../components/Context/PageContext";
-import "../../style.css";
-import { motion } from "framer-motion";
 import Menu from "../../components/Menu/Menu";
 import Preview from "../../components/Css/Preview";
 import Code from "../../components/Css/Code";
+import { Context } from "../../components/Context/TextContext";
+import { PageContext } from "../../components/Context/PageContext";
+import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
 
 export default function FontSize() {

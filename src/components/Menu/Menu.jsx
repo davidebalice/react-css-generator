@@ -9,7 +9,7 @@ const Menu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [Data, setData] = useState(DataCss);
-  const { pageState, pageDispatch } = useContext(PageContext);
+  const { pageState } = useContext(PageContext);
   const { pageType } = pageState;
 
   const toggleMenu = () => {
@@ -37,12 +37,16 @@ const Menu = () => {
   }, [isMobile]);
 
   useEffect(() => {
-    if (pageType === "Css") {
+    if (pageType === "css") {
       setData(DataCss);
-    } else if (pageType === "Text") {
+    } else if (pageType === "text") {
       setData(DataText);
     }
-  }, []);
+  }, [pageType]);
+
+  console.log('pageType');
+  console.log(pageType);
+  console.log(Data);
 
   return (
     <>

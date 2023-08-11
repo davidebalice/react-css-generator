@@ -1,4 +1,5 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 export const PageContext = createContext();
 
 const initialState = {
@@ -14,8 +15,42 @@ const reducer = (state, action) => {
   }
 };
 
-const ContextProvider = ({ children }) => {
+const PageContextProvider = ({ children }) => {
   const [pageState, pageDispatch] = useReducer(reducer, initialState);
+  const [render, setRender] = useState(false);
+  const location = useLocation();
+  const { pageType } = pageState;
+
+console.log(pageType);
+  useEffect(() => {
+    setRender(false);
+    let newPageType = "css";
+    switch (location.pathname) {
+      case "/backgroundcolor":
+      case "/backgroundgradient":
+      case "/border":
+      case "/borderradius":
+      case "/boxshadow":
+      case "/opacity":
+      case "/skew":
+      case "/rotate":
+        newPageType = "css";
+        break;
+      case "/fontsize":
+      case "/fontcolor":
+        newPageType = "text";
+        break;
+      default:
+        newPageType = "css";
+        break;
+    }
+    setRender(true);
+    pageDispatch({ type: "SET_TYPE", payload: newPageType });
+  }, [location.pathname]);
+
+  console.log(pageType);
+  console.log(render);
+  console.log(location.pathname);
 
   return (
     <PageContext.Provider
@@ -29,4 +64,4 @@ const ContextProvider = ({ children }) => {
   );
 };
 
-export default ContextProvider;
+export default PageContextProvider;
