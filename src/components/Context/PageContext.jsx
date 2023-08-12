@@ -21,7 +21,6 @@ const PageContextProvider = ({ children }) => {
   const location = useLocation();
   const { pageType } = pageState;
 
-console.log(pageType);
   useEffect(() => {
     setRender(false);
     let newPageType = "css";
@@ -47,10 +46,6 @@ console.log(pageType);
     setRender(true);
     pageDispatch({ type: "SET_TYPE", payload: newPageType });
   }, [location.pathname]);
-
-  console.log(pageType);
-  console.log(render);
-  console.log(location.pathname);
 
   return (
     <PageContext.Provider

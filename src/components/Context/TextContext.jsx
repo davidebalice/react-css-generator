@@ -2,7 +2,7 @@ import React, { createContext, useState, useReducer } from "react";
 export const Context = createContext();
 
 const initialState = {
-  fontsize: "16px",
+  fontsize: "16",
   color: "#333",
 };
 

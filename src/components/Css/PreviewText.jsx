@@ -1,35 +1,18 @@
 import React, { useContext } from "react";
 import "../../style.css";
-import { Context } from "../Context/BoxContext";
+import { Context } from "../Context/TextContext";
 
 const Preview = () => {
   const { state } = useContext(Context);
-  const {
-    bgType,
-    bgColor,
-    gradientType,
-    gradientAngle,
-    gradientColorOne,
-    gradientRateOne,
-    gradientColorTwo,
-    gradientRateTwo,
-    borderActive,
-    borderWidth,
-    borderColor,
-    borderType,
-    borderRadius,
-    boxShadowBlur,
-    boxShadowColor,
-    boxShadowHorizontal,
-    boxShadowVertical,
-    boxShadowSpread,
-    boxShadowInset,
-    opacity,
-    skewX,
-    skewY,
-    rotate,
-  } = state;
+  const { fontsize } = state;
 
+  console.log(fontsize);
+
+  const fontsizeStyle = {
+    fontSize: `${fontsize}px`,
+  };
+
+  /*
   const backgroundStyle =
     bgType === "linear"
       ? { backgroundColor: bgColor }
@@ -63,23 +46,20 @@ const Preview = () => {
   const rotateStyle = rotate !== "0" && {
     rotate: `${rotate}deg`,
   };
-
+*/
   const styles = {
-    ...backgroundStyle,
-    ...borderStyle,
-    ...borderRadiusStyle,
-    ...borderShadowStyle,
-    ...opacityStyle,
-    ...skewStyle,
-    ...rotateStyle,
+    ...fontsizeStyle,
   };
-
+  console.log(styles);
   return (
     <div className="topBox">
       <div className="previewContainer">
         <div className="previewBox">
-          <div className="previewDiv" style={styles}>
-            {" "}
+          <div className="previewText">
+            <p style={styles}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
           </div>
         </div>
       </div>

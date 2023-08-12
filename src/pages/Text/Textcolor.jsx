@@ -4,6 +4,7 @@ import "../../style.css";
 import { motion } from "framer-motion";
 import copyed from "../../func";
 import { CompactPicker } from "react-color";
+import Footer from "../../components/Footer/Footer";
 
 export default function Textcolor() {
   const [textColor, setTextColor] = useState("#f00");
@@ -23,6 +24,7 @@ export default function Textcolor() {
     setTextColor(color.hex);
   };
   return (
+    <>
     <motion.div
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
@@ -68,5 +70,7 @@ export default function Textcolor() {
         </div>
       </div>
     </motion.div>
+    <Footer />
+  </>
   );
 }

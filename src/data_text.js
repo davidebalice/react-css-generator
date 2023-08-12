@@ -10,8 +10,8 @@ let Data = [
       },
       {
         id: 3,
-        route: "/fontcolor",
-        name: "Font color",
+        route: "/textcolor",
+        name: "Color",
       },
       
     ],

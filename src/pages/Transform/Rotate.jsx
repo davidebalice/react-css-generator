@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Menu from "../../components/Menu/Menu";
 import Preview from "../../components/Css/Preview";
 import Code from "../../components/Css/Code";
+import Footer from "../../components/Footer/Footer";
 
 export default function Rotate() {
   const { state, dispatch } = useContext(Context);
@@ -15,35 +16,38 @@ export default function Rotate() {
   };
 
   return (
-    <div className="row">
-      <Menu />
-      <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.2 }}
-        exit="exit"
-        className="cssContainer"
-      >
-        <span className="titleSection">Rotate</span>
-        <Preview />
-        <div className="topBox"></div>
-        <div className="option_wraper">
-          <div className="options">
-            <div className="input_box">
-              <label>Size</label>
-              <input
-                onChange={(e) => rotateHandler(e)}
-                type="range"
-                min={-360}
-                max={360}
-                value={rotate.replace("deg", "")}
-              />
-              <span>{rotate}</span>
+    <>
+      <div className="row">
+        <Menu />
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          exit="exit"
+          className="cssContainer"
+        >
+          <span className="titleSection">Rotate</span>
+          <Preview />
+          <div className="topBox"></div>
+          <div className="option_wraper">
+            <div className="options">
+              <div className="input_box">
+                <label>Size</label>
+                <input
+                  onChange={(e) => rotateHandler(e)}
+                  type="range"
+                  min={-360}
+                  max={360}
+                  value={rotate.replace("deg", "")}
+                />
+                <span>{rotate}</span>
+              </div>
             </div>
           </div>
-        </div>
-        <Code />
-      </motion.div>
-    </div>
+          <Code />
+        </motion.div>
+      </div>
+      <Footer />
+    </>
   );
 }

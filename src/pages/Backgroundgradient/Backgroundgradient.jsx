@@ -3,13 +3,11 @@ import Menu from "../../components/Menu/Menu";
 import Preview from "../../components/Css/Preview";
 import Code from "../../components/Css/Code";
 import { Context } from "../../components/Context/BoxContext";
-import { PageContext } from "../../components/Context/PageContext";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
 
 export default function Backgroundgradient() {
   const { state, dispatch } = useContext(Context);
-  const { pageState, pageDispatch } = useContext(PageContext);
 
   const {
     bgType,
@@ -20,10 +18,6 @@ export default function Backgroundgradient() {
     gradientColorTwo,
     gradientRateTwo,
   } = state;
-
-  useEffect(() => {
-    pageDispatch({ type: "SET_TYPE", payload: "css" });
-  }, []);
 
   const backgroundType = () => {
     dispatch({ type: "SET_BG_TYPE", payload: "gradient" });

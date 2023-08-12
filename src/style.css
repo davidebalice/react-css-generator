@@ -130,6 +130,16 @@ body::before {
   }
 }
 
+.previewText {
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-align: center;
+  width:88%;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 .copyWraper span,
 .option_wraper span,
 .preview_wraper span {

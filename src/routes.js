@@ -49,7 +49,7 @@ let router = [
   { path: "/filter/saturate", element: <Saturate /> },
   { path: "/filter/dropshadow", element: <DropShadow /> },
   { path: "/fontsize", element: <FontSize /> },
-  { path: "/color", element: <Textcolor /> },
+  { path: "/textcolor", element: <Textcolor /> },
   { path: "/text/decoration", element: <TextDecoration /> },
   { path: "/text/transform", element: <Texttransform /> },
   { path: "/text/letterSpacing", element: <LetterSpacing /> },

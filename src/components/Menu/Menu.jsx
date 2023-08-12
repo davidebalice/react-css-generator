@@ -44,10 +44,6 @@ const Menu = () => {
     }
   }, [pageType]);
 
-  console.log('pageType');
-  console.log(pageType);
-  console.log(Data);
-
   return (
     <>
       {isMobile && (
