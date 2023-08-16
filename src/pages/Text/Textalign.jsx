@@ -1,10 +1,13 @@
-import React, { useContext, useState } from "react";
-import { Context } from "../../components/Context/BoxContext";
-import "../../style.css";
+import React, { useContext } from "react";
+import Menu from "../../components/Menu/Menu";
+import Preview from "../../components/Preview/PreviewText";
+import Code from "../../components/Code/CodeText";
+import { Context } from "../../components/Context/TextContext";
 import { motion } from "framer-motion";
-import copyed from "../../func";
+import Footer from "../../components/Footer/Footer";
 
 export default function Textalign() {
+  /*
   const [textAlign, setTextAlign] = useState("center");
   const { copyClickText, btnCopyTextChange, mainVariant } = useContext(Context);
 
@@ -72,5 +75,5 @@ export default function Textalign() {
         </div>
       </div>
     </motion.div>
-  );
+  );*/
 }

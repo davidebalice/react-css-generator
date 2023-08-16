@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
-import { Context } from "../../components/Context/BoxContext";
-import "../../style.css";
-import Menu from "../../components/Menu/Menu";
-import Preview from "../../components/Preview/Preview";
-import Code from "../../components/Code/Code";
+import React, { useContext } from "react";
+import { Context } from "../../../components/Context/BoxContext";
+import "../../../style.css";
+import Menu from "../../../components/Menu/Menu";
+import Preview from "../../../components/Preview/Preview";
+import Code from "../../../components/Code/Code";
 import { motion } from "framer-motion";
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../../components/Footer/Footer";
 
 export default function Border() {
   const { state, dispatch } = useContext(Context);

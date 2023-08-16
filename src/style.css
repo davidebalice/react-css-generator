@@ -46,11 +46,19 @@ body::before {
   background-size: cover;
   background: linear-gradient(
     70deg,
-    rgb(111, 211, 213) 19%,
-    rgb(14, 148, 153) 48%,
-    rgb(7, 177, 233) 79%
+    rgb(30 136 229) 40%,
+    rgb(35, 130, 213) 50%,
+    rgb(32, 107, 173) 58%
   );
   background-position: center center;
+}
+
+.wrapper {
+  background-image: url("../public/images/bg.png");
+  background-repeat: repeat;
+  width: 100%;
+  height: 100%;
+  min-height: calc(100vh - 54px);
 }
 
 @font-face {
@@ -504,11 +512,40 @@ input[type="range"]::-webkit-slider-thumb:active {
   font-size: 30px;
   text-align: center;
   margin-top: 30px;
-  color: #dd574e;
+  color: #1e88e5;
+  font-weight: bold;
 }
 
 .cardText {
   font-size: 14px;
   text-align: center;
   color: #444;
+}
+
+.aws-btn {
+  justify-content: start;
+  --button-default-height: 54px;
+  --button-default-font-size: 16px;
+  --button-default-border-radius: 6px;
+  --button-raise-level: 5px;
+  --button-hover-pressure: 2.5;
+  --transform-speed: 0.225s;
+  --button-primary-color: linear-gradient(
+    222deg,
+    rgb(41, 41, 41) 0%,
+    rgb(144, 144, 144) 100%
+  );
+  --button-primary-color-dark: #525252;
+  --button-primary-color-light: #d9d8d8;
+  --button-primary-color-hover: linear-gradient(
+    222deg,
+    rgb(91, 91, 91) 0%,
+    rgb(77, 77, 77) 100%
+  );
+  --button-primary-border: 0px solid #ffffff;
+}
+
+.aws-btn__content {
+  width: 100% !important;
+  justify-content: start !important;
 }

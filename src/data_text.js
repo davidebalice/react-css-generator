@@ -18,7 +18,16 @@ let Data = [
         route: "/textcolor",
         name: "Color",
       },
-      
+      {
+        id: 5,
+        route: "/fontweight",
+        name: "Font weight",
+      },
+      {
+        id: 6,
+        route: "/textdecoration",
+        name: "Text decoration",
+      },
     ],
   },
 ];

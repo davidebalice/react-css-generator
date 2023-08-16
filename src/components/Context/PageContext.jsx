@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 export const PageContext = createContext();
 
 const initialState = {
-  pageType: "css",
+  pageType: "box",
 };
 
 const reducer = (state, action) => {
@@ -19,11 +19,10 @@ const PageContextProvider = ({ children }) => {
   const [pageState, pageDispatch] = useReducer(reducer, initialState);
   const [render, setRender] = useState(false);
   const location = useLocation();
-  const { pageType } = pageState;
 
   useEffect(() => {
     setRender(false);
-    let newPageType = "css";
+    let pageType = "box";
     switch (location.pathname) {
       case "/backgroundcolor":
       case "/backgroundgradient":
@@ -33,19 +32,21 @@ const PageContextProvider = ({ children }) => {
       case "/opacity":
       case "/skew":
       case "/rotate":
-        newPageType = "css";
+        pageType = "box";
         break;
       case "/fontsize":
       case "/textcolor":
       case "/fontfamily":
-        newPageType = "text";
-      break;
+      case "/fontweight":
+      case "/textdecoration":
+        pageType = "text";
+        break;
       default:
-        newPageType = "css";
+        pageType = "box";
         break;
     }
     setRender(true);
-    pageDispatch({ type: "SET_TYPE", payload: newPageType });
+    pageDispatch({ type: "SET_TYPE", payload: pageType });
   }, [location.pathname]);
 
   return (

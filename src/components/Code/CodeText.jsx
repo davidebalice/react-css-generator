@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import "../../style.css";
 import copyed from "../../func";
-import { motion } from "framer-motion";
 import { Context } from "../Context/TextContext";
 import { BiSolidCopy } from "react-icons/bi";
 
@@ -10,7 +9,15 @@ const Box = () => {
   const [fontfamilyStyle, setFontfamilyStyle] = useState(
     "https://fonts.googleapis.com/css2?family=Abel&display=swap"
   );
-  const { textcolor, fontfamily, fontsize } = state;
+  const {
+    textcolor,
+    fontfamily,
+    fontsize,
+    fontweight,
+    textdecoration,
+    textdecorationstyle,
+    textdecorationcolor,
+  } = state;
 
   useEffect(() => {
     switch (fontfamily) {
@@ -86,35 +93,15 @@ const Box = () => {
 
   const copyHandler = async () => {
     let text = "";
-    /*
 
-
-
-
-
-
-
-
-
-
-
-
-*/
-    /*
-    text += borderRadius !== "0px" && `border-radius: ${borderRadius};`;
-
-    text += opacity !== "1" && `opacity: ${opacity};`;
-
-    
-
-    text += rotate !== "0" && `rotate: ${rotate};`;
-   */
     text +=
       fontfamily !== "" && `${fontfamilyStyle} font-family: ${fontfamily};`;
 
     text += fontsize !== "0px" && `font-size: ${fontsize}px;`;
 
     text += textcolor !== "" && `color: ${textcolor};`;
+
+    text += fontweight !== "" && `font-weight: ${fontweight};`;
 
     await copyed(text);
     btnCopyTextChange();
@@ -148,6 +135,14 @@ const Box = () => {
                 <span className="code_one">color</span>
                 {": "}
                 <span className="code_three">{textcolor}</span>; <br />
+              </>
+            )}
+
+            {fontweight !== "" && (
+              <>
+                <span className="code_one">font-weight</span>
+                {": "}
+                <span className="code_three">{fontweight}</span>; <br />
               </>
             )}
           </pre>

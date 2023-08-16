@@ -1,18 +1,18 @@
 import React, { useContext, useState } from "react";
-import { Context } from "../../components/Context/BoxContext";
-import "../../style.css";
+import { Context } from "../../../components/Context/BoxContext";
+import "../../../style.css";
 import { motion } from "framer-motion";
-import Menu from "../../components/Menu/Menu";
-import Preview from "../../components/Preview/Preview";
-import Code from "../../components/Code/Code";
-import Footer from "../../components/Footer/Footer";
+import Menu from "../../../components/Menu/Menu";
+import Preview from "../../../components/Preview/Preview";
+import Code from "../../../components/Code/Code";
+import Footer from "../../../components/Footer/Footer";
 
-export default function Rotate() {
+export default function Opacity() {
   const { state, dispatch } = useContext(Context);
-  const { rotate } = state;
+  const { opacity } = state;
 
-  const rotateHandler = (e) => {
-    dispatch({ type: "SET_ROTATE", payload: e.target.value });
+  const opacityHandler = (e) => {
+    dispatch({ type: "SET_OPACITY", payload: e.target.value });
   };
 
   return (
@@ -26,21 +26,22 @@ export default function Rotate() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Rotate</span>
+          <span className="titleSection">Opacity</span>
           <Preview />
           <div className="topBox"></div>
           <div className="option_wraper">
             <div className="options">
               <div className="input_box">
-                <label>Size</label>
+                <label>%</label>
                 <input
-                  onChange={(e) => rotateHandler(e)}
+                  onChange={(e) => opacityHandler(e)}
                   type="range"
-                  min={-360}
-                  max={360}
-                  value={rotate.replace("deg", "")}
+                  min={0}
+                  max={1}
+                  step={0.01}
+                  value={opacity}
                 />
-                <span>{rotate}</span>
+                <span>{opacity}</span>
               </div>
             </div>
           </div>

@@ -17,26 +17,3 @@
   border-radius: 50px;
   width: 5px;
 }
-
-body {
-  width: 100%;
-  height: 100vh;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background-size: cover;
-  background: linear-gradient(
-    70deg,
-    rgb(111, 211, 213) 19%,
-    rgb(14, 148, 153) 48%,
-    rgb(7, 177, 233) 79%
-  );
-  background-position: center center;
-}

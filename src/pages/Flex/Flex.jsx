@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import { Context } from "../../components/Context/BoxContext";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/themes/theme-blue.css";
-import "./Button.css";
 import GitHubLink from "../../components/GithubLink/GitHubLink";
 
 export default function Css() {

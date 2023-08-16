@@ -1,68 +1,46 @@
-import React, { useContext, useState } from "react";
-import { Context } from "../../components/Context/BoxContext";
-import "../../style.css";
+import React, { useContext } from "react";
+import Menu from "../../components/Menu/Menu";
+import Preview from "../../components/Preview/PreviewText";
+import Code from "../../components/Code/CodeText";
+import { Context } from "../../components/Context/TextContext";
 import { motion } from "framer-motion";
-import copyed from "../../func";
+import Footer from "../../components/Footer/Footer";
 
 export default function FontWeight() {
-  const [fontWeight, setFontWeight] = useState("normal");
-  const { copyClickText, btnCopyTextChange, mainVariant } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
+  const { fontweight } = state;
 
   const fontWeightHandler = (e) => {
-    setFontWeight(`${e.target.value}`);
+    dispatch({ type: "SET_FONT_WEIGHT", payload: e.target.value });
   };
 
-  const fontWeightCopyHandler = async () => {
-    let text = `font-weight: ${fontWeight};`;
-    await copyed(text);
-    btnCopyTextChange();
-  };
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: 0.2 }}
-      exit="exit"
-      className="cssContainer"
-    >
-      <span className="titleSection">Font-Weight</span>
-      <div className="topBox">
-        <div className="preview_wraper">
-          <span>Preview</span>
-          <div className="preview_box drop_preview">
-            <p style={{ fontWeight: `${fontWeight}`, fontSize: 25 }}>
-              Font-Weight
-            </p>
+    <>
+      <div className="row">
+        <Menu />
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          exit="exit"
+          className="cssContainer"
+        >
+          <span className="titleSection">Font weight</span>
+          <Preview />
+          <div className="option_wraper">
+            <div className="options">
+              <div className="input_box">
+                <select onChange={(e) => fontWeightHandler(e)} value={fontweight}>
+                  <option value="normal">normal</option>
+                  <option value="bold">bold</option>
+                </select>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="copy_code_wraper">
-          <span>Code</span>
-          <div className="code_box">
-            <pre>
-              <span className="code_one">font-weight</span>
-              {": "}
-              <span className="code_three">{fontWeight}</span>;
-            </pre>
-          </div>
-          <button onClick={fontWeightCopyHandler} className="copyBtn">
-            {copyClickText ? "Copied!" : "Copy"}
-          </button>
-        </div>
+          <Code />
+        </motion.div>
       </div>
-      <div className="option_wraper">
-        <div className="options">
-          <div className="input_box">
-            <label>Type</label>
-            <select onChange={(e) => fontWeightHandler(e)}>
-              <option value="normal">normal</option>
-              <option value="bold">bold</option>
-              <option value="bolder">bolder</option>
-              <option value="lighter">lighter</option>
-            </select>
-            <span>{fontWeight}</span>
-          </div>
-        </div>
-      </div>
-    </motion.div>
+      <Footer />
+    </>
   );
 }

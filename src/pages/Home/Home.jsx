@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "react-awesome-button/dist/themes/theme-blue.css";
 import Card from "./Card";
-import "./Button.css";
 
 export default function Home() {
 

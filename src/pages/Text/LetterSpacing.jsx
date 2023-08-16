@@ -1,22 +1,21 @@
-import React, { useContext, useState } from "react";
-import { Context } from "../../components/Context/BoxContext";
-import "../../style.css";
+import React, { useContext } from "react";
+import Menu from "../../components/Menu/Menu";
+import Preview from "../../components/Preview/PreviewText";
+import Code from "../../components/Code/CodeText";
+import { Context } from "../../components/Context/TextContext";
 import { motion } from "framer-motion";
-import copyed from "../../func";
+import Footer from "../../components/Footer/Footer";
 
 export default function LetterSpacing() {
-  const [letterSpacing, setLetterSpacing] = useState("15px");
-  const { copyClickText, btnCopyTextChange, mainVariant } = useContext(Context);
+  /*
+  const { state, dispatch } = useContext(Context);
+  const { letterspacing } = state;
 
   const letterSpacingHandler = (e) => {
     setLetterSpacing(`${e.target.value}px`);
   };
 
-  const letterSpacingCopyHandler = async () => {
-    let text = `letter-spacing: ${letterSpacing};`;
-    await copyed(text);
-    btnCopyTextChange();
-  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 15 }}
@@ -30,7 +29,7 @@ export default function LetterSpacing() {
         <div className="preview_wraper">
           <span>Preview</span>
           <div className="preview_box drop_preview">
-            <p style={{ letterSpacing: `${letterSpacing}` }}>Letter-Spacing</p>
+            <p style={{ letterSpacing: `${letterspacing}` }}>Letter-Spacing</p>
           </div>
         </div>
         <div className="copy_code_wraper">
@@ -39,7 +38,7 @@ export default function LetterSpacing() {
             <pre>
               <span className="code_one">letter-spacing</span>
               {": "}
-              <span className="code_three">{letterSpacing}</span>;
+              <span className="code_three">{letterspacing}</span>;
             </pre>
           </div>
           <button onClick={letterSpacingCopyHandler} className="copyBtn">
@@ -56,10 +55,10 @@ export default function LetterSpacing() {
               type="range"
               max={15}
             />
-            <span>{letterSpacing}</span>
+            <span>{letterspacing}</span>
           </div>
         </div>
       </div>
     </motion.div>
-  );
+  );*/
 }

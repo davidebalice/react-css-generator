@@ -1,112 +1,86 @@
-import React, { useContext, useState } from "react";
-import { Context } from "../../components/Context/BoxContext";
-import "../../style.css";
+import React, { useContext } from "react";
+import Menu from "../../components/Menu/Menu";
+import Preview from "../../components/Preview/PreviewText";
+import Code from "../../components/Code/CodeText";
+import { Context } from "../../components/Context/TextContext";
 import { motion } from "framer-motion";
-import copyed from "../../func";
+import Footer from "../../components/Footer/Footer";
 import { CompactPicker } from "react-color";
 
 export default function TextDecoration() {
-  const [textDecoration, setTextDecoration] = useState("line-through");
-  const [textDecorationStyle, setTextDecorationStyle] = useState("solid");
-  const [textDecorationColor, settextDecorationColor] = useState("");
-  const { copyClickText, btnCopyTextChange, mainVariant } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
+  const { textdecoration, textdecorationstyle, textdecorationcolor } = state;
 
   const textDecorationHandler = (e) => {
-    setTextDecoration(`${e.target.value}`);
+    dispatch({ type: "SET_TEXT_DECORATION", payload: e.target.value });
   };
 
   const textDecorationStyleHandler = (e) => {
-    setTextDecorationStyle(`${e.target.value}`);
+    dispatch({ type: "SET_TEXT_DECORATION_STYLE", payload: e.target.value });
   };
 
   const textDecorationColorHandler = (e) => {
-    settextDecorationColor(`${e.target.value}`);
-  };
-
-  const textDecorationCopyHandler = async () => {
-    let text = `text-decoration: ${textDecoration} ${textDecorationStyle} ${textDecorationColor};`;
-    await copyed(text);
-    btnCopyTextChange();
+    dispatch({ type: "SET_TEXT_DECORATION_COLOR", payload: e.target.value });
   };
 
   const handleChangeComplete = (color, event) => {
-    settextDecorationColor(color.hex);
+    dispatch({ type: "SET_TEXT_DECORATION_COLOR", payload: color.hex });
   };
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: 0.2 }}
-      exit="exit"
-      className="cssContainer"
-    >
-      <span className="titleSection">Text-decoration</span>
-      <div className="topBox">
-        <div className="preview_wraper">
-          <span>Preview</span>
-          <div className="preview_box drop_preview">
-            <p
-              style={{
-                textDecoration: `${textDecoration} ${textDecorationStyle} ${textDecorationColor}`,
-                fontSize: 20,
-              }}
-            >
-              Lorem ipsum dolor sit amet
-            </p>
+    <>
+      <div className="row">
+        <Menu />
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          exit="exit"
+          className="cssContainer"
+        >
+          <span className="titleSection">Text decoration</span>
+          <Preview />
+          <div className="option_wraper">
+            <div className="options">
+              <div className="input_box">
+                <select onChange={(e) => textDecorationHandler(e)} value={textdecoration}>
+                  <option value="">none</option>
+                  <option value="line-through">line-through</option>
+                  <option value="underline">underline</option>
+                  <option value="overline">overline</option>
+                </select>
+              </div>
+              <div className="input_box">
+                <select onChange={(e) => textDecorationStyleHandler(e)} value={textdecorationstyle}>
+                  <option value="none">none</option>
+                  <option value="solid">solid</option>
+                  <option value="dotted">dotted</option>
+                  <option value="dashed">dashed</option>
+                  <option value="double">double</option>
+                  <option value="wavy">wavy</option>
+                </select>
+              </div>
+              <div className="input_box">
+                <label>Size</label>
+                <input
+                  onChange={(e) => textDecorationColorHandler(e)}
+                  type="color"
+                  value={textdecorationcolor}
+                />
+                <span>{textdecorationcolor}</span>
+              </div>
+              <div className="input_box">
+                <CompactPicker
+                  color={textdecorationcolor}
+                  onChangeComplete={(e) => handleChangeComplete(e)}
+                />
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="copy_code_wraper">
-          <span>Code</span>
-          <div className="code_box responsive_code">
-            <pre>
-              <span className="code_one">text-decoration</span>
-              {": "}
-              <span className="code_two">{textDecoration}</span>{" "}
-              <span className="code_three">{textDecorationStyle}</span>{" "}
-              <span className="code_two">{textDecorationColor}</span>;
-            </pre>
-          </div>
-          <button onClick={textDecorationCopyHandler} className="copyBtn">
-            {copyClickText ? "Copied!" : "Copy"}
-          </button>
-        </div>
+          <Code />
+        </motion.div>
       </div>
-      <div className="option_wraper">
-        <div className="options">
-          <div className="input_box">
-            <label>Type</label>
-            <select onChange={(e) => textDecorationHandler(e)}>
-              <option value="line-through">line-through</option>
-              <option value="underline">underline</option>
-              <option value="overline">overline</option>
-            </select>
-          </div>
-          <div className="input_box">
-            <label>Style</label>
-            <select onChange={(e) => textDecorationStyleHandler(e)}>
-              <option value="solid">solid</option>
-              <option value="dotted">dotted</option>
-              <option value="dashed">dashed</option>
-              <option value="double">double</option>
-              <option value="wavy">wavy</option>
-            </select>
-          </div>
-          <div className="input_box">
-            <label>Size</label>
-            <input
-              onChange={(e) => textDecorationColorHandler(e)}
-              type="color"
-            />
-            <span>{textDecorationColor}</span>
-          </div>
-          <div className="input_box">
-            <CompactPicker
-              color={textDecorationColor}
-              onChangeComplete={(e) => handleChangeComplete(e)}
-            />
-          </div>
-        </div>
-      </div>
-    </motion.div>
+      <Footer />
+    </>
   );
 }

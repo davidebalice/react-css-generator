@@ -4,7 +4,15 @@ import { Context } from "../Context/TextContext";
 
 const Preview = () => {
   const { state } = useContext(Context);
-  const { fontsize, fontfamily, textcolor } = state;
+  const {
+    fontsize,
+    fontfamily,
+    textcolor,
+    fontweight,
+    textdecoration,
+    textdecorationstyle,
+    textdecorationcolor,
+  } = state;
 
   const fontsizeStyle = {
     fontSize: `${fontsize}px`,
@@ -17,49 +25,21 @@ const Preview = () => {
   const textcolorStyle = {
     color: `${textcolor}`,
   };
-  /*
 
-
-
-  const backgroundStyle =
-    bgType === "linear"
-      ? { backgroundColor: bgColor }
-      : bgType === "gradient"
-      ? {
-          background: `${gradientType}(${gradientAngle} ${gradientColorOne} ${gradientRateOne}, ${gradientColorTwo} ${gradientRateTwo})`,
-        }
-      : { backgroundColor: "#d1d1d1" };
-
-  const borderStyle = borderActive && {
-    border: `${borderWidth} ${borderType} ${borderColor}`,
+  const fontweightStyle = {
+    fontWeight: `${fontweight}`,
   };
 
-  const borderRadiusStyle = borderRadius !== "0px" && {
-    borderRadius: `${borderRadius}`,
+  const textdecorationStyle = textdecoration !== "" && {
+    textDecoration: `${textdecoration} ${textdecorationstyle} ${textdecorationcolor}`,
   };
-
-  const borderShadowStyle = (boxShadowVertical !== "0px" ||
-    boxShadowHorizontal !== "0px") && {
-    boxShadow: `${boxShadowHorizontal} ${boxShadowVertical} ${boxShadowBlur} ${boxShadowSpread} ${boxShadowColor} ${boxShadowInset}`,
-  };
-
-  const opacityStyle = opacity !== "1" && {
-    opacity: `${opacity}`,
-  };
-
-  const skewStyle = skewX !== "0" && {
-    transform: `skew(${skewX}, ${skewY})`,
-  };
-
-  const rotateStyle = rotate !== "0" && {
-    rotate: `${rotate}deg`,
-  };
-*/
 
   const styles = {
     ...fontsizeStyle,
     ...fontfamilyStyle,
     ...textcolorStyle,
+    ...fontweightStyle,
+    ...textdecorationStyle,
   };
   //console.log(styles);
   return (
