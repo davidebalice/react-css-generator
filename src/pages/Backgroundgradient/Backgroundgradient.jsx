@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import Menu from "../../components/Menu/Menu";
-import Preview from "../../components/Css/Preview";
-import Code from "../../components/Css/Code";
+import Preview from "../../components/Preview/Preview";
+import Code from "../../components/Code/Code";
 import { Context } from "../../components/Context/BoxContext";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";

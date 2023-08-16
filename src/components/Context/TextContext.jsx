@@ -2,17 +2,20 @@ import React, { createContext, useState, useReducer } from "react";
 export const Context = createContext();
 
 const initialState = {
-  fontsize: "16",
-  color: "#333",
+  fontsize: "18",
+  textcolor: "#333",
+  fontfamily: "Abel",
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "SET_FONT_SIZE":
       return { ...state, fontsize: action.payload };
-    case "SET_FONT_COLOR":
-      return { ...state, color: action.payload };
-    default:
+      case "SET_TEXT_COLOR":
+        return { ...state, textcolor: action.payload };
+      case "SET_FONT_FAMILY":
+        return { ...state, fontfamily: action.payload };
+      default:
       return state;
   }
 };

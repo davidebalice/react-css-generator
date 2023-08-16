@@ -36,9 +36,10 @@ const PageContextProvider = ({ children }) => {
         newPageType = "css";
         break;
       case "/fontsize":
-      case "/fontcolor":
+      case "/textcolor":
+      case "/fontfamily":
         newPageType = "text";
-        break;
+      break;
       default:
         newPageType = "css";
         break;

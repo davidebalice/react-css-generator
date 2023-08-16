@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import "../../style.css";
 import copyed from "../../func";
-import { motion } from "framer-motion";
 import { Context } from "../Context/BoxContext";
+import { BiSolidCopy } from 'react-icons/bi';
 
 const Box = () => {
   const { copyClickText, btnCopyTextChange, state } = useContext(Context);
@@ -124,7 +124,7 @@ const Box = () => {
                 <span className="code_three">{opacity}</span>; <br />
               </>
             )}
-            {(skewX !== 0 || skewY !== 0) && (
+            {(skewX !== "0" || skewY !== "0") && (
               <>
                 <span className="code_one">transform</span>
                 {": "}
@@ -142,6 +142,7 @@ const Box = () => {
           </pre>
         </div>
         <button onClick={copyHandler} className="copyBtn">
+          <BiSolidCopy size={18}/>
           {copyClickText ? "Copied!" : "Copy"}
         </button>
       </div>

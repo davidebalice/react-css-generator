@@ -1,4 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
 * {
   margin: 0;
@@ -20,7 +32,7 @@
 
 body {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 body::before {
@@ -51,13 +63,14 @@ body::before {
 
 .cssContainer {
   width: 100%;
-  max-width: 1190px;
+  max-width: 1090px;
   display: flex;
   margin: 0 auto;
-  margin-left: 200px;
+  margin-left: 100px;
   flex-direction: column;
   align-items: center;
-  padding: 100px 120px 50px;
+  padding: 130px 10px 10px;
+  min-height: calc(100vh - 54px);
 }
 
 @media (max-width: 767px) {
@@ -135,7 +148,7 @@ body::before {
   align-items: center;
   color: #333;
   text-align: center;
-  width:88%;
+  width: 88%;
   justify-content: center;
   margin: 0 auto;
 }
@@ -184,6 +197,10 @@ body::before {
   );
   color: #fff;
   transition: all 0.5s ease;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 10px;
 }
 
 .copyBtn:hover {
@@ -364,14 +381,15 @@ input[type="range"]::-webkit-slider-thumb:active {
   flex-direction: row;
   justify-content: flex-start;
   position: relative;
-  height: 100vh;
+  height: fit-content;
 }
 
 .columnMenu {
   width: 35%;
   padding-top: 40px;
   max-width: 300px;
-  height: 100%;
+  flex-grow: 1;
+  overflow-y: auto;
   background: #fff;
   text-align: center;
   display: flex;

@@ -4,15 +4,23 @@ import { Context } from "../Context/TextContext";
 
 const Preview = () => {
   const { state } = useContext(Context);
-  const { fontsize } = state;
-
-  console.log(fontsize);
+  const { fontsize, fontfamily, textcolor } = state;
 
   const fontsizeStyle = {
     fontSize: `${fontsize}px`,
   };
 
+  const fontfamilyStyle = {
+    fontFamily: `${fontfamily}`,
+  };
+
+  const textcolorStyle = {
+    color: `${textcolor}`,
+  };
   /*
+
+
+
   const backgroundStyle =
     bgType === "linear"
       ? { backgroundColor: bgColor }
@@ -47,10 +55,13 @@ const Preview = () => {
     rotate: `${rotate}deg`,
   };
 */
+
   const styles = {
     ...fontsizeStyle,
+    ...fontfamilyStyle,
+    ...textcolorStyle,
   };
-  console.log(styles);
+  //console.log(styles);
   return (
     <div className="topBox">
       <div className="previewContainer">

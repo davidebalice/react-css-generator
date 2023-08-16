@@ -1,3 +1,4 @@
+import { Navigate } from "react-router-dom";
 import Filter from "./pages/Filter/Filter";
 import Flex from "./pages/Flex/Flex";
 import Backgroundcolor from "./pages/BackgroundColor/Backgroundcolor";
@@ -15,9 +16,9 @@ import Saturate from "./pages/Filter/Saturate";
 import Home from "./pages/Home/Home";
 import DropShadow from "./pages/Filter/DropShadow";
 import BoxShadow from "./pages/BoxShadow/BoxShadow";
-import { Navigate } from "react-router-dom";
 import Opacity from "./pages/Opacity/Opacity";
 import FontSize from "./pages/Text/FontSize";
+import FontFamily from "./pages/Text/FontFamily";
 import Textcolor from "./pages/Text/Textcolor";
 import TextDecoration from "./pages/Text/TextDecoration";
 import Texttransform from "./pages/Text/Texttransform";
@@ -49,6 +50,7 @@ let router = [
   { path: "/filter/saturate", element: <Saturate /> },
   { path: "/filter/dropshadow", element: <DropShadow /> },
   { path: "/fontsize", element: <FontSize /> },
+  { path: "/fontfamily", element: <FontFamily /> },
   { path: "/textcolor", element: <Textcolor /> },
   { path: "/text/decoration", element: <TextDecoration /> },
   { path: "/text/transform", element: <Texttransform /> },

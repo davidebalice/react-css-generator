@@ -10,6 +10,11 @@ let Data = [
       },
       {
         id: 3,
+        route: "/fontfamily",
+        name: "Font family",
+      },
+      {
+        id: 4,
         route: "/textcolor",
         name: "Color",
       },
