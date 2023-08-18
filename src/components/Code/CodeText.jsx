@@ -17,6 +17,7 @@ const Box = () => {
     textdecoration,
     textdecorationstyle,
     textdecorationcolor,
+    texttransform,
   } = state;
 
   useEffect(() => {
@@ -103,6 +104,17 @@ const Box = () => {
 
     text += fontweight !== "" && `font-weight: ${fontweight};`;
 
+    text +=
+      textdecoration !== "" &&
+      `text-decoration: ${textdecoration} ${textdecorationstyle} ${textdecorationcolor};`;
+
+    text +=
+      texttransform !== "" &&
+      texttransform !== false &&
+      `text-transform: ${texttransform};`;
+
+    text = text.replace(/false/g, "");
+
     await copyed(text);
     btnCopyTextChange();
   };
@@ -121,7 +133,6 @@ const Box = () => {
                 <span className="code_three">{fontfamily}</span>; <br />
               </>
             )}
-
             {fontsize !== "0" && (
               <>
                 <span className="code_one">font-size</span>
@@ -129,7 +140,6 @@ const Box = () => {
                 <span className="code_three">{fontsize}px</span>; <br />
               </>
             )}
-
             {textcolor !== "0" && (
               <>
                 <span className="code_one">color</span>
@@ -137,12 +147,28 @@ const Box = () => {
                 <span className="code_three">{textcolor}</span>; <br />
               </>
             )}
-
-            {fontweight !== "" && (
+            {fontweight !== "" && fontweight !== "normal" && (
               <>
                 <span className="code_one">font-weight</span>
                 {": "}
                 <span className="code_three">{fontweight}</span>; <br />
+              </>
+            )}
+            {textdecoration !== "" && (
+              <>
+                <span className="code_one">text-decoration</span>
+                {": "}
+                <span className="code_three">
+                  {textdecoration} {textdecorationstyle} {textdecorationcolor}
+                </span>
+                ; <br />
+              </>
+            )}
+            {texttransform !== "" && (
+              <>
+                <span className="code_one">text-transform</span>
+                {": "}
+                <span className="code_three">{texttransform}</span>; <br />
               </>
             )}
           </pre>

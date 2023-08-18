@@ -28,6 +28,11 @@ let Data = [
         route: "/textdecoration",
         name: "Text decoration",
       },
+      {
+        id: 6,
+        route: "/texttransform",
+        name: "Text transform",
+      },
     ],
   },
 ];

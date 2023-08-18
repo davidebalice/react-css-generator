@@ -39,6 +39,7 @@ const PageContextProvider = ({ children }) => {
       case "/fontfamily":
       case "/fontweight":
       case "/textdecoration":
+      case "/texttransform":
         pageType = "text";
         break;
       default:

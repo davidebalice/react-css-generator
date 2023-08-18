@@ -1,15 +1,13 @@
 import { Navigate } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import Filter from "./pages/Filter/Filter";
-import Flex from "./pages/Flex/Flex";
-import Backgroundcolor from "./pages/Box/Background/Backgroundcolor";
-import Backgroundgradient from "./pages/Box/Background/Backgroundgradient";
-import Opacity from "./pages/Box/Opacity/Opacity";
-import BoxShadow from "./pages/Box/BoxShadow/BoxShadow";
-import Border from "./pages/Box/Border/Border";
-import BorderRadius from "./pages/Box/Border/BorderRadius";
-import Rotate from "./pages/Box/Transform/Rotate";
-import Skew from "./pages/Box/Transform/Skew";
+import Backgroundcolor from "./pages/Box/Backgroundcolor";
+import Backgroundgradient from "./pages/Box/Backgroundgradient";
+import Opacity from "./pages/Box/Opacity";
+import BoxShadow from "./pages/Box/BoxShadow";
+import Border from "./pages/Box/Border";
+import BorderRadius from "./pages/Box/BorderRadius";
+import Rotate from "./pages/Box/Rotate";
+import Skew from "./pages/Box/Skew";
 import FontSize from "./pages/Text/FontSize";
 import FontFamily from "./pages/Text/FontFamily";
 import TextColor from "./pages/Text/TextColor";
@@ -19,6 +17,7 @@ import TextTransform from "./pages/Text/TextTransform";
 import LetterSpacing from "./pages/Text/LetterSpacing";
 import LineHeight from "./pages/Text/LineHeight";
 import TextAlign from "./pages/Text/TextAlign";
+import Filter from "./pages/Filter/Filter";
 import DropShadow from "./pages/Filter/DropShadow";
 import Blur from "./pages/Filter/Blur";
 import Sepia from "./pages/Filter/Sepia";
@@ -29,6 +28,7 @@ import HeuRotate from "./pages/Filter/HeuRotate";
 import Invert from "./pages/Filter/Invert";
 import Saturate from "./pages/Filter/Saturate";
 import FlexBox from "./pages/FlexBox/FlexBox";
+import Flex from "./pages/Flex/Flex";
 
 let router = [
   { path: "/", element: <Home /> },

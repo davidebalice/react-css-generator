@@ -12,6 +12,7 @@ const Preview = () => {
     textdecoration,
     textdecorationstyle,
     textdecorationcolor,
+    texttransform,
   } = state;
 
   const fontsizeStyle = {
@@ -34,12 +35,17 @@ const Preview = () => {
     textDecoration: `${textdecoration} ${textdecorationstyle} ${textdecorationcolor}`,
   };
 
+  const texttransformStyle = texttransform !== "" && {
+    textTransform: `${texttransform}`,
+  };
+
   const styles = {
     ...fontsizeStyle,
     ...fontfamilyStyle,
     ...textcolorStyle,
     ...fontweightStyle,
     ...textdecorationStyle,
+    ...texttransformStyle,
   };
   //console.log(styles);
   return (

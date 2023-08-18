@@ -9,6 +9,7 @@ const initialState = {
   textdecoration: "",
   textdecorationstyle: "",
   textdecorationcolor: "#333",
+  texttransform: "",
 };
 
 const reducer = (state, action) => {
@@ -27,6 +28,8 @@ const reducer = (state, action) => {
       return { ...state, textdecorationstyle: action.payload };
     case "SET_TEXT_DECORATION_COLOR":
       return { ...state, textdecorationcolor: action.payload };
+    case "SET_TEXT_TRANSFORM":
+      return { ...state, texttransform: action.payload };
     default:
       return state;
   }

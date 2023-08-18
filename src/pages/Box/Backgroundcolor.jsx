@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import Menu from "../../../components/Menu/Menu";
-import Preview from "../../../components/Preview/Preview";
-import Code from "../../../components/Code/Code";
-import { Context } from "../../../components/Context/BoxContext";
+import Menu from "../../components/Menu/Menu";
+import Preview from "../../components/Preview/Preview";
+import Code from "../../components/Code/Code";
+import { Context } from "../../components/Context/BoxContext";
 import { motion } from "framer-motion";
 import { CompactPicker } from "react-color";
-import Footer from "../../../components/Footer/Footer";
+import Footer from "../../components/Footer/Footer";
 
 export default function Backgroundcolor() {
   const { state, dispatch } = useContext(Context);
