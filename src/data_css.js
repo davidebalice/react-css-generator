@@ -35,12 +35,12 @@ let Data = [
       },
       {
         id: 33,
-        route: "/transform/skew",
+        route: "/skew",
         name: "Skew",
       },
       {
         id: 35,
-        route: "/transform/rotate",
+        route: "/rotate",
         name: "Rotate",
       },
     ],

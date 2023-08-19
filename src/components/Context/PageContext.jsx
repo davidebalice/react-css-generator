@@ -40,6 +40,9 @@ const PageContextProvider = ({ children }) => {
       case "/fontweight":
       case "/textdecoration":
       case "/texttransform":
+      case "/letterspacing":
+      case "/lineheight":
+      case "/textalign":
         pageType = "text";
         break;
       default:

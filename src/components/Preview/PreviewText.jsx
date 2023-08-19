@@ -13,6 +13,9 @@ const Preview = () => {
     textdecorationstyle,
     textdecorationcolor,
     texttransform,
+    letterspacing,
+    lineheight,
+    textalign,
   } = state;
 
   const fontsizeStyle = {
@@ -39,6 +42,18 @@ const Preview = () => {
     textTransform: `${texttransform}`,
   };
 
+  const letterspacingStyle = letterspacing !== "0" && {
+    letterSpacing: `${letterspacing}px`,
+  };
+
+  const lineheightStyle = lineheight !== "0" && {
+    lineHeight: `${lineheight}px`,
+  };
+
+  const textalignStyle = textalign !== "" && {
+    textAlign: `${textalign}`,
+  };
+
   const styles = {
     ...fontsizeStyle,
     ...fontfamilyStyle,
@@ -46,6 +61,9 @@ const Preview = () => {
     ...fontweightStyle,
     ...textdecorationStyle,
     ...texttransformStyle,
+    ...letterspacingStyle,
+    ...lineheightStyle,
+    ...textalignStyle,
   };
   //console.log(styles);
   return (

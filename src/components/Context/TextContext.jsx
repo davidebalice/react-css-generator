@@ -10,6 +10,9 @@ const initialState = {
   textdecorationstyle: "",
   textdecorationcolor: "#333",
   texttransform: "",
+  letterspacing: "0",
+  lineheight: "0",
+  textalign: "",
 };
 
 const reducer = (state, action) => {
@@ -30,6 +33,12 @@ const reducer = (state, action) => {
       return { ...state, textdecorationcolor: action.payload };
     case "SET_TEXT_TRANSFORM":
       return { ...state, texttransform: action.payload };
+    case "SET_LETTER_SPACING":
+      return { ...state, letterspacing: action.payload };
+    case "SET_LINE_HEIGHT":
+      return { ...state, lineheight: action.payload };
+    case "SET_TEXT_ALIGN":
+      return { ...state, textalign: action.payload };
     default:
       return state;
   }

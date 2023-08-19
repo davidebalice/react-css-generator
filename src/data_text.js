@@ -33,6 +33,21 @@ let Data = [
         route: "/texttransform",
         name: "Text transform",
       },
+      {
+        id: 7,
+        route: "/letterspacing",
+        name: "Letter spacing",
+      },
+      {
+        id: 8,
+        route: "/lineheight",
+        name: "Line height",
+      },
+      {
+        id: 9,
+        route: "/textalign",
+        name: "Text align",
+      },
     ],
   },
 ];

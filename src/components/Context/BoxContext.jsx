@@ -17,6 +17,8 @@ const initialState = {
   borderRadius: "0px",
   boxShadowBlur: "0px",
   boxShadowColor: "#000",
+  boxShadowColorRgb: "rgb(0, 0, 0, 1);",
+  boxShadownColorOpacity: "1",
   boxShadowHorizontal: "0px",
   boxShadowVertical: "0px",
   boxShadowSpread: "0px",
@@ -26,6 +28,14 @@ const initialState = {
   skewY: "0",
   rotate: "0",
 };
+
+function hexToRgb(hex, opacity) {
+  hex = hex.replace("#", "");
+  const r = parseInt(hex.substring(0, 2), 16);
+  const g = parseInt(hex.substring(2, 4), 16);
+  const b = parseInt(hex.substring(4, 6), 16);
+  return `rgb(${r}, ${g}, ${b},${opacity})`;
+}
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -59,6 +69,11 @@ const reducer = (state, action) => {
       return { ...state, boxShadowBlur: action.payload };
     case "SET_SHADOW_COLOR":
       return { ...state, boxShadowColor: action.payload };
+    case "SET_SHADOW_COLOR_RGB":
+      const rgbColor = hexToRgb(action.payload, state.boxShadownColorOpacity);
+      return { ...state, boxShadowColorRgb: rgbColor };
+    case "SET_SHADOW_COLOR_OPACITY":
+      return { ...state, boxShadownColorOpacity: action.payload };
     case "SET_SHADOW_HORIZONTAL":
       return { ...state, boxShadowHorizontal: action.payload };
     case "SET_SHADOW_VERTICAL":

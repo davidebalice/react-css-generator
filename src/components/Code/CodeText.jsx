@@ -18,6 +18,9 @@ const Box = () => {
     textdecorationstyle,
     textdecorationcolor,
     texttransform,
+    letterspacing,
+    lineheight,
+    textalign,
   } = state;
 
   useEffect(() => {
@@ -113,6 +116,12 @@ const Box = () => {
       texttransform !== false &&
       `text-transform: ${texttransform};`;
 
+    text += letterspacing !== "0" && `letter-spacing: ${letterspacing};`;
+
+    text += lineheight !== "0" && `line-height: ${lineheight}px;`;
+
+    text += textalign !== "" && `text-align: ${textalign};`;
+
     text = text.replace(/false/g, "");
 
     await copyed(text);
@@ -169,6 +178,27 @@ const Box = () => {
                 <span className="code_one">text-transform</span>
                 {": "}
                 <span className="code_three">{texttransform}</span>; <br />
+              </>
+            )}
+            {letterspacing !== "0" && (
+              <>
+                <span className="code_one">letter-spacing</span>
+                {": "}
+                <span className="code_three">{letterspacing}px</span>; <br />
+              </>
+            )}
+            {lineheight !== "0" && (
+              <>
+                <span className="code_one">line-height</span>
+                {": "}
+                <span className="code_three">{lineheight}px</span>; <br />
+              </>
+            )}
+            {textalign !== "" && (
+              <>
+                <span className="code_one">text-align</span>
+                {": "}
+                <span className="code_three">{textalign}</span>; <br />
               </>
             )}
           </pre>

@@ -11,6 +11,8 @@ export default function BoxShadow() {
   const {
     boxShadowBlur,
     boxShadowColor,
+    boxShadowColorRgb,
+    boxShadownColorOpacity,
     boxShadowHorizontal,
     boxShadowVertical,
     boxShadowSpread,
@@ -19,6 +21,7 @@ export default function BoxShadow() {
 
   const boxColorChange = (e) => {
     dispatch({ type: "SET_SHADOW_COLOR", payload: e.target.value });
+    dispatch({ type: "SET_SHADOW_COLOR_RGB", payload: e.target.value });
   };
 
   const boxSpreadHandler = (e) => {
@@ -57,9 +60,11 @@ export default function BoxShadow() {
           <div className="option_wraper">
             <div className="options">
               <div className="input_box">
-                <label>color</label>
+                <label>Color</label>
                 <input onChange={(e) => boxColorChange(e)} type="color" />
               </div>
+              <span>{boxShadowColor}</span>
+              <span>{boxShadowColorRgb}</span>
               <div className="input_box">
                 <label>Blur</label>
                 <input
