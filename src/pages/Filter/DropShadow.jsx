@@ -1,16 +1,22 @@
-import React, { useContext, useState } from "react";
-import { Context } from "../../components/Context/BoxContext";
-import "../../style.css";
+import React, { useContext } from "react";
+import Menu from "../../components/Menu/Menu";
+import Preview from "../../components/Preview/PreviewFilter";
+import Code from "../../components/Code/CodeFilter";
+import { Context } from "../../components/Context/FilterContext";
 import { motion } from "framer-motion";
-import copyed from "../../func";
+import Footer from "../../components/Footer/Footer";
+
 
 export default function DropShadow() {
-  const [dropshadowblur, setDropshadowblur] = useState("50px");
-  const [dropShadowColor, setDropShadowColor] = useState("#000");
-  const [dropShadowHorizontal, setDropShadowHorizontal] = useState("-10px");
-  const [dropVertical, setDropVertical] = useState("-10px");
-  const { copyClickText, btnCopyTextChange, mainVariant } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
+  const { dropshadowblur,dropShadowColor,dropShadowHorizontal,dropVertical} = state;
 
+  const brightnessHandler = (e) => {
+    dispatch({ type: "SET_BRIGHTNESS", payload: e.target.value });
+  };
+
+
+ /*
   const dropColorChange = (e) => {
     setDropShadowColor(e.target.value);
   };
@@ -33,6 +39,9 @@ export default function DropShadow() {
     btnCopyTextChange();
   };
   return (
+    <>
+    <div className="row">
+      <Menu />
     <motion.div
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
@@ -104,6 +113,10 @@ export default function DropShadow() {
           </div>
         </div>
       </div>
-    </motion.div>
-  );
+      <Code />
+        </motion.div>
+      </div>
+      <Footer />
+    </>
+  );*/
 }

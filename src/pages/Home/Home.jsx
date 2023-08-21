@@ -30,7 +30,9 @@ export default function Home() {
           icon="text"
         />
       </Link>
+      <Link to="/brightness">
       <Card title="Image filter" description="brightness, blur, contrast, filter..." delay="0.3" icon="image" />
+      </Link>
       <Card title="Flex box" description="display flex, direction, justify content..." delay="0.4" icon="flex" />
     </motion.div>
   );

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import "../../style.css";
 import { Context } from "../Context/TextContext";
 
 const Preview = () => {
@@ -65,7 +64,7 @@ const Preview = () => {
     ...lineheightStyle,
     ...textalignStyle,
   };
-  //console.log(styles);
+  
   return (
     <div className="topBox">
       <div className="previewContainer">

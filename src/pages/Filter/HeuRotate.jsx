@@ -1,11 +1,21 @@
-import React, { useContext, useState } from "react";
-import { Context } from "../../components/Context/BoxContext";
-import "../../style.css";
-import "./Filter.css";
+import React, { useContext } from "react";
+import Menu from "../../components/Menu/Menu";
+import Preview from "../../components/Preview/PreviewFilter";
+import Code from "../../components/Code/CodeFilter";
+import { Context } from "../../components/Context/FilterContext";
 import { motion } from "framer-motion";
-import copyed from "../../func";
+import Footer from "../../components/Footer/Footer";
+
 
 export default function HeuRotate() {
+  const { state, dispatch } = useContext(Context);
+  const { heuRotate } = state;
+
+  const brightnessHandler = (e) => {
+    dispatch({ type: "SET_BRIGHTNESS", payload: e.target.value });
+  };
+/*
+
   const [heuRotate, setHeuRotate] = useState("50deg");
   const { copyClickText, btnCopyTextChange, mainVariant } = useContext(Context);
 
@@ -19,6 +29,9 @@ export default function HeuRotate() {
     btnCopyTextChange();
   };
   return (
+    <>
+    <div className="row">
+      <Menu />
     <motion.div
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
@@ -63,6 +76,10 @@ export default function HeuRotate() {
           </div>
         </div>
       </div>
-    </motion.div>
-  );
+      <Code />
+        </motion.div>
+      </div>
+      <Footer />
+    </>
+  );*/
 }

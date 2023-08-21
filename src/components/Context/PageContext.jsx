@@ -45,6 +45,11 @@ const PageContextProvider = ({ children }) => {
       case "/textalign":
         pageType = "text";
         break;
+      case "/brightness":
+      case "/blur":
+      case "/contrast":
+        pageType = "filter";
+        break;
       default:
         pageType = "box";
         break;

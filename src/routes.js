@@ -17,7 +17,6 @@ import TextTransform from "./pages/Text/TextTransform";
 import LetterSpacing from "./pages/Text/LetterSpacing";
 import LineHeight from "./pages/Text/LineHeight";
 import TextAlign from "./pages/Text/TextAlign";
-import Filter from "./pages/Filter/Filter";
 import DropShadow from "./pages/Filter/DropShadow";
 import Blur from "./pages/Filter/Blur";
 import Sepia from "./pages/Filter/Sepia";
@@ -32,8 +31,6 @@ import Flex from "./pages/Flex/Flex";
 
 let router = [
   { path: "/", element: <Home /> },
-  { path: "/filter", element: <Filter /> },
-  { path: "/flex", element: <Flex /> },
   { path: "/backgroundcolor", element: <Backgroundcolor /> },
   { path: "/backgroundgradient", element: <Backgroundgradient /> },
   { path: "/border", element: <Border /> },
@@ -42,15 +39,6 @@ let router = [
   { path: "/opacity", element: <Opacity /> },
   { path: "/rotate", element: <Rotate /> },
   { path: "/skew", element: <Skew /> },
-  { path: "/filter/blur", element: <Blur /> },
-  { path: "/filter/sepia", element: <Sepia /> },
-  { path: "/filter/brightness", element: <Brightness /> },
-  { path: "/filter/contrast", element: <Contrast /> },
-  { path: "/filter/grayscale", element: <Grayscale /> },
-  { path: "/filter/heurotate", element: <HeuRotate /> },
-  { path: "/filter/invert", element: <Invert /> },
-  { path: "/filter/saturate", element: <Saturate /> },
-  { path: "/filter/dropshadow", element: <DropShadow /> },
   { path: "/fontsize", element: <FontSize /> },
   { path: "/fontfamily", element: <FontFamily /> },
   { path: "/textcolor", element: <TextColor /> },
@@ -60,6 +48,16 @@ let router = [
   { path: "/lineheight", element: <LineHeight /> },
   { path: "/textalign", element: <TextAlign /> },
   { path: "/fontweight", element: <FontWeight /> },
+  { path: "/blur", element: <Blur /> },
+  { path: "/sepia", element: <Sepia /> },
+  { path: "/brightness", element: <Brightness /> },
+  { path: "/contrast", element: <Contrast /> },
+  { path: "/grayscale", element: <Grayscale /> },
+  { path: "/heurotate", element: <HeuRotate /> },
+  { path: "/invert", element: <Invert /> },
+  { path: "/saturate", element: <Saturate /> },
+  { path: "/dropshadow", element: <DropShadow /> },
+  { path: "/flex", element: <Flex /> },
   { path: "/flexbox", element: <FlexBox /> },
   { path: "*", element: <Navigate to={"/"} /> },
 ];

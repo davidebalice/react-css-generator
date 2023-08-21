@@ -145,6 +145,15 @@ body::before {
   overflow: hidden;
 }
 
+.previewFilter {
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  background-image: url('../public/images/flower.webp');
+  background-size: cover;
+}
+
 @media screen and (max-width: 750px) {
   .previewDiv {
     width: 60%;
@@ -549,3 +558,5 @@ input[type="range"]::-webkit-slider-thumb:active {
   width: 100% !important;
   justify-content: start !important;
 }
+
+

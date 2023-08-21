@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import "../../style.css";
 import { Context } from "../Context/BoxContext";
 
 const Preview = () => {
