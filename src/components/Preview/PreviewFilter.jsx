@@ -8,10 +8,10 @@ const Preview = () => {
     brightness,
     blur,
     contrast,
-    dropshadowblur,
+    dropShadowBlur,
     dropShadowColor,
     dropShadowHorizontal,
-    dropVertical,
+    dropShadowVertical,
     grayscale,
     heuRotate,
     invert,
@@ -22,47 +22,66 @@ const Preview = () => {
   let selectedStyle = {};
 
   switch (selectedFilter) {
-    case 'brightness':
+    case "brightness":
       selectedStyle = {
         filter: `brightness(${brightness})`,
       };
       break;
-    case 'blur':
+    case "blur":
       selectedStyle = {
         filter: `blur(${blur})`,
       };
       break;
-    case 'contrast':
+    case "contrast":
       selectedStyle = {
         filter: `contrast(${contrast})`,
+      };
+      break;
+    case "sepia":
+      selectedStyle = {
+        filter: `sepia(${sepia})`,
+      };
+      break;
+    case "grayscale":
+      selectedStyle = {
+        filter: `grayscale(${grayscale})`,
+      };
+      break;
+    case "dropshadow":
+      selectedStyle = {
+        filter: `drop-shadow(${dropShadowHorizontal} ${dropShadowVertical} ${dropShadowBlur} ${dropShadowColor})`,
+      };
+      break;
+    case "heurotate":
+      selectedStyle = {
+        filter: `hue-rotate(${heuRotate})`,
+      };
+      break;
+    case "invert":
+      selectedStyle = {
+        filter: `invert(${invert})`,
+      };
+      break;
+    case "saturate":
+      selectedStyle = {
+        filter: `saturate(${saturate})`,
       };
       break;
     default:
       break;
   }
-/*
-  const brightnessStyle = {
-    filter: `brightness(${brightness})`,
-  };
 
-  const blurStyle = {
-    filter: `blur(${blur})`,
-  };
+  console.log(selectedStyle);
 
-  const contrastStyle = {
-    filter: `contrast(${contrast})`,
-  };
-*/
   const styles = {
     ...selectedStyle,
   };
-  
+
   return (
     <div className="topBox">
-      <div className="previewContainer">
+      <div className="previewContainer previewContainerFilter">
         <div className="previewBox">
-          <div className="previewFilter" style={styles}>
-          </div>
+          <div className="previewFilter" style={styles}></div>
         </div>
       </div>
     </div>

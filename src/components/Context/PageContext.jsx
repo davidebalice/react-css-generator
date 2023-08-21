@@ -48,6 +48,12 @@ const PageContextProvider = ({ children }) => {
       case "/brightness":
       case "/blur":
       case "/contrast":
+      case "/sepia":
+      case "/greyscale":
+      case "/dropshadow":
+      case "/heurotate":
+      case "/invert":
+      case "/saturate":
         pageType = "filter";
         break;
       default:

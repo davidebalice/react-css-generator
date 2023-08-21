@@ -12,10 +12,10 @@ const Box = () => {
     brightness,
     blur,
     contrast,
-    dropshadowblur,
+    dropShadowBlur,
     dropShadowColor,
     dropShadowHorizontal,
-    dropVertical,
+    dropShadowVertical,
     grayscale,
     heuRotate,
     invert,
@@ -27,13 +27,30 @@ const Box = () => {
     let text = "";
 
     text +=
-    brightness !== "" && `filter: brightness(${brightness});`; 
+      selectedFilter === "brightness" &&
+      brightness !== "" &&
+      `filter: brightness(${brightness});`;
 
     text +=
-    blur !== "" && `filter: blur(${blur});`; 
+      selectedFilter === "blur" && blur !== "" && `filter: blur(${blur});`;
 
     text +=
-    contrast !== "" && `filter: contrast(${contrast});`; 
+      selectedFilter === "contrast" &&
+      contrast !== "" &&
+      `filter: contrast(${contrast});`;
+
+    text +=
+      selectedFilter === "sepia" && sepia !== "" && `filter: sepia(${sepia});`;
+
+    text += text +=
+      selectedFilter === "grayscale" &&
+      grayscale !== "" &&
+      `filter: grayscale(${grayscale});`;
+
+    text +=
+      selectedFilter === "dropshadow" &&
+      (dropShadowHorizontal !== "" || dropShadowVertical !== "") &&
+      `filter: drop-shadow(${dropShadowHorizontal} ${dropShadowVertical} ${dropShadowBlur} ${dropShadowColor});`;
 
     text = text.replace(/false/g, "");
 
@@ -51,7 +68,9 @@ const Box = () => {
                 <br />
                 <span className="code_one">filter</span>
                 {": "}
-                <span className="code_three">brightness({brightness})</span>; <br />
+                <span className="code_three">
+                  brightness({brightness})
+                </span>; <br />
               </>
             )}
             {blur !== "0px" && (
@@ -68,6 +87,34 @@ const Box = () => {
                 <span className="code_one">filter</span>
                 {": "}
                 <span className="code_three">contrast({contrast})</span>; <br />
+              </>
+            )}
+            {sepia !== "0%" && (
+              <>
+                <br />
+                <span className="code_one">filter</span>
+                {": "}
+                <span className="code_three">sepia({sepia})</span>; <br />
+              </>
+            )}
+            {grayscale !== "0%" && (
+              <>
+                <br />
+                <span className="code_one">filter</span>
+                {": "}
+                <span className="code_three">grayscale({grayscale})</span>;{" "}
+                <br />
+              </>
+            )}
+            {(dropShadowHorizontal !== "" || dropShadowVertical !== "") && (
+              <>
+                <br />
+                <span className="code_one">drop-shadow</span>
+                {": "}
+                <span className="code_three">{dropShadowHorizontal}</span>{" "}
+                <span className="code_three">{dropShadowVertical}</span>{" "}
+                <span className="code_three">{dropShadowBlur}</span>{" "}
+                <span className="code_three">{dropShadowColor}</span> ;
               </>
             )}
           </pre>

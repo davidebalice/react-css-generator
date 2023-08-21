@@ -15,13 +15,13 @@ let Data = [
       },
       {
         id: 4,
-        route: "/sepia",
-        name: "Sepia",
+        route: "/contrast",
+        name: "Contrast",
       },
       {
         id: 5,
-        route: "/contrast",
-        name: "Contrast",
+        route: "/sepia",
+        name: "Sepia",
       },
       {
         id: 6,

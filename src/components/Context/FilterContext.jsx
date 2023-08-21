@@ -6,20 +6,20 @@ const initialState = {
   brightness: "1",
   blur: "0px",
   contrast: "100%",
-  dropshadowblur: "50px",
-  dropShadowColor: "#000",
-  dropShadowHorizontal: "-10px",
-  dropVertical: "-10px",
-  grayscale: "",
+  dropShadowBlur: "20px",
+  dropShadowColor: "#333",
+  dropShadowHorizontal: "",
+  dropShadowVertical: "",
+  grayscale: "0%",
   heuRotate: "",
-  invert: "",
-  saturate: "",
-  sepia: "",
+  invert: "0%",
+  saturate: "100%",
+  sepia: "0%",
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'RESET':
+    case "RESET":
       return initialState;
     case "SET_FILTER":
       return { ...state, selectedFilter: action.payload };
@@ -29,6 +29,25 @@ const reducer = (state, action) => {
       return { ...state, blur: action.payload };
     case "SET_CONTRAST":
       return { ...state, contrast: action.payload };
+    case "SET_SEPIA":
+      return { ...state, sepia: action.payload };
+    case "SET_GREYSCALE":
+      return { ...state, grayscale: action.payload };
+    case "SET_HEUROTATE":
+      return { ...state, heuRotate: action.payload };
+    case "SET_INVERT":
+      return { ...state, invert: action.payload };
+    case "SET_SATURATE":
+      return { ...state, saturate: action.payload };
+    case "SET_DROPSHADOW_BLUR":
+      return { ...state, dropShadowBlur: action.payload };
+    case "SET_DROPSHADOW_COLOR":
+      return { ...state, dropShadowColor: action.payload };
+    case "SET_DROPSHADOW_HORIZONTAL":
+      return { ...state, dropShadowHorizontal: action.payload };
+    case "SET_DROPSHADOW_VERTICAL":
+      return { ...state, dropShadowVertical: action.payload };
+
     default:
       return state;
   }
@@ -37,6 +56,8 @@ const reducer = (state, action) => {
 const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [copyClickText, setcopyClickText] = useState(false);
+
+  console.log(state.selectedFilter);
 
   const btnCopyTextChange = () => {
     setcopyClickText(true);

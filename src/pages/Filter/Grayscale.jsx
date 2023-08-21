@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Menu from "../../components/Menu/Menu";
 import Preview from "../../components/Preview/PreviewFilter";
 import Code from "../../components/Code/CodeFilter";
@@ -6,76 +6,48 @@ import { Context } from "../../components/Context/FilterContext";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
 
-
 export default function Grayscale() {
   const { state, dispatch } = useContext(Context);
   const { grayscale } = state;
 
-  const brightnessHandler = (e) => {
-    dispatch({ type: "SET_BRIGHTNESS", payload: e.target.value });
-  };
-
-/*
-  const [grayscale, setGrayscale] = useState("50%");
-  const { copyClickText, btnCopyTextChange, mainVariant } = useContext(Context);
-
   const grayscaleHandler = (e) => {
-    setGrayscale(`${e.target.value}%`);
+    dispatch({ type: "SET_GREYSCALE", payload: `${e.target.value}%` });
   };
 
-  const grayscaleCopyHandler = async () => {
-    let text = `filter: grayscale(${grayscale});`;
-    await copyed(text);
-    btnCopyTextChange();
-  };
+  useEffect(() => {
+    dispatch({ type: "RESET" });
+    dispatch({ type: "SET_FILTER", payload: "grayscale" });
+  }, []);
+
   return (
     <>
-    <div className="row">
-      <Menu />
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: 0.2 }}
-      exit="exit"
-      className="cssContainer"
-    >
-      <span className="titleSection">Grayscale</span>
-      <div className="topBox">
-        <div className="preview_wraper">
-          <span>Preview</span>
-          <div
-            style={{ filter: `grayscale(${grayscale})` }}
-            className="preview_box sepia_preview"
-          ></div>
-        </div>
-        <div className="copy_code_wraper">
-          <span>Code</span>
-          <div className="code_box">
-            <pre>
-              <span className="code_one">filter</span>
-              {": "}
-              <span className="code_two">grayscale</span>(
-              <span className="code_three">{grayscale}</span>) ;
-            </pre>
+      <div className="row">
+        <Menu />
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          exit="exit"
+          className="cssContainer"
+        >
+          <span className="titleSection">Grayscale</span>
+          <Preview />
+          <div className="option_wraper">
+            <div className="options">
+              <div className="input_box">
+                <input
+                  onChange={(e) => grayscaleHandler(e)}
+                  type="range"
+                  value={grayscale.replace("%", "")}
+                />
+                <span>{grayscale}</span>
+              </div>
+            </div>
           </div>
-          <button onClick={grayscaleCopyHandler} className="copyBtn">
-            {copyClickText ? "Copied!" : "Copy"}
-          </button>
-        </div>
-      </div>
-      <div className="option_wraper">
-        <div className="options">
-          <div className="input_box">
-            <label>Amount</label>
-            <input onChange={(e) => grayscaleHandler(e)} type="range" />
-            <span>{grayscale}</span>
-          </div>
-        </div>
-      </div>
-      <Code />
+          <Code />
         </motion.div>
       </div>
       <Footer />
     </>
-  );*/
+  );
 }
