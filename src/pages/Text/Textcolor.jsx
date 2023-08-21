@@ -6,6 +6,7 @@ import { Context } from "../../components/Context/TextContext";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
 import { CompactPicker } from "react-color";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function Textcolor() {
   const { state, dispatch } = useContext(Context);
@@ -30,8 +31,9 @@ export default function Textcolor() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Color</span>
+          <TitleContainer title="Color" />
           <Preview />
+
           <div className="option_wraper">
             <div className="options">
               <div className="input_box">

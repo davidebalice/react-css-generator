@@ -4,14 +4,9 @@ import { Context } from "../Context/FilterContext";
 const Preview = () => {
   const { state } = useContext(Context);
   const {
-    selectedFilter,
     brightness,
     blur,
     contrast,
-    dropShadowBlur,
-    dropShadowColor,
-    dropShadowHorizontal,
-    dropShadowVertical,
     grayscale,
     heuRotate,
     invert,
@@ -19,62 +14,32 @@ const Preview = () => {
     sepia,
   } = state;
 
-  let selectedStyle = {};
+  const filterValues = {
+    brightness: brightness,
+    blur: blur,
+    contrast: contrast,
+    sepia: sepia,
+    grayscale: grayscale,
+    "hue-rotate": heuRotate,
+    invert: invert,
+    saturate: saturate,
+  };
 
-  switch (selectedFilter) {
-    case "brightness":
-      selectedStyle = {
-        filter: `brightness(${brightness})`,
-      };
-      break;
-    case "blur":
-      selectedStyle = {
-        filter: `blur(${blur})`,
-      };
-      break;
-    case "contrast":
-      selectedStyle = {
-        filter: `contrast(${contrast})`,
-      };
-      break;
-    case "sepia":
-      selectedStyle = {
-        filter: `sepia(${sepia})`,
-      };
-      break;
-    case "grayscale":
-      selectedStyle = {
-        filter: `grayscale(${grayscale})`,
-      };
-      break;
-    case "dropshadow":
-      selectedStyle = {
-        filter: `drop-shadow(${dropShadowHorizontal} ${dropShadowVertical} ${dropShadowBlur} ${dropShadowColor})`,
-      };
-      break;
-    case "heurotate":
-      selectedStyle = {
-        filter: `hue-rotate(${heuRotate})`,
-      };
-      break;
-    case "invert":
-      selectedStyle = {
-        filter: `invert(${invert})`,
-      };
-      break;
-    case "saturate":
-      selectedStyle = {
-        filter: `saturate(${saturate})`,
-      };
-      break;
-    default:
-      break;
+  const activeFilters = Object.keys(filterValues).filter(
+    (filter) =>
+      filterValues[filter] !== undefined && filterValues[filter] !== ""
+  );
+
+  let filtersApplied = "";
+
+  for (const filter of activeFilters) {
+    filtersApplied += `${filter}(${filterValues[filter]}) `;
   }
 
-  console.log(selectedStyle);
+  console.log(filtersApplied);
 
   const styles = {
-    ...selectedStyle,
+    filter: filtersApplied,
   };
 
   return (

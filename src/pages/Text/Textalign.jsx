@@ -5,6 +5,7 @@ import Code from "../../components/Code/CodeText";
 import { Context } from "../../components/Context/TextContext";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function Textalign() {
   const { state, dispatch } = useContext(Context);
@@ -25,7 +26,8 @@ export default function Textalign() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Text align</span>
+          
+          <TitleContainer title="Text align" />
           <Preview />
           <div className="option_wraper">
             <div className="options">

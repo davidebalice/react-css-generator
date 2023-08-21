@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "../../style.css";
 import copyed from "../../func";
 import { Context } from "../Context/BoxContext";
-import { BiSolidCopy } from 'react-icons/bi';
+import { BiSolidCopy } from "react-icons/bi";
 
 const Box = () => {
   const { copyClickText, btnCopyTextChange, state } = useContext(Context);
@@ -22,6 +22,7 @@ const Box = () => {
     borderRadius,
     boxShadowBlur,
     boxShadowColor,
+    boxShadowColorRgb,
     boxShadowHorizontal,
     boxShadowVertical,
     boxShadowSpread,
@@ -55,6 +56,13 @@ const Box = () => {
       `transform: skew:(${skewX},${skewY});`;
 
     text += rotate !== "0" && `rotate: ${rotate};`;
+
+    text +=
+      (boxShadowVertical !== "0px" || boxShadowHorizontal !== "0px") &&
+      `box-shadow: ${boxShadowHorizontal} ${boxShadowVertical} ${boxShadowBlur}
+    ${boxShadowSpread} ${boxShadowColorRgb} ${boxShadowInset};`;
+
+    text = text.replace(/false/g, "");
 
     await copyed(text);
     btnCopyTextChange();
@@ -111,7 +119,7 @@ const Box = () => {
                 {": "}
                 <span className="code_three">
                   {boxShadowHorizontal} {boxShadowVertical} {boxShadowBlur}{" "}
-                  {boxShadowSpread} {boxShadowColor} {boxShadowInset}
+                  {boxShadowSpread} {boxShadowColorRgb} {boxShadowInset}
                 </span>
                 ;
                 <br />
@@ -142,7 +150,7 @@ const Box = () => {
           </pre>
         </div>
         <button onClick={copyHandler} className="copyBtn">
-          <BiSolidCopy size={18}/>
+          <BiSolidCopy size={18} />
           {copyClickText ? "Copied!" : "Copy"}
         </button>
       </div>

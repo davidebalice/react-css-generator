@@ -5,6 +5,7 @@ import Code from "../../components/Code/CodeFilter";
 import { Context } from "../../components/Context/FilterContext";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function HeuRotate() {
   const { state, dispatch } = useContext(Context);
@@ -13,11 +14,6 @@ export default function HeuRotate() {
   const heuRotateHandler = (e) => {
     dispatch({ type: "SET_HEUROTATE", payload: `${e.target.value}deg` });
   };
-
-  useEffect(() => {
-    dispatch({ type: "RESET" });
-    dispatch({ type: "SET_FILTER", payload: "heurotate" });
-  }, []);
 
   return (
     <>
@@ -30,8 +26,9 @@ export default function HeuRotate() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Heu rotate</span>
+          <TitleContainer title="Heu rotate" />
           <Preview />
+
           <div className="option_wraper">
             <div className="options">
               <div className="input_box">

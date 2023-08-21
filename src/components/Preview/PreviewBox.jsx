@@ -19,6 +19,7 @@ const Preview = () => {
     borderRadius,
     boxShadowBlur,
     boxShadowColor,
+    boxShadowColorRgb,
     boxShadowHorizontal,
     boxShadowVertical,
     boxShadowSpread,
@@ -46,9 +47,9 @@ const Preview = () => {
     borderRadius: `${borderRadius}`,
   };
 
-  const borderShadowStyle = (boxShadowVertical !== "0px" ||
+  const boxShadowStyle = (boxShadowVertical !== "0px" ||
     boxShadowHorizontal !== "0px") && {
-    boxShadow: `${boxShadowHorizontal} ${boxShadowVertical} ${boxShadowBlur} ${boxShadowSpread} ${boxShadowColor} ${boxShadowInset}`,
+    boxShadow: `${boxShadowHorizontal} ${boxShadowVertical} ${boxShadowBlur} ${boxShadowSpread} ${boxShadowColorRgb} ${boxShadowInset}`,
   };
 
   const opacityStyle = opacity !== "1" && {
@@ -67,7 +68,7 @@ const Preview = () => {
     ...backgroundStyle,
     ...borderStyle,
     ...borderRadiusStyle,
-    ...borderShadowStyle,
+    ...boxShadowStyle,
     ...opacityStyle,
     ...skewStyle,
     ...rotateStyle,

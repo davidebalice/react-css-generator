@@ -89,6 +89,12 @@ body::before {
   }
 }
 
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .titleSection {
   color: #fff;
   align-self: flex-start;
@@ -562,3 +568,17 @@ input[type="range"]::-webkit-slider-thumb:active {
   width: 100% !important;
   justify-content: start !important;
 }
+
+.reset-btn {
+  justify-content: start;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #444;
+  cursor: pointer;
+  color: #fff;
+}
+
+.reset-btn:hover {
+  background-color: #555;
+}
+

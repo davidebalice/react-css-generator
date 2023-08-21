@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import Menu from "../../components/Menu/Menu";
-import Preview from "../../components/Preview/Preview";
-import Code from "../../components/Code/Code";
+import Preview from "../../components/Preview/PreviewBox";
+import Code from "../../components/Code/CodeBox";
 import { Context } from "../../components/Context/BoxContext";
 import { motion } from "framer-motion";
 import { CompactPicker } from "react-color";
 import Footer from "../../components/Footer/Footer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function Backgroundcolor() {
   const { state, dispatch } = useContext(Context);
@@ -33,8 +34,7 @@ export default function Backgroundcolor() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Background color</span>
-
+          <TitleContainer title="Background color" />
           <Preview />
 
           <div className="option_wraper">

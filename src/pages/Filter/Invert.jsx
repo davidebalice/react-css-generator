@@ -5,6 +5,7 @@ import Code from "../../components/Code/CodeFilter";
 import { Context } from "../../components/Context/FilterContext";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function Invert() {
   const { state, dispatch } = useContext(Context);
@@ -13,11 +14,6 @@ export default function Invert() {
   const invertHandler = (e) => {
     dispatch({ type: "SET_INVERT", payload: `${e.target.value}%` });
   };
-
-  useEffect(() => {
-    dispatch({ type: "RESET" });
-    dispatch({ type: "SET_FILTER", payload: "invert" });
-  }, []);
 
   return (
     <>
@@ -30,8 +26,9 @@ export default function Invert() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Invert</span>
+          <TitleContainer title="Invert" />
           <Preview />
+
           <div className="option_wraper">
             <div className="options">
               <div className="input_box">

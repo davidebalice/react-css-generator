@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import Menu from "../../components/Menu/Menu";
-import Preview from "../../components/Preview/Preview";
-import Code from "../../components/Code/Code";
+import Preview from "../../components/Preview/PreviewBox";
+import Code from "../../components/Code/CodeBox";
 import { Context } from "../../components/Context/BoxContext";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function Backgroundgradient() {
   const { state, dispatch } = useContext(Context);
@@ -69,8 +70,7 @@ export default function Backgroundgradient() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Background gradient</span>
-
+          <TitleContainer title="Background gradient" />
           <Preview />
 
           <div className="option_wraper">

@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { Context } from "../../components/Context/BoxContext";
 import Menu from "../../components/Menu/Menu";
-import Preview from "../../components/Preview/Preview";
-import Code from "../../components/Code/Code";
+import Preview from "../../components/Preview/PreviewBox";
+import Code from "../../components/Code/CodeBox";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function BorderRadius() {
   const { state, dispatch } = useContext(Context);
@@ -26,8 +27,9 @@ export default function BorderRadius() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Border radius</span>
+          <TitleContainer title="Border radius" />
           <Preview />
+
           <div className="option_wraper">
             <div className="options">
               <div className="input_box">

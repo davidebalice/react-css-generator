@@ -17,7 +17,6 @@ import TextTransform from "./pages/Text/TextTransform";
 import LetterSpacing from "./pages/Text/LetterSpacing";
 import LineHeight from "./pages/Text/LineHeight";
 import TextAlign from "./pages/Text/TextAlign";
-import DropShadow from "./pages/Filter/DropShadow";
 import Blur from "./pages/Filter/Blur";
 import Sepia from "./pages/Filter/Sepia";
 import Brightness from "./pages/Filter/Brightness";
@@ -26,9 +25,10 @@ import Grayscale from "./pages/Filter/Grayscale";
 import HeuRotate from "./pages/Filter/HeuRotate";
 import Invert from "./pages/Filter/Invert";
 import Saturate from "./pages/Filter/Saturate";
+/*
 import FlexBox from "./pages/FlexBox/FlexBox";
 import Flex from "./pages/Flex/Flex";
-
+*/
 let router = [
   { path: "/", element: <Home /> },
   { path: "/backgroundcolor", element: <Backgroundcolor /> },
@@ -56,10 +56,13 @@ let router = [
   { path: "/heurotate", element: <HeuRotate /> },
   { path: "/invert", element: <Invert /> },
   { path: "/saturate", element: <Saturate /> },
-  { path: "/dropshadow", element: <DropShadow /> },
-  { path: "/flex", element: <Flex /> },
-  { path: "/flexbox", element: <FlexBox /> },
+
   { path: "*", element: <Navigate to={"/"} /> },
 ];
 
 export default router;
+
+/*
+  { path: "/flex", element: <Flex /> },
+  { path: "/flexbox", element: <FlexBox /> },
+*/

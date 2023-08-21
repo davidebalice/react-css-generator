@@ -5,6 +5,7 @@ import Code from "../../components/Code/CodeText";
 import { Context } from "../../components/Context/TextContext";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function FontWeight() {
   const { state, dispatch } = useContext(Context);
@@ -25,12 +26,15 @@ export default function FontWeight() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Font weight</span>
+          <TitleContainer title="Font weight" />
           <Preview />
           <div className="option_wraper">
             <div className="options">
               <div className="input_box">
-                <select onChange={(e) => fontWeightHandler(e)} value={fontweight}>
+                <select
+                  onChange={(e) => fontWeightHandler(e)}
+                  value={fontweight}
+                >
                   <option value="normal">normal</option>
                   <option value="bold">bold</option>
                 </select>

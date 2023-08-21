@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { Context } from "../../components/Context/BoxContext";
 import { motion } from "framer-motion";
 import Menu from "../../components/Menu/Menu";
-import Preview from "../../components/Preview/Preview";
-import Code from "../../components/Code/Code";
+import Preview from "../../components/Preview/PreviewBox";
+import Code from "../../components/Code/CodeBox";
 import Footer from "../../components/Footer/Footer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function Rotate() {
   const { state, dispatch } = useContext(Context);
@@ -25,7 +26,7 @@ export default function Rotate() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Rotate</span>
+          <TitleContainer title="Rotate" />
           <Preview />
           <div className="topBox"></div>
           <div className="option_wraper">

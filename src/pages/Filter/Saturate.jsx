@@ -1,10 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Menu from "../../components/Menu/Menu";
 import Preview from "../../components/Preview/PreviewFilter";
 import Code from "../../components/Code/CodeFilter";
 import { Context } from "../../components/Context/FilterContext";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function Saturate() {
   const { state, dispatch } = useContext(Context);
@@ -13,11 +14,6 @@ export default function Saturate() {
   const saturateHandler = (e) => {
     dispatch({ type: "SET_SATURATE", payload: `${e.target.value}%` });
   };
-
-  useEffect(() => {
-    dispatch({ type: "RESET" });
-    dispatch({ type: "SET_FILTER", payload: "saturate" });
-  }, []);
 
   return (
     <>
@@ -30,8 +26,9 @@ export default function Saturate() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Saturate</span>
+          <TitleContainer title="Saturate" />
           <Preview />
+
           <div className="option_wraper">
             <div className="options">
               <div className="input_box">

@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { Context } from "../../components/Context/BoxContext";
 import Menu from "../../components/Menu/Menu";
-import Preview from "../../components/Preview/Preview";
-import Code from "../../components/Code/Code";
+import Preview from "../../components/Preview/PreviewBox";
+import Code from "../../components/Code/CodeBox";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function Border() {
   const { state, dispatch } = useContext(Context);
@@ -41,8 +42,7 @@ export default function Border() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Border</span>
-
+          <TitleContainer title="Border" />
           <Preview />
 
           <div className="option_wraper">

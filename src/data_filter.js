@@ -43,11 +43,6 @@ let Data = [
         route: "/saturate",
         name: "Saturate",
       },
-      {
-        id: 9,
-        route: "/dropshadow",
-        name: "Drop shadow",
-      },
     ],
   },
 ];

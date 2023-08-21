@@ -6,6 +6,7 @@ import "../../style.css";
 import "./FlexBox.css";
 
 export default function FlexBox() {
+  /*
   const [flex, setFlex] = useState({
     display: "flex",
     "flex-direction": "row",
@@ -13,7 +14,7 @@ export default function FlexBox() {
     "justify-content": "center",
   });
 
-  const { copyClickText, btnCopyTextChange, mainVariant } = useContext(Context);
+  const { copyClickText, btnCopyTextChange } = useContext(Context);
 
   const justifyContentHandler = (e) => {
     setFlex({ ...flex, "justify-content": e.target.value });
@@ -32,7 +33,8 @@ export default function FlexBox() {
     await copyed(text);
     btnCopyTextChange();
   };
-
+*/
+  /*
   return (
     <motion.div
       initial={{ opacity: 0, y: 15 }}
@@ -113,6 +115,6 @@ export default function FlexBox() {
           </div>
         </div>
       </div>
-    </motion.div>
-  );
+    </motion.div>);
+  */
 }

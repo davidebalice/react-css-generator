@@ -5,7 +5,7 @@ import Code from "../../components/Code/CodeFilter";
 import { Context } from "../../components/Context/FilterContext";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
-
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function Blur() {
   const { state, dispatch } = useContext(Context);
@@ -15,11 +15,6 @@ export default function Blur() {
     dispatch({ type: "SET_BLUR", payload: `${e.target.value}px` });
   };
 
-  useEffect(() => {
-    dispatch({ type: 'RESET' });
-    dispatch({ type: 'SET_FILTER', payload: "blur" });
-  }, []);
-  
   return (
     <>
     <div className="row">
@@ -31,8 +26,10 @@ export default function Blur() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Blur</span>
+          
+          <TitleContainer title="Blur" />
           <Preview />
+          
           <div className="option_wraper">
             <div className="options">
               <div className="input_box">

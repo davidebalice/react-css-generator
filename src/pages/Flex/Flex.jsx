@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Flex.css";
-import Datas from "../../Datas";
+
 import Box from "../../components/Preview/Preview";
 import { motion } from "framer-motion";
 import { Context } from "../../components/Context/BoxContext";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/themes/theme-blue.css";
 import GitHubLink from "../../components/GithubLink/GitHubLink";
-
+/*
 export default function Css() {
   const { mainVariant, closeMenu } = useContext(Context);
 
@@ -47,3 +47,4 @@ export default function Css() {
     </motion.div>
   );
 }
+*/

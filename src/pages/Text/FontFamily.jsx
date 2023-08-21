@@ -5,6 +5,7 @@ import Code from "../../components/Code/CodeText";
 import { Context } from "../../components/Context/TextContext";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function FontFamily() {
   const { state, dispatch } = useContext(Context);
@@ -25,8 +26,10 @@ export default function FontFamily() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Font family</span>
+         
+          <TitleContainer title="Font family" />
           <Preview />
+          
           <div className="option_wraper">
             <div className="options">
               <div className="input_box">

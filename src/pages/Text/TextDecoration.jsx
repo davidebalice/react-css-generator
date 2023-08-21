@@ -6,6 +6,7 @@ import { Context } from "../../components/Context/TextContext";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
 import { CompactPicker } from "react-color";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function TextDecoration() {
   const { state, dispatch } = useContext(Context);
@@ -38,12 +39,16 @@ export default function TextDecoration() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Text decoration</span>
+          <TitleContainer title="Text decoration" />
           <Preview />
+
           <div className="option_wraper">
             <div className="options">
               <div className="input_box">
-                <select onChange={(e) => textDecorationHandler(e)} value={textdecoration}>
+                <select
+                  onChange={(e) => textDecorationHandler(e)}
+                  value={textdecoration}
+                >
                   <option value="">none</option>
                   <option value="line-through">line-through</option>
                   <option value="underline">underline</option>
@@ -51,7 +56,10 @@ export default function TextDecoration() {
                 </select>
               </div>
               <div className="input_box">
-                <select onChange={(e) => textDecorationStyleHandler(e)} value={textdecorationstyle}>
+                <select
+                  onChange={(e) => textDecorationStyleHandler(e)}
+                  value={textdecorationstyle}
+                >
                   <option value="none">none</option>
                   <option value="solid">solid</option>
                   <option value="dotted">dotted</option>

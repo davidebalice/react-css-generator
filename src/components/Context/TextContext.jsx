@@ -17,6 +17,8 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "RESET":
+      return initialState;
     case "SET_FONT_SIZE":
       return { ...state, fontsize: action.payload };
     case "SET_TEXT_COLOR":
@@ -55,6 +57,10 @@ const ContextProvider = ({ children }) => {
     }, 3000);
   };
 
+  const handleReset = () => {
+    dispatch({ type: "RESET" });
+  };
+
   return (
     <Context.Provider
       value={{
@@ -63,6 +69,7 @@ const ContextProvider = ({ children }) => {
         btnCopyTextChange,
         state,
         dispatch,
+        handleReset,
       }}
     >
       {children}

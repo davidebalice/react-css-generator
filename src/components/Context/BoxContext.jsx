@@ -16,8 +16,8 @@ const initialState = {
   borderType: "solid",
   borderRadius: "0px",
   boxShadowBlur: "0px",
-  boxShadowColor: "#000",
-  boxShadowColorRgb: "rgb(0, 0, 0, 1);",
+  boxShadowColor: "#000000",
+  boxShadowColorRgb: "rgb(0, 0, 0, 1)",
   boxShadownColorOpacity: "1",
   boxShadowHorizontal: "0px",
   boxShadowVertical: "0px",
@@ -39,6 +39,8 @@ function hexToRgb(hex, opacity) {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "RESET":
+      return initialState;
     case "SET_BG_TYPE":
       return { ...state, bgType: action.payload };
     case "SET_BGCOLOR":
@@ -106,6 +108,10 @@ const ContextProvider = ({ children }) => {
     }, 3000);
   };
 
+  const handleReset = () => {
+    dispatch({ type: "RESET" });
+  };
+
   return (
     <Context.Provider
       value={{
@@ -114,6 +120,7 @@ const ContextProvider = ({ children }) => {
         btnCopyTextChange,
         state,
         dispatch,
+        handleReset,
       }}
     >
       {children}

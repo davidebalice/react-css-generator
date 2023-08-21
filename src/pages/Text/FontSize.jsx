@@ -5,6 +5,7 @@ import Code from "../../components/Code/CodeText";
 import { Context } from "../../components/Context/TextContext";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function FontSize() {
   const { state, dispatch } = useContext(Context);
@@ -25,8 +26,10 @@ export default function FontSize() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Font size</span>
+        
+          <TitleContainer title="Font size" />
           <Preview />
+
           <div className="option_wraper">
             <div className="options">
               <div className="input_box">

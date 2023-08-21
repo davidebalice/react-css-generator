@@ -8,14 +8,9 @@ const Box = () => {
   const { copyClickText, btnCopyTextChange, state } = useContext(Context);
 
   const {
-    selectedFilter,
     brightness,
     blur,
     contrast,
-    dropShadowBlur,
-    dropShadowColor,
-    dropShadowHorizontal,
-    dropShadowVertical,
     grayscale,
     heuRotate,
     invert,
@@ -26,33 +21,45 @@ const Box = () => {
   const copyHandler = async () => {
     let text = "";
 
-    text +=
-      selectedFilter === "brightness" &&
-      brightness !== "" &&
-      `filter: brightness(${brightness});`;
+    (brightness !== "1" ||
+      blur !== "0px" ||
+      contrast !== "100%" ||
+      sepia !== "0%" ||
+      grayscale !== "0%" ||
+      invert !== "0%" ||
+      heuRotate !== "" ||
+      saturate !== "100%") &&
+      (text += `filter: `);
 
-    text +=
-      selectedFilter === "blur" && blur !== "" && `filter: blur(${blur});`;
+    text += brightness !== "1" && ` brightness(${brightness})`;
 
-    text +=
-      selectedFilter === "contrast" &&
-      contrast !== "" &&
-      `filter: contrast(${contrast});`;
+    text += blur !== "0px" && ` blur(${blur})`;
 
-    text +=
-      selectedFilter === "sepia" && sepia !== "" && `filter: sepia(${sepia});`;
+    text += contrast !== "100%" && ` contrast(${contrast})`;
 
-    text += text +=
-      selectedFilter === "grayscale" &&
-      grayscale !== "" &&
-      `filter: grayscale(${grayscale});`;
+    text += grayscale !== "0%" && ` grayscale(${grayscale})`;
 
-    text +=
-      selectedFilter === "dropshadow" &&
-      (dropShadowHorizontal !== "" || dropShadowVertical !== "") &&
-      `filter: drop-shadow(${dropShadowHorizontal} ${dropShadowVertical} ${dropShadowBlur} ${dropShadowColor});`;
+    text += invert !== "0%" && ` invert(${invert})`;
+
+    text += heuRotate !== "" && ` heu-rotate(${heuRotate})`;
+
+    text += sepia !== "" && ` sepia(${sepia})`;
+
+    text += saturate !== "" && ` saturate(${saturate})`;
+
+    text += text += grayscale !== "" && ` grayscale(${grayscale})`;
 
     text = text.replace(/false/g, "");
+
+    (brightness !== "1" ||
+      blur !== "0px" ||
+      contrast !== "100%" ||
+      sepia !== "0%" ||
+      grayscale !== "0%" ||
+      invert !== "0%" ||
+      heuRotate !== "" ||
+      saturate !== "100%") &&
+      (text += `;`);
 
     await copyed(text);
     btnCopyTextChange();
@@ -63,60 +70,77 @@ const Box = () => {
       <div className="copyWraper">
         <div className="codeBox">
           <pre>
-            {brightness !== "1" && (
+            {(brightness !== "1" ||
+              blur !== "0px" ||
+              contrast !== "100%" ||
+              sepia !== "0%" ||
+              grayscale !== "0%" ||
+              invert !== "0%" ||
+              heuRotate !== "" ||
+              saturate !== "100%") && (
               <>
                 <br />
                 <span className="code_one">filter</span>
                 {": "}
-                <span className="code_three">
-                  brightness({brightness})
-                </span>; <br />
+              </>
+            )}
+
+            {brightness !== "1" && (
+              <>
+                {" "}
+                <span className="code_three">brightness({brightness})</span>
               </>
             )}
             {blur !== "0px" && (
               <>
-                <br />
-                <span className="code_one">blur</span>
-                {": "}
-                <span className="code_three">blur({blur})</span>; <br />
+                {" "}
+                <span className="code_three">blur({blur})</span>
               </>
             )}
             {contrast !== "100%" && (
               <>
-                <br />
-                <span className="code_one">filter</span>
-                {": "}
-                <span className="code_three">contrast({contrast})</span>; <br />
+                {" "}
+                <span className="code_three">contrast({contrast})</span>
               </>
             )}
             {sepia !== "0%" && (
               <>
-                <br />
-                <span className="code_one">filter</span>
-                {": "}
-                <span className="code_three">sepia({sepia})</span>; <br />
+                {" "}
+                <span className="code_three">sepia({sepia})</span>
               </>
             )}
             {grayscale !== "0%" && (
               <>
-                <br />
-                <span className="code_one">filter</span>
-                {": "}
-                <span className="code_three">grayscale({grayscale})</span>;{" "}
-                <br />
+                {" "}
+                <span className="code_three">grayscale({grayscale})</span>
               </>
             )}
-            {(dropShadowHorizontal !== "" || dropShadowVertical !== "") && (
+            {heuRotate !== "" && (
               <>
-                <br />
-                <span className="code_one">drop-shadow</span>
-                {": "}
-                <span className="code_three">{dropShadowHorizontal}</span>{" "}
-                <span className="code_three">{dropShadowVertical}</span>{" "}
-                <span className="code_three">{dropShadowBlur}</span>{" "}
-                <span className="code_three">{dropShadowColor}</span> ;
+                {" "}
+                <span className="code_three">heu-rotate({heuRotate})</span>
               </>
             )}
+            {invert !== "0%" && (
+              <>
+                {" "}
+                <span className="code_three">invert({invert})</span>
+              </>
+            )}
+            {saturate !== "100%" && (
+              <>
+                {" "}
+                <span className="code_three">saturate({saturate})</span>
+              </>
+            )}
+            {(brightness !== "1" ||
+              blur !== "0px" ||
+              contrast !== "100%" ||
+              sepia !== "0%" ||
+              grayscale !== "0%" ||
+              invert !== "0%" ||
+              heuRotate !== "" ||
+              saturate !== "100%") && <>{";"}</>}
           </pre>
         </div>
         <button onClick={copyHandler} className="copyBtn">

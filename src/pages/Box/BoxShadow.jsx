@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { Context } from "../../components/Context/BoxContext";
 import { motion } from "framer-motion";
 import Menu from "../../components/Menu/Menu";
-import Preview from "../../components/Preview/Preview";
-import Code from "../../components/Code/Code";
+import Preview from "../../components/Preview/PreviewBox";
+import Code from "../../components/Code/CodeBox";
 import Footer from "../../components/Footer/Footer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function BoxShadow() {
   const { state, dispatch } = useContext(Context);
@@ -26,6 +27,11 @@ export default function BoxShadow() {
 
   const boxSpreadHandler = (e) => {
     dispatch({ type: "SET_SHADOW_SPREAD", payload: `${e.target.value}px` });
+  };
+
+  const boxColorOpacityHandler = (e) => {
+    dispatch({ type: "SET_SHADOW_COLOR_OPACITY", payload: e.target.value });
+    dispatch({ type: "SET_SHADOW_COLOR_RGB", payload: boxShadowColor });
   };
 
   const boxBlurHandler = (e) => {
@@ -55,24 +61,18 @@ export default function BoxShadow() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Box shadow</span>
+          <TitleContainer title="Box shadow" />
           <Preview />
+
           <div className="option_wraper">
             <div className="options">
               <div className="input_box">
                 <label>Color</label>
                 <input onChange={(e) => boxColorChange(e)} type="color" />
               </div>
-              <span>{boxShadowColor}</span>
-              <span>{boxShadowColorRgb}</span>
               <div className="input_box">
-                <label>Blur</label>
-                <input
-                  onChange={(e) => boxBlurHandler(e)}
-                  type="range"
-                  value={boxShadowBlur.replace("px", "")}
-                />
-                <span>{boxShadowBlur}</span>
+                <span>{boxShadowColor}</span>
+                <span>{boxShadowColorRgb}</span>
               </div>
               <div className="input_box">
                 <label>Horizontal offset</label>
@@ -96,6 +96,29 @@ export default function BoxShadow() {
                 />
                 <span>{boxShadowVertical}</span>
               </div>
+
+              <div className="input_box">
+                <label>Blur</label>
+                <input
+                  onChange={(e) => boxBlurHandler(e)}
+                  type="range"
+                  value={boxShadowBlur.replace("px", "")}
+                />
+                <span>{boxShadowBlur}</span>
+              </div>
+              <div className="input_box">
+                <label>Color opacity</label>
+                <input
+                  onChange={(e) => boxColorOpacityHandler(e)}
+                  type="range"
+                  step={0.01}
+                  min={0}
+                  max={1}
+                  value={boxShadownColorOpacity}
+                />
+                <span>{boxShadownColorOpacity}</span>
+              </div>
+
               <div className="input_box">
                 <label>Spread</label>
                 <input

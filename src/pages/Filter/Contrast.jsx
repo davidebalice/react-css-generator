@@ -1,10 +1,11 @@
-import React, { useContext,useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import Menu from "../../components/Menu/Menu";
 import Preview from "../../components/Preview/PreviewFilter";
 import Code from "../../components/Code/CodeFilter";
 import { Context } from "../../components/Context/FilterContext";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function Contrast() {
   const { state, dispatch } = useContext(Context);
@@ -14,16 +15,10 @@ export default function Contrast() {
     dispatch({ type: "SET_CONTRAST", payload: `${e.target.value}%` });
   };
 
-  useEffect(() => {
-    dispatch({ type: 'RESET' });
-    dispatch({ type: 'SET_FILTER', payload: "contrast" });
-  }, []);
-
-
   return (
     <>
-    <div className="row">
-      <Menu />
+      <div className="row">
+        <Menu />
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -31,8 +26,9 @@ export default function Contrast() {
           exit="exit"
           className="cssContainer"
         >
-          <span className="titleSection">Contrast</span>
-          <Preview/>
+          <TitleContainer title="Contrast" />
+          <Preview />
+
           <div className="option_wraper">
             <div className="options">
               <div className="input_box">
@@ -40,7 +36,7 @@ export default function Contrast() {
                   onChange={(e) => contrastHandler(e)}
                   type="range"
                   max={200}
-                  value={contrast.replace('%','')}
+                  value={contrast.replace("%", "")}
                 />
                 <span>{contrast}</span>
               </div>
