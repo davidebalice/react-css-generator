@@ -15,7 +15,12 @@ export default function Header() {
         <p>Css Generator</p>
       </Link>
 
-      <Link to={"/"} className="logo">
+      <a
+        href="https://github.com/davidebalice/react-css-generator"
+        target="_blank"
+        rel="noreferrer"
+        className="githubContainer"
+      >
         <p className="githubText">
           View project
           <br />
@@ -26,7 +31,7 @@ export default function Header() {
           className="github"
           alt="github"
         />
-      </Link>
+      </a>
     </header>
   );
 }

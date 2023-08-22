@@ -58,7 +58,7 @@ const Preview = () => {
     opacity: `${opacity}`,
   };
 
-  const skewStyle = skewX !== "0" && {
+  const skewStyle = (skewX !== "0" || skewY !== "0") && {
     transform: `skew(${skewX}, ${skewY})`,
   };
 

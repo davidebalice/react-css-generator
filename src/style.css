@@ -556,9 +556,45 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 
 .cardText {
-  font-size: 14px;
+  font-size: 15px;
   text-align: center;
   color: #444;
+}
+
+.descriptionContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  text-align: left;
+}
+
+.reactLogo {
+  font-size: 90px;
+  font-weight: bold;
+  color: #04d1f6;
+}
+
+.descriptionTitle {
+  font-size: 34px;
+  text-align: left;
+  margin-top: 10px;
+  color: #333;
+  font-weight: bold;
+}
+
+.descriptionText {
+  font-size: 18px;
+  text-align: center;
+  color: #444;
+  text-align: left;
+  line-height: 28px;
+  margin-top: 12px;
+}
+
+.linkGithub {
+  color: #333;
+  font-size: 17px;
+  text-decoration: underline;
 }
 
 .aws-btn {

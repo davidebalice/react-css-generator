@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "react-awesome-button/dist/themes/theme-blue.css";
 import Card from "./Card";
+import Description from "./Description";
 import Footer from "../../components/Footer/Footer";
 
 export default function Home() {
@@ -16,11 +17,19 @@ export default function Home() {
           transition={{ duration: 0.4, delay: 0.2 }}
           className="cardContainer"
         >
+          <a
+            href="https://github.com/davidebalice/react-css-generator"
+            style={{ gridColumn: "1 / span 2" }}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <Description delay="0.1" icon="react" />
+          </a>
           <Link to="/backgroundcolor">
             <Card
               title="Box"
               description="border, background, radius, shadow, rotate..."
-              delay="0.1"
+              delay="0.2"
               icon="css"
             />
           </Link>
@@ -28,7 +37,7 @@ export default function Home() {
             <Card
               title="Text"
               description="font-size, font-family, text-style, text-shadow..."
-              delay="0.2"
+              delay="0.3"
               icon="text"
             />
           </Link>
@@ -36,7 +45,7 @@ export default function Home() {
             <Card
               title="Image filter"
               description="brightness, blur, contrast, filter..."
-              delay="0.3"
+              delay="0.4"
               icon="image"
             />
           </Link>
@@ -45,7 +54,7 @@ export default function Home() {
             <Card
               title="Flex & Grid"
               description="display flex, display grid, direction, column..."
-              delay="0.4"
+              delay="0.5"
               icon="flex"
             />
           </Link>

@@ -1,7 +1,5 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { motion } from "framer-motion";
-import { Context } from "../../components/Context/BoxContext";
 import "react-awesome-button/dist/themes/theme-blue.css";
 import { MdOutlineBorderOuter, MdTextFields } from "react-icons/md";
 import { FaRegImage, FaColumns } from "react-icons/fa";

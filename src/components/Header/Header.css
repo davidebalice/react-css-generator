@@ -45,11 +45,19 @@
   gap: 20px;
 }
 
+.githubContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .github {
   width: 70px;
 }
 
-.githubText{
-    font-size:13px;
-    text-align: center;
+.githubText {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
 }
