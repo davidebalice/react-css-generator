@@ -7,29 +7,29 @@ import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
 import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
-export default function FlexBox() {
+export default function Flex() {
   const { state, dispatch } = useContext(Context);
-  const { flexDirection, alignItems, justifyContent } = state;
+  const { item, flexDirection, alignItems, justifyContent, gap } = state;
+
+  const itemHandler = (e) => {
+    dispatch({ type: "SET_ITEM", payload: e.target.value });
+  };
 
   const directionHandler = (e) => {
     dispatch({ type: "SET_FLEX_DIRECTION", payload: e.target.value });
   };
 
   const alignItemsHandler = (e) => {
-    dispatch({ type: "ALIGN_ITEMS", payload: e.target.value });
+    dispatch({ type: "SET_ALIGN_ITEMS", payload: e.target.value });
   };
 
   const justifyContentHandler = (e) => {
-    dispatch({ type: "JUSTIFY_CONTENT", payload: e.target.value });
+    dispatch({ type: "SET_JUSTIFY_CONTENT", payload: e.target.value });
   };
 
-  /*
-  const flexBoxCopyHandler = async () => {
-    let text = JSON.stringify(flex).replaceAll(",", ";").replaceAll('"', "");
-    await copyed(text);
-    btnCopyTextChange();
+  const gapHandler = (e) => {
+    dispatch({ type: "SET_GAP", payload: `${e.target.value}px` });
   };
-*/
 
   return (
     <>
@@ -42,11 +42,21 @@ export default function FlexBox() {
           exit="exit"
           className="cssContainer"
         >
-          <TitleContainer title="FlexBox" />
+          <TitleContainer title="Flex" />
           <Preview />
 
           <div className="option_wraper">
             <div className="options">
+              <div className="input_box">
+                <label>Item</label>
+                <select onChange={itemHandler} value={item}>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
               <div className="input_box">
                 <label>Justify Content</label>
                 <select onChange={justifyContentHandler}>
@@ -70,12 +80,24 @@ export default function FlexBox() {
               </div>
               <div className="input_box">
                 <label>Direction</label>
-                <select onChange={directionHandler}>
+                <select onChange={directionHandler} value={flexDirection}>
                   <option value="row">row</option>
                   <option value="column">column</option>
                   <option value="row-reverse">row reverse</option>
                   <option value="column-reverse">column reverse</option>
                 </select>
+              </div>
+              <div className="input_box">
+                <label>Gap</label>
+                <input
+                  onChange={(e) => gapHandler(e)}
+                  type="range"
+                  min="0"
+                  max="30"
+                  step="1"
+                  value={gap.replace("px", "")}
+                />
+                <span>{gap}</span>
               </div>
             </div>
           </div>

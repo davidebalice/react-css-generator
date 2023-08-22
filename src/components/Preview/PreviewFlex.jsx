@@ -1,36 +1,47 @@
 import React, { useContext } from "react";
-import { Context } from "../Context/BoxContext";
+import { Context } from "../Context/FlexContext";
+import Card from "../../pages/Flex/Card";
 
 const Preview = () => {
   const { state } = useContext(Context);
-  const { flexDirection, alignItems, justifyContent } = state;
+  const { item, flexDirection, alignItems, justifyContent, gap } = state;
 
-  const flexStyle = flexDirection && {
+  const flexStyle = { display: "flex" };
+
+  const directionStyle = flexDirection !== "" && {
     flexDirection: `${flexDirection}`,
+  };
+
+  const alignItemsStyle = alignItems !== "" && {
+    alignItems: `${alignItems}`,
+  };
+
+  const justifyContentStyle = justifyContent !== "" && {
+    justifyContent: `${justifyContent}`,
+  };
+
+  const gapStyle = gap !== "" && {
+    gap: `${gap}`,
   };
 
   const styles = {
     ...flexStyle,
+    ...directionStyle,
+    ...alignItemsStyle,
+    ...justifyContentStyle,
+    ...gapStyle,
   };
 
-
-  /*
-  <div
-            className="preview_box flex-preview-box"
-            style={{
-              flexDirection: flex["flex-direction"],
-              justifyContent: flex["justify-content"],
-              alignItems: flex["align-items"],
-            }}
-          >
-  */
+  const cards = ["1", "2", "3", "4", "5"];
 
   return (
     <div className="topBox">
-      <div className="previewContainer">
-        <div className="previewBox">
-          <div className="previewDiv" style={styles}>
-            {" "}
+      <div className="previewContainer previewContainerGrid">
+        <div className="previewBox previewBoxScroll">
+          <div className="previewFlex" style={styles}>
+            {cards.slice(0, item).map((card) => (
+              <Card item={card} type="flex" />
+            ))}
           </div>
         </div>
       </div>

@@ -14,6 +14,19 @@ export default function Header() {
         />
         <p>Css Generator</p>
       </Link>
+
+      <Link to={"/"} className="logo">
+        <p className="githubText">
+          View project
+          <br />
+          on GitHub
+        </p>
+        <img
+          src={process.env.PUBLIC_URL + "/images/github.png"}
+          className="github"
+          alt="github"
+        />
+      </Link>
     </header>
   );
 }

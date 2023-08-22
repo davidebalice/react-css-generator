@@ -1,45 +1,55 @@
 .header {
-    width: 100%;
-    padding: 15px 25px;
-    background-color: #f3f3f3;
-    user-select: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    align-items: center;
-    z-index: 100;
+  width: 100%;
+  padding: 15px 25px;
+  background-color: #f3f3f3;
+  user-select: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  align-items: center;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
 }
 
 .logo {
-    font-weight: bold;
-    font-size: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    gap:20px;
-    letter-spacing: 1px;
-    color: #161623;
+  font-weight: bold;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 20px;
+  letter-spacing: 1px;
+  color: #161623;
 }
 
 .logoImg {
-    height: 46px;
+  height: 46px;
 }
 
-
 @media (max-width: 767px) {
-    .logoImg {
-        height: 36px;
-    }
+  .logoImg {
+    height: 36px;
+  }
 }
 
 .menu_Icon {
-    font-size: 28px;
-    cursor: pointer;
+  font-size: 28px;
+  cursor: pointer;
 }
 
-.icon_box_Header{
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.icon_box_Header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.github {
+  width: 70px;
+}
+
+.githubText{
+    font-size:13px;
+    text-align: center;
 }

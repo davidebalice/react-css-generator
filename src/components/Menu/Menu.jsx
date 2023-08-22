@@ -3,6 +3,7 @@ import { PageContext } from "../../components/Context/PageContext";
 import DataCss from "../../data_css";
 import DataText from "../../data_text";
 import DataFilter from "../../data_filter";
+import DataFlex from "../../data_flex";
 import { AwesomeButton } from "react-awesome-button";
 import { Link } from "react-router-dom";
 
@@ -44,6 +45,8 @@ const Menu = () => {
       setData(DataText);
     } else if (pageType === "filter") {
       setData(DataFilter);
+    } else if (pageType === "flex") {
+      setData(DataFlex);
     }
   }, [pageType]);
 

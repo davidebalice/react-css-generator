@@ -58,7 +58,6 @@ body::before {
   background-repeat: repeat;
   width: 100%;
   height: 100%;
-  min-height: calc(100vh - 54px);
 }
 
 @font-face {
@@ -136,6 +135,10 @@ body::before {
   height: 450px;
 }
 
+.previewContainerGrid {
+  height: 500px;
+}
+
 .previewBox {
   display: flex;
   width: 100%;
@@ -148,11 +151,23 @@ body::before {
   overflow: hidden;
 }
 
+.previewBoxScroll {
+  overflow-y: scroll !important;
+}
+
 .previewDiv {
   width: 50%;
   height: 70%;
   margin: 0 auto;
   overflow: hidden;
+}
+
+.previewFlex {
+  width: 98%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .previewFilter {
@@ -484,6 +499,11 @@ input[type="range"]::-webkit-slider-thumb:active {
   gap: 30px;
 }
 
+.homeContainer {
+  min-height: calc(100vh - 188px);
+  clear: both;
+}
+
 @media (max-width: 600px) {
   .cardContainer {
     grid-template-columns: 1fr;
@@ -582,3 +602,39 @@ input[type="range"]::-webkit-slider-thumb:active {
   background-color: #555;
 }
 
+.flexCard {
+  width: 190px;
+  height: 190px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 8px 0px rgb(94, 94, 94, 0.24);
+  border-radius: 4px;
+}
+
+.flexPhotoContainer {
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+}
+
+.flexPhoto {
+  width: 100%;
+}
+
+.flexText {
+  text-align: center;
+  font-size: 14px;
+  width: 100%;
+  padding: 14px;
+}
+
+.gridCard {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 8px 0px rgb(94, 94, 94, 0.24);
+  border-radius: 4px;
+}
+
+.text-white {
+  color: #fff;
+}

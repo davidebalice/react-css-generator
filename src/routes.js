@@ -27,6 +27,7 @@ import HeuRotate from "./pages/Filter/HeuRotate";
 import Invert from "./pages/Filter/Invert";
 import Saturate from "./pages/Filter/Saturate";
 import Flex from "./pages/Flex/Flex";
+import Grid from "./pages/Flex/Grid";
 
 let router = [
   { path: "/", element: <Home /> },
@@ -57,6 +58,7 @@ let router = [
   { path: "/invert", element: <Invert /> },
   { path: "/saturate", element: <Saturate /> },
   { path: "/flex", element: <Flex /> },
+  { path: "/grid", element: <Grid /> },
 
   { path: "*", element: <Navigate to={"/"} /> },
 ];

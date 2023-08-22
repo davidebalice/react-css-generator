@@ -58,6 +58,7 @@ const PageContextProvider = ({ children }) => {
         pageType = "filter";
         break;
       case "/flex":
+      case "/grid":
         pageType = "flex";
         break;
       default:

@@ -3,8 +3,16 @@ import "./Footer.css";
 
 export default function Footer() {
   return (
-    <div>
-      <p className="footer">@Davide Balice - www.davidebalice.dev</p>
+    <div className="footer">
+      @Davide Balice -{" "}
+      <a
+        href="https://www.davidebalice.dev"
+        target="_blank"
+        rel="noreferrer"
+        className="text-white"
+      >
+        www.davidebalice.dev
+      </a>
     </div>
   );
 }
