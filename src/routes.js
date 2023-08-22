@@ -13,6 +13,7 @@ import FontFamily from "./pages/Text/FontFamily";
 import TextColor from "./pages/Text/TextColor";
 import TextDecoration from "./pages/Text/TextDecoration";
 import FontWeight from "./pages/Text/FontWeight";
+import TextShadow from "./pages/Text/TextShadow";
 import TextTransform from "./pages/Text/TextTransform";
 import LetterSpacing from "./pages/Text/LetterSpacing";
 import LineHeight from "./pages/Text/LineHeight";
@@ -25,10 +26,8 @@ import Grayscale from "./pages/Filter/Grayscale";
 import HeuRotate from "./pages/Filter/HeuRotate";
 import Invert from "./pages/Filter/Invert";
 import Saturate from "./pages/Filter/Saturate";
-/*
-import FlexBox from "./pages/FlexBox/FlexBox";
 import Flex from "./pages/Flex/Flex";
-*/
+
 let router = [
   { path: "/", element: <Home /> },
   { path: "/backgroundcolor", element: <Backgroundcolor /> },
@@ -48,6 +47,7 @@ let router = [
   { path: "/lineheight", element: <LineHeight /> },
   { path: "/textalign", element: <TextAlign /> },
   { path: "/fontweight", element: <FontWeight /> },
+  { path: "/textshadow", element: <TextShadow /> },
   { path: "/blur", element: <Blur /> },
   { path: "/sepia", element: <Sepia /> },
   { path: "/brightness", element: <Brightness /> },
@@ -56,13 +56,9 @@ let router = [
   { path: "/heurotate", element: <HeuRotate /> },
   { path: "/invert", element: <Invert /> },
   { path: "/saturate", element: <Saturate /> },
+  { path: "/flex", element: <Flex /> },
 
   { path: "*", element: <Navigate to={"/"} /> },
 ];
 
 export default router;
-
-/*
-  { path: "/flex", element: <Flex /> },
-  { path: "/flexbox", element: <FlexBox /> },
-*/

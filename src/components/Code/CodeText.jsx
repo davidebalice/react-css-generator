@@ -21,6 +21,12 @@ const Box = () => {
     letterspacing,
     lineheight,
     textalign,
+    textShadowColor,
+    textShadowColorRgb,
+    textShadownColorOpacity,
+    textShadowHorizontal,
+    textShadowVertical,
+    textShadowBlur,
   } = state;
 
   useEffect(() => {
@@ -122,6 +128,10 @@ const Box = () => {
 
     text += textalign !== "" && `text-align: ${textalign};`;
 
+    text +=
+      (textShadowVertical !== "0px" || textShadowHorizontal !== "0px") &&
+      `text-shadow: ${textShadowHorizontal} ${textShadowVertical} ${textShadowBlur} ${textShadowColorRgb};`;
+
     text = text.replace(/false/g, "");
 
     await copyed(text);
@@ -199,6 +209,19 @@ const Box = () => {
                 <span className="code_one">text-align</span>
                 {": "}
                 <span className="code_three">{textalign}</span>; <br />
+              </>
+            )}
+            {(textShadowVertical !== "0px" ||
+              textShadowHorizontal !== "0px") && (
+              <>
+                <span className="code_one">text-shadow</span>
+                {": "}
+                <span className="code_three">
+                  {textShadowHorizontal} {textShadowVertical} {textShadowBlur}{" "}
+                  {textShadowColorRgb}
+                </span>
+                ;
+                <br />
               </>
             )}
           </pre>

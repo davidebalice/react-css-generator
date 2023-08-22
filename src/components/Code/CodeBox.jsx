@@ -19,6 +19,7 @@ const Box = () => {
     borderWidth,
     borderColor,
     borderType,
+    boxSizing,
     borderRadius,
     boxShadowBlur,
     boxShadowColor,
@@ -45,7 +46,8 @@ const Box = () => {
         : "");
 
     text +=
-      borderActive && `border: ${borderWidth} ${borderType} ${borderColor};`;
+      borderActive &&
+      `border: ${borderWidth} ${borderType} ${borderColor};box-sizing: ${boxSizing}`;
 
     text += borderRadius !== "0px" && `border-radius: ${borderRadius};`;
 
@@ -104,6 +106,9 @@ const Box = () => {
                 <span className="code_two">{borderType}</span>{" "}
                 <span className="code_three">{borderColor}</span>;
                 <br />
+                <span className="code_one">box-sizing</span>
+                {": "}
+                <span className="code_three">{boxSizing}</span> <br />
               </>
             )}
             {borderRadius !== "0px" && (

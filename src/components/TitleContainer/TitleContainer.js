@@ -11,6 +11,8 @@ const TitleContainer = ({ title }) => {
     Context = require("../../components/Context/TextContext").Context;
   } else if (pageState.pageType === "filter") {
     Context = require("../../components/Context/FilterContext").Context;
+  } else if (pageState.pageType === "flex") {
+    Context = require("../../components/Context/FlexContext").Context;
   }
 
   const { handleReset } = useContext(Context);

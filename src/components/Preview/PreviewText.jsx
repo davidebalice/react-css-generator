@@ -15,6 +15,12 @@ const Preview = () => {
     letterspacing,
     lineheight,
     textalign,
+    textShadowBlur,
+    textShadowColor,
+    textShadowColorRgb,
+    textShadownColorOpacity,
+    textShadowHorizontal,
+    textShadowVertical,
   } = state;
 
   const fontsizeStyle = {
@@ -53,6 +59,13 @@ const Preview = () => {
     textAlign: `${textalign}`,
   };
 
+  const textShadowStyle = (textShadowVertical !== "0px" ||
+    textShadowHorizontal !== "0px") && {
+    textShadow: `${textShadowHorizontal} ${textShadowVertical} ${textShadowBlur} ${textShadowColorRgb}`,
+  };
+
+  console.log(textShadowStyle);
+
   const styles = {
     ...fontsizeStyle,
     ...fontfamilyStyle,
@@ -63,8 +76,9 @@ const Preview = () => {
     ...letterspacingStyle,
     ...lineheightStyle,
     ...textalignStyle,
+    ...textShadowStyle,
   };
-  
+
   return (
     <div className="topBox">
       <div className="previewContainer">

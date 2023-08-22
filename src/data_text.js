@@ -48,6 +48,11 @@ let Data = [
         route: "/textalign",
         name: "Text align",
       },
+      {
+        id: 10,
+        route: "/textshadow",
+        name: "Text shadow",
+      },
     ],
   },
 ];

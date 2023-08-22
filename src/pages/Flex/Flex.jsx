@@ -1,50 +1,88 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import "./Flex.css";
-
-import Box from "../../components/Preview/Preview";
+import { Context } from "../../components/Context/FlexContext";
+import Menu from "../../components/Menu/Menu";
+import Preview from "../../components/Preview/PreviewFlex";
+import Code from "../../components/Code/CodeFlex";
 import { motion } from "framer-motion";
-import { Context } from "../../components/Context/BoxContext";
-import { AwesomeButton } from "react-awesome-button";
-import "react-awesome-button/dist/themes/theme-blue.css";
-import GitHubLink from "../../components/GithubLink/GitHubLink";
-/*
-export default function Css() {
-  const { mainVariant, closeMenu } = useContext(Context);
+import Footer from "../../components/Footer/Footer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
+
+export default function FlexBox() {
+  const { state, dispatch } = useContext(Context);
+  const { flexDirection, alignItems, justifyContent } = state;
+
+  const directionHandler = (e) => {
+    dispatch({ type: "SET_FLEX_DIRECTION", payload: e.target.value });
+  };
+
+  const alignItemsHandler = (e) => {
+    dispatch({ type: "ALIGN_ITEMS", payload: e.target.value });
+  };
+
+  const justifyContentHandler = (e) => {
+    dispatch({ type: "JUSTIFY_CONTENT", payload: e.target.value });
+  };
+
+  /*
+  const flexBoxCopyHandler = async () => {
+    let text = JSON.stringify(flex).replaceAll(",", ";").replaceAll('"', "");
+    await copyed(text);
+    btnCopyTextChange();
+  };
+*/
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: 0.2 }}
-      exit="exit"
-      className="home_Container"
-    >
-      <div key={"home"} className="group_container">
-        <div className="group_btn">
-          <Link key="css_id" to="/">
-            <AwesomeButton>home</AwesomeButton>
-          </Link>
-        </div>
-      </div>
+    <>
+      <div className="row">
+        <Menu />
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          exit="exit"
+          className="cssContainer"
+        >
+          <TitleContainer title="FlexBox" />
+          <Preview />
 
-      {Datas.map((data) => (
-        <div key={data.id} className="group_container">
-          <span className="title_group">{data.title}</span>
-          <div className="group_btn">
-            {data.routeAddress.map((routes) => (
-              <Link onClick={closeMenu} key={routes.id} to={routes.route}>
-                <AwesomeButton>{routes.name}</AwesomeButton>
-              </Link>
-            ))}
+          <div className="option_wraper">
+            <div className="options">
+              <div className="input_box">
+                <label>Justify Content</label>
+                <select onChange={justifyContentHandler}>
+                  <option value="center">center</option>
+                  <option value="flex-start">flex start</option>
+                  <option value="flex-end">flex end</option>
+                  <option value="baseline">baseline</option>
+                  <option value="space-around">space around</option>
+                  <option value="space-between">space between</option>
+                  <option value="space-evenly">space evenly</option>
+                </select>
+              </div>
+              <div className="input_box">
+                <label>Align Items</label>
+                <select onChange={alignItemsHandler}>
+                  <option value="center">center</option>
+                  <option value="flex-start">flex start</option>
+                  <option value="flex-end">flex end</option>
+                  <option value="baseline">baseline</option>
+                </select>
+              </div>
+              <div className="input_box">
+                <label>Direction</label>
+                <select onChange={directionHandler}>
+                  <option value="row">row</option>
+                  <option value="column">column</option>
+                  <option value="row-reverse">row reverse</option>
+                  <option value="column-reverse">column reverse</option>
+                </select>
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
-      <div>
-        <Box />
+          <Code />
+        </motion.div>
       </div>
-      <GitHubLink />
-    </motion.div>
+      <Footer />
+    </>
   );
 }
-*/

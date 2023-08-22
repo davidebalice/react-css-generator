@@ -16,6 +16,7 @@ const Preview = () => {
     borderWidth,
     borderColor,
     borderType,
+    boxSizing,
     borderRadius,
     boxShadowBlur,
     boxShadowColor,
@@ -41,6 +42,7 @@ const Preview = () => {
 
   const borderStyle = borderActive && {
     border: `${borderWidth} ${borderType} ${borderColor}`,
+    boxSizing: boxSizing,
   };
 
   const borderRadiusStyle = borderRadius !== "0px" && {

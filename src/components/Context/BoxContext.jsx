@@ -11,9 +11,10 @@ const initialState = {
   gradientType: "linear-gradient",
   gradientAngle: "90deg,",
   borderActive: false,
-  borderWidth: "2px",
-  borderColor: "#ccc",
+  borderWidth: "0px",
+  borderColor: "#aaa",
   borderType: "solid",
+  boxSizing: "content-box",
   borderRadius: "0px",
   boxShadowBlur: "0px",
   boxShadowColor: "#000000",
@@ -65,6 +66,8 @@ const reducer = (state, action) => {
       return { ...state, borderColor: action.payload };
     case "SET_BORDER_TYPE":
       return { ...state, borderType: action.payload };
+    case "SET_BOX_SIZING":
+      return { ...state, boxSizing: action.payload };
     case "SET_BORDER_RADIUS":
       return { ...state, borderRadius: action.payload };
     case "SET_SHADOW_BLUR":

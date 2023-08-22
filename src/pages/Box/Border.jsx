@@ -9,8 +9,7 @@ import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function Border() {
   const { state, dispatch } = useContext(Context);
-
-  const { borderWidth, borderColor, borderType } = state;
+  const { borderWidth, borderColor, borderType, boxSizing } = state;
 
   const handleChange = (e) => {
     dispatch({ type: "SET_BORDER_COLOR", payload: e.target.value });
@@ -29,6 +28,10 @@ export default function Border() {
 
   const borderActiveHandler = () => {
     dispatch({ type: "SET_BORDER_ACTIVE", payload: true });
+  };
+
+  const boxSizingHandler = (e) => {
+    dispatch({ type: "SET_BOX_SIZING", payload: e.target.value });
   };
 
   return (
@@ -96,6 +99,23 @@ export default function Border() {
                   </option>
                   <option value="outset" selected={borderType === "outset"}>
                     outset
+                  </option>
+                </select>
+              </div>
+              <div className="input_box">
+                <label>Box sizing</label>
+                <select value={boxSizing} onChange={(e) => boxSizingHandler(e)}>
+                  <option
+                    value="content-box"
+                    selected={boxSizing === "content-box"}
+                  >
+                    content-box
+                  </option>
+                  <option
+                    value="border-box"
+                    selected={boxSizing === "border-box"}
+                  >
+                    border-box
                   </option>
                 </select>
               </div>

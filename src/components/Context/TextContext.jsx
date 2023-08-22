@@ -13,7 +13,21 @@ const initialState = {
   letterspacing: "0",
   lineheight: "0",
   textalign: "",
+  textShadowColor: "#000000",
+  textShadowColorRgb: "rgb(0, 0, 0, 1)",
+  textShadownColorOpacity: "1",
+  textShadowHorizontal: "0px",
+  textShadowVertical: "0px",
+  textShadowBlur: "0px",
 };
+
+function hexToRgb(hex, opacity) {
+  hex = hex.replace("#", "");
+  const r = parseInt(hex.substring(0, 2), 16);
+  const g = parseInt(hex.substring(2, 4), 16);
+  const b = parseInt(hex.substring(4, 6), 16);
+  return `rgb(${r}, ${g}, ${b},${opacity})`;
+}
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -41,6 +55,19 @@ const reducer = (state, action) => {
       return { ...state, lineheight: action.payload };
     case "SET_TEXT_ALIGN":
       return { ...state, textalign: action.payload };
+    case "SET_TEXT_SHADOW_BLUR":
+      return { ...state, textShadowBlur: action.payload };
+    case "SET_TEXT_SHADOW_COLOR":
+      return { ...state, textShadowColor: action.payload };
+    case "SET_TEXT_SHADOW_COLOR_RGB":
+      const rgbColor = hexToRgb(action.payload, state.textShadownColorOpacity);
+      return { ...state, textShadowColorRgb: rgbColor };
+    case "SET_TEXT_SHADOW_COLOR_OPACITY":
+      return { ...state, textShadownColorOpacity: action.payload };
+    case "SET_TEXT_SHADOW_HORIZONTAL":
+      return { ...state, textShadowHorizontal: action.payload };
+    case "SET_TEXT_SHADOW_VERTICAL":
+      return { ...state, textShadowVertical: action.payload };
     default:
       return state;
   }

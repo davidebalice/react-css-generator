@@ -43,6 +43,7 @@ const PageContextProvider = ({ children }) => {
       case "/letterspacing":
       case "/lineheight":
       case "/textalign":
+      case "/textshadow":
         pageType = "text";
         break;
       case "/brightness":
@@ -55,6 +56,9 @@ const PageContextProvider = ({ children }) => {
       case "/invert":
       case "/saturate":
         pageType = "filter";
+        break;
+      case "/flex":
+        pageType = "flex";
         break;
       default:
         pageType = "box";
