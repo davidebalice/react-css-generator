@@ -386,7 +386,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   .preview_wraper,
   .codeBox,
   .copyBtn {
-    width: 400px;
+    width: 100%;
   }
 
   .options {
@@ -462,7 +462,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   .row {
     display: block;
     position: relative;
-    height: 100vh;
+    padding:12px;
   }
 
   .columnMenu {
@@ -480,13 +480,15 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 
 .mobileButtonContainer {
-  width: 100%;
-  height: 40px;
+  width: fit-content;
+  padding: 10px;
   clear: both;
   background: #fff;
-  font-size: 20px;
-  padding-top: 70px;
-  padding-bottom: 40px;
+  font-size: 26px;
+  margin-top:100px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
 }
 
 .cardContainer {
@@ -504,9 +506,66 @@ input[type="range"]::-webkit-slider-thumb:active {
   clear: both;
 }
 
-@media (max-width: 600px) {
+.cardTop{
+  grid-column: 1 / span 2;
+}
+
+.cardIcon {
+  width: 100%;
+  text-align: center;
+  font-size: 60px;
+  margin-top: 20px;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9) !important;
+}
+
+.cardTitle {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 30px;
+  color: #1e88e5;
+  font-weight: bold;
+}
+
+.cardText {
+  font-size: 15px;
+  text-align: center;
+  color: #444;
+}
+
+@media (max-width: 750px) {
   .cardContainer {
-    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns:  repeat(1, 1fr) !important; 
+  }
+
+  .cardTop{
+    grid-column: 1;
+  }
+
+  .cardIcon {
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 20px;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9) !important;
+  }
+  
+  .cardTitle {
+    font-size: 27px;
+    text-align: center;
+    margin-top: 30px;
+    color: #1e88e5;
+    font-weight: bold;
+  }
+  
+  .cardText {
+    font-size: 14px;
+    text-align: center;
+    color: #444;
   }
 }
 
@@ -538,29 +597,6 @@ input[type="range"]::-webkit-slider-thumb:active {
   );
 }
 
-.cardIcon {
-  width: 100%;
-  text-align: center;
-  font-size: 60px;
-  margin-top: 20px;
-  color: #333;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9) !important;
-}
-
-.cardTitle {
-  font-size: 30px;
-  text-align: center;
-  margin-top: 30px;
-  color: #1e88e5;
-  font-weight: bold;
-}
-
-.cardText {
-  font-size: 15px;
-  text-align: center;
-  color: #444;
-}
-
 .descriptionContainer {
   display: flex;
   flex-direction: row;
@@ -589,6 +625,35 @@ input[type="range"]::-webkit-slider-thumb:active {
   text-align: left;
   line-height: 28px;
   margin-top: 12px;
+}
+
+@media (max-width: 750px) {
+  .reactLogo {
+    font-size: 70px;
+    font-weight: bold;
+    color: #04d1f6;
+  }
+
+  .descriptionTitle {
+    font-size: 30px;
+    text-align: left;
+    margin-top: 10px;
+    color: #333;
+    font-weight: bold;
+  }
+
+  .descriptionText {
+    font-size: 14px;
+    text-align: center;
+    color: #444;
+    text-align: left;
+    line-height: 28px;
+    margin-top: 12px;
+  }
+
+  .githubText{
+    display:none
+  }
 }
 
 .linkGithub {

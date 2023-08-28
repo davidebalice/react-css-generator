@@ -19,9 +19,9 @@ export default function Home() {
         >
           <a
             href="https://github.com/davidebalice/react-css-generator"
-            style={{ gridColumn: "1 / span 2" }}
             rel="noreferrer"
             target="_blank"
+            className="cardTop"
           >
             <Description delay="0.1" icon="react" />
           </a>

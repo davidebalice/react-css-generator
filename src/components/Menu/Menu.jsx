@@ -6,6 +6,9 @@ import DataFilter from "../../data_filter";
 import DataFlex from "../../data_flex";
 import { AwesomeButton } from "react-awesome-button";
 import { Link } from "react-router-dom";
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { AiFillCloseSquare } from 'react-icons/ai';
+
 
 const Menu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,7 +57,7 @@ const Menu = () => {
     <>
       {isMobile && (
         <div className="mobileButtonContainer" onClick={toggleMenu}>
-          Open Menu
+          {isMenuOpen ?  <AiFillCloseSquare/> :  <GiHamburgerMenu/>}
         </div>
       )}
 
