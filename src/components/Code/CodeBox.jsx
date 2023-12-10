@@ -19,8 +19,12 @@ const Box = () => {
     borderWidth,
     borderColor,
     borderType,
+    borderEdge,
+    borderEdgeType,
+    borderEdgeColor,
     boxSizing,
     borderRadius,
+    borderRadiusAngle,
     boxShadowBlur,
     boxShadowColor,
     boxShadowColorRgb,
@@ -37,28 +41,65 @@ const Box = () => {
   const copyHandler = async () => {
     let text = "";
 
-    text =
-      text +
-      (bgType === "linear"
+    //background
+    text +=
+      bgType === "linear"
         ? `background-color: ${bgColor};`
         : bgType === "gradient"
         ? `background: ${gradientType}(${gradientAngle} ${gradientColorOne} ${gradientRateOne}, ${gradientColorTwo} ${gradientRateTwo});`
-        : "");
+        : "";
 
-    text +=
-      borderActive &&
-      `border: ${borderWidth} ${borderType} ${borderColor};box-sizing: ${boxSizing}`;
+    //border
+    if (borderActive && borderWidth >= 1) {
+      if (borderEdge[0] === 1) {
+        text += `border: ${borderWidth} ${borderType} ${borderColor};box-sizing: ${boxSizing}`;
+      }
+    }
+    if (borderEdge[0] === 0 && borderEdge[1] >= 1) {
+      text += `border-top: ${borderEdge[1]}px ${borderEdgeType[1]} ${borderEdgeColor[1]};`;
+    }
+    if (borderEdge[0] === 0 && borderEdge[2] >= 1) {
+      text += `border-top: ${borderEdge[2]}px ${borderEdgeType[2]} ${borderEdgeColor[2]};`;
+    }
+    if (borderEdge[0] === 0 && borderEdge[3] >= 1) {
+      text += `border-top: ${borderEdge[3]}px ${borderEdgeType[3]} ${borderEdgeColor[3]};`;
+    }
+    if (borderEdge[0] === 0 && borderEdge[4] >= 1) {
+      text += `border-top: ${borderEdge[4]}px ${borderEdgeType[4]} ${borderEdgeColor[4]};`;
+    }
 
-    text += borderRadius !== "0px" && `border-radius: ${borderRadius};`;
+    //borderRadius
+    if (borderRadius !== "0px") {
+      if (borderRadiusAngle[0] === 1) {
+        text += `border-radius: ${borderRadius};`;
+      }
+    }
 
+    if (borderRadiusAngle[0] === 0 && borderRadiusAngle[1] >= 1) {
+      text += `border-top-left-radius: ${borderRadiusAngle[1]};px`;
+    }
+    if (borderRadiusAngle[0] === 0 && borderRadiusAngle[2] >= 1) {
+      text += `border-top-right-radius: ${borderRadiusAngle[2]};px`;
+    }
+    if (borderRadiusAngle[0] === 0 && borderRadiusAngle[3] >= 1) {
+      text += `border-bottom-left-radius: ${borderRadiusAngle[3]};px`;
+    }
+    if (borderRadiusAngle[0] === 0 && borderRadiusAngle[4] >= 1) {
+      text += `border-bottom-right-radius: ${borderRadiusAngle[4]};px`;
+    }
+
+    //opacity
     text += opacity !== "1" && `opacity: ${opacity};`;
 
+    //skew
     text +=
       (skewX !== "0" || skewY !== "0") &&
       `transform: skew:(${skewX},${skewY});`;
 
+    //rotate
     text += rotate !== "0" && `rotate: ${rotate};`;
 
+    //shadow
     text +=
       (boxShadowVertical !== "0px" || boxShadowHorizontal !== "0px") &&
       `box-shadow: ${boxShadowHorizontal} ${boxShadowVertical} ${boxShadowBlur}
@@ -98,7 +139,7 @@ const Box = () => {
                 <br />
               </>
             ) : null}
-            {borderActive && (
+            {borderWidth !== "0px" && borderEdge[0] === 1 && (
               <>
                 <span className="code_one">border</span>
                 {": "}
@@ -111,13 +152,90 @@ const Box = () => {
                 <span className="code_three">{boxSizing}</span> <br />
               </>
             )}
-            {borderRadius !== "0px" && (
+            {borderEdge[0] === 0 && borderEdge[1] >= 1 && (
+              <>
+                <span className="code_one">border-top</span>
+                {": "}
+                <span className="code_three">
+                  {borderEdge[1]}px {borderEdgeType[1]} {borderEdgeColor[1]}
+                </span>
+                ; <br />
+              </>
+            )}
+            {borderEdge[0] === 0 && borderEdge[2] >= 1 && (
+              <>
+                <span className="code_one">border-bottom</span>
+                {": "}
+                <span className="code_three">
+                  {borderEdge[2]}px {borderEdgeType[2]} {borderEdgeColor[2]}
+                </span>
+                ; <br />
+              </>
+            )}
+            {borderEdge[0] === 0 && borderEdge[3] >= 1 && (
+              <>
+                <span className="code_one">border-left</span>
+                {": "}
+                <span className="code_three">
+                  {borderEdge[3]}px {borderEdgeType[3]} {borderEdgeColor[3]}
+                </span>
+                ; <br />
+              </>
+            )}
+            {borderEdge[0] === 0 && borderEdge[4] >= 1 && (
+              <>
+                <span className="code_one">border-right</span>
+                {": "}
+                <span className="code_three">
+                  {borderEdge[4]}px {borderEdgeType[4]} {borderEdgeColor[4]}
+                </span>
+                ; <br />
+              </>
+            )}
+            {borderRadius !== "0px" && borderRadiusAngle[0] === 1 && (
               <>
                 <span className="code_one">border-radius</span>
                 {": "}
                 <span className="code_three">{borderRadius}</span>; <br />
               </>
             )}
+            {borderRadiusAngle[0] === 0 && borderRadiusAngle[1] >= 1 && (
+              <>
+                <span className="code_one">border-top-left-radius</span>
+                {": "}
+                <span className="code_three">
+                  {borderRadiusAngle[1]}px
+                </span>; <br />
+              </>
+            )}
+            {borderRadiusAngle[0] === 0 && borderRadiusAngle[2] >= 1 && (
+              <>
+                <span className="code_one">border-top-right-radius</span>
+                {": "}
+                <span className="code_three">
+                  {borderRadiusAngle[2]}px
+                </span>; <br />
+              </>
+            )}
+            {borderRadiusAngle[0] === 0 && borderRadiusAngle[3] >= 1 && (
+              <>
+                <span className="code_one">border-bottom-left-radius</span>
+                {": "}
+                <span className="code_three">
+                  {borderRadiusAngle[3]}px
+                </span>; <br />
+              </>
+            )}
+            {borderRadiusAngle[0] === 0 && borderRadiusAngle[4] >= 1 && (
+              <>
+                <span className="code_one">border-bottom-right-radius</span>
+                {": "}
+                <span className="code_three">
+                  {borderRadiusAngle[4]}px
+                </span>; <br />
+              </>
+            )}
+
             {(boxShadowVertical !== "0px" || boxShadowHorizontal !== "0px") && (
               <>
                 <span className="code_one">box-shadow</span>

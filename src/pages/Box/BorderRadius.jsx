@@ -9,10 +9,41 @@ import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function BorderRadius() {
   const { state, dispatch } = useContext(Context);
-  const { borderRadius } = state;
+  const { borderRadius, borderRadiusAngle } = state;
 
   const borderRadiusHandler = (e) => {
     dispatch({ type: "SET_BORDER_RADIUS", payload: `${e.target.value}px` });
+  };
+
+  const activateAngle = (e) => {
+    const allAngle = borderRadiusAngle[0] === 0 ? 1 : 0;
+    dispatch({
+      type: "SET_BORDER_RADIUS_ANGLE",
+      payload: [allAngle, "0", "0", "0", "0"],
+    });
+  };
+
+  const borderRadiusAngleHandler = (e, angle) => {
+    if (angle === "topleft") {
+      borderRadiusAngle[1] = e.target.value;
+    } else if (angle === "topright") {
+      borderRadiusAngle[2] = e.target.value;
+    } else if (angle === "bottomleft") {
+      borderRadiusAngle[3] = e.target.value;
+    } else if (angle === "bottomright") {
+      borderRadiusAngle[4] = e.target.value;
+    }
+
+    dispatch({
+      type: "SET_BORDER_RADIUS_ANGLE",
+      payload: [
+        0,
+        `${borderRadiusAngle[1]}`,
+        `${borderRadiusAngle[2]}`,
+        `${borderRadiusAngle[3]}`,
+        `${borderRadiusAngle[4]}`,
+      ],
+    });
   };
 
   return (
@@ -42,6 +73,61 @@ export default function BorderRadius() {
                 />
                 <span>{borderRadius}</span>
               </div>
+              all angle
+              <input
+                type="checkbox"
+                checked={borderRadiusAngle[0] === 1}
+                onClick={activateAngle}
+                style={{ width: "30px" }}
+              />
+              {borderRadiusAngle[0] === 0 && (
+                <div>
+                  {" "}
+                  <input
+                    onChange={(e) => borderRadiusAngleHandler(e, "topleft")}
+                    type="range"
+                    step="1"
+                    value={borderRadiusAngle[1]}
+                  />
+                  <span>{borderRadiusAngle[1]}</span>
+                </div>
+              )}
+              {borderRadiusAngle[0] === 0 && (
+                <div>
+                  {" "}
+                  <input
+                    onChange={(e) => borderRadiusAngleHandler(e, "topright")}
+                    type="range"
+                    step="1"
+                    value={borderRadiusAngle[2]}
+                  />
+                  <span>{borderRadiusAngle[2]}</span>
+                </div>
+              )}
+              {borderRadiusAngle[0] === 0 && (
+                <div>
+                  {" "}
+                  <input
+                    onChange={(e) => borderRadiusAngleHandler(e, "bottomleft")}
+                    type="range"
+                    step="1"
+                    value={borderRadiusAngle[3]}
+                  />
+                  <span>{borderRadiusAngle[3]}</span>
+                </div>
+              )}
+              {borderRadiusAngle[0] === 0 && (
+                <div>
+                  {" "}
+                  <input
+                    onChange={(e) => borderRadiusAngleHandler(e, "bottomright")}
+                    type="range"
+                    step="1"
+                    value={borderRadiusAngle[4]}
+                  />
+                  <span>{borderRadiusAngle[4]}</span>
+                </div>
+              )}
             </div>
           </div>
           <Code />

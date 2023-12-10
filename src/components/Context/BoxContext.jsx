@@ -14,8 +14,12 @@ const initialState = {
   borderWidth: "0px",
   borderColor: "#aaa",
   borderType: "solid",
+  borderEdge: [1, 0, 0, 0, 0],
+  borderEdgeType: [1, "solid", "solid", "solid", "solid"],
+  borderEdgeColor: [1, "#aaa", "#aaa", "#aaa", "#aaa"],
   boxSizing: "content-box",
   borderRadius: "0px",
+  borderRadiusAngle: [1, 0, 0, 0, 0],
   boxShadowBlur: "0px",
   boxShadowColor: "#000000",
   boxShadowColorRgb: "rgb(0, 0, 0, 1)",
@@ -66,10 +70,18 @@ const reducer = (state, action) => {
       return { ...state, borderColor: action.payload };
     case "SET_BORDER_TYPE":
       return { ...state, borderType: action.payload };
+    case "SET_BORDER_EDGE":
+      return { ...state, borderEdge: action.payload };
+    case "SET_BORDER_EDGE_COLOR":
+      return { ...state, borderEdgeColor: action.payload };
+    case "SET_BORDER_EDGE_TYPE":
+      return { ...state, borderEdgeType: action.payload };
     case "SET_BOX_SIZING":
       return { ...state, boxSizing: action.payload };
     case "SET_BORDER_RADIUS":
       return { ...state, borderRadius: action.payload };
+    case "SET_BORDER_RADIUS_ANGLE":
+      return { ...state, borderRadiusAngle: action.payload };
     case "SET_SHADOW_BLUR":
       return { ...state, boxShadowBlur: action.payload };
     case "SET_SHADOW_COLOR":
