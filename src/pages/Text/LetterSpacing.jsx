@@ -29,7 +29,7 @@ export default function LetterSpacing() {
           <TitleContainer title="Letter spacing" />
           <Preview />
 
-          <div className="option_wraper">
+          <div className="optionWrapper">
             <div className="options">
               <div className="input_box">
                 <label>Size</label>

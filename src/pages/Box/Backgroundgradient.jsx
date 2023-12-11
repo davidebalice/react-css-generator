@@ -73,7 +73,7 @@ export default function Backgroundgradient() {
           <TitleContainer title="Background gradient" />
           <Preview />
 
-          <div className="option_wraper">
+          <div className="optionWrapper">
             <div className="options">
               <div className="input_box color_Grid">
                 <div className="col_color">

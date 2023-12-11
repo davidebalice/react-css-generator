@@ -37,7 +37,7 @@ export default function Backgroundcolor() {
           <TitleContainer title="Background color" />
           <Preview />
 
-          <div className="option_wraper">
+          <div className="optionWrapper">
             <div className="options">
               <div className="input_box">
                 <label>color</label>

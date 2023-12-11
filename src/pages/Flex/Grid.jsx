@@ -37,7 +37,7 @@ export default function Grid() {
           <TitleContainer title="Grid" />
           <Preview />
 
-          <div className="option_wraper">
+          <div className="optionWrapper">
             <div className="options">
               <div className="input_box">
                 <label>Item</label>

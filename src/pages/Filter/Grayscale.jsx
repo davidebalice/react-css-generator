@@ -30,7 +30,7 @@ export default function Grayscale() {
           <TitleContainer title="Grayscale" />
           <Preview />
           
-          <div className="option_wraper">
+          <div className="optionWrapper">
             <div className="options">
               <div className="input_box">
                 <input

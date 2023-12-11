@@ -122,28 +122,27 @@ export default function Border() {
     if (borderEdge[0] === 0) {
       for (let i = 1; i <= 4; i++) {
         blocks.push(
-          <>
-            <div>
+          <div className="borderEdgeRow">
+            <div className="borderEdgeRowTitle">
               {i === 1
-                ? "top"
+                ? "Top"
                 : i === 2
-                ? "bottom"
+                ? "Bottom"
                 : i === 3
-                ? "left"
-                : "right"}
+                ? "Left"
+                : "Right"}
             </div>
-            <div>
-              {" "}
+            <div className="borderEdgeCol2">
               <input
                 onChange={(e) => borderEdgeHandler(e, i)}
                 type="range"
                 step="1"
                 value={borderEdge[i]}
-              />
-              <span>{borderEdge[i]}</span>
+                style={{ width: "84%" }}
+              />{" "}
+              <span>{borderEdge[i]}px</span>
             </div>
-            <div className="input_box">
-              <label>Style</label>
+            <div className="borderEdgeCol input_box">
               <select
                 value={borderEdgeType[i]}
                 onChange={(e) => borderEdgeTypeHandler(e, i)}
@@ -189,15 +188,14 @@ export default function Border() {
                 </option>
               </select>
             </div>
-            <div className="input_box">
-              <label>color</label>
+            <div className="borderEdgeCol input_box">
               <input
                 onChange={(e) => handleEdgeChange(e, i)}
                 type="color"
                 value={borderEdgeColor[i]}
               />
             </div>
-          </>
+          </div>
         );
       }
       return blocks;
@@ -218,85 +216,96 @@ export default function Border() {
           <TitleContainer title="Border" />
           <Preview />
 
-          <div className="option_wraper">
-            <div className="options">
-              <div className="input_box">
-                <label>color</label>
-                <input
-                  onChange={(e) => handleChange(e)}
-                  type="color"
-                  value={borderColor}
-                />
-              </div>
-              <div className="input_box">
-                <label>Width</label>
-                <input
-                  onChange={(e) => borderWidthHandler(e)}
-                  type="range"
-                  min="0"
-                  max="100"
-                  step="1"
-                  value={borderWidth.replace("px", "")}
-                />
-                <span>{borderWidth}</span>
-              </div>
-              <div className="input_box">
-                <label>Style</label>
-                <select
-                  value={borderType}
-                  onChange={(e) => borderTypeHandler(e)}
-                >
-                  <option value="solid" selected={borderType === "solid"}>
-                    solid
-                  </option>
-                  <option value="dashed" selected={borderType === "dashed"}>
-                    dashed
-                  </option>
-                  <option value="dotted" selected={borderType === "dotted"}>
-                    dotted
-                  </option>
-                  <option value="double" selected={borderType === "double"}>
-                    double
-                  </option>
-                  <option value="groove" selected={borderType === "groove"}>
-                    groove
-                  </option>
-                  <option value="ridge" selected={borderType === "ridge"}>
-                    ridge
-                  </option>
-                  <option value="inset" selected={borderType === "inset"}>
-                    inset
-                  </option>
-                  <option value="outset" selected={borderType === "outset"}>
-                    outset
-                  </option>
-                </select>
-              </div>
-              <div className="input_box">
-                <label>Box sizing</label>
-                <select value={boxSizing} onChange={(e) => boxSizingHandler(e)}>
-                  <option
-                    value="content-box"
-                    selected={boxSizing === "content-box"}
-                  >
-                    content-box
-                  </option>
-                  <option
-                    value="border-box"
-                    selected={boxSizing === "border-box"}
-                  >
-                    border-box
-                  </option>
-                </select>
-              </div>
+          <div className="optionWrapper">
+            <div className="checkboxWrapper">
+              <input
+                type="checkbox"
+                checked={borderEdge[0] === 1}
+                onClick={activateEdge}
+                className="checkboxInput"
+              />
+              All edges
             </div>
-            all edge
-            <input
-              type="checkbox"
-              checked={borderEdge[0] === 1}
-              onClick={activateEdge}
-              style={{ width: "30px" }}
-            />
+            <div className="options">
+              {borderEdge[0] === 1 && (
+                <>
+                  <div className="input_box">
+                    <label>color</label>
+                    <input
+                      onChange={(e) => handleChange(e)}
+                      type="color"
+                      value={borderColor}
+                    />
+                  </div>
+
+                  <div className="input_box">
+                    <label>Width</label>
+                    <input
+                      onChange={(e) => borderWidthHandler(e)}
+                      type="range"
+                      min="0"
+                      max="100"
+                      step="1"
+                      value={borderWidth.replace("px", "")}
+                    />
+                    <span>{borderWidth}</span>
+                  </div>
+                  <div className="input_box">
+                    <label>Style</label>
+                    <select
+                      value={borderType}
+                      onChange={(e) => borderTypeHandler(e)}
+                    >
+                      <option value="solid" selected={borderType === "solid"}>
+                        solid
+                      </option>
+                      <option value="dashed" selected={borderType === "dashed"}>
+                        dashed
+                      </option>
+                      <option value="dotted" selected={borderType === "dotted"}>
+                        dotted
+                      </option>
+                      <option value="double" selected={borderType === "double"}>
+                        double
+                      </option>
+                      <option value="groove" selected={borderType === "groove"}>
+                        groove
+                      </option>
+                      <option value="ridge" selected={borderType === "ridge"}>
+                        ridge
+                      </option>
+                      <option value="inset" selected={borderType === "inset"}>
+                        inset
+                      </option>
+                      <option value="outset" selected={borderType === "outset"}>
+                        outset
+                      </option>
+                    </select>
+                  </div>
+                  <div className="input_box">
+                    <label>Box sizing</label>
+                    <select
+                      value={boxSizing}
+                      onChange={(e) => boxSizingHandler(e)}
+                    >
+                      <option
+                        value="content-box"
+                        selected={boxSizing === "content-box"}
+                      >
+                        content-box
+                      </option>
+                      <option
+                        value="border-box"
+                        selected={boxSizing === "border-box"}
+                      >
+                        border-box
+                      </option>
+                    </select>
+                  </div>
+                </>
+              )}
+            </div>
+
             {renderBorderEdges()}
           </div>
           <Code />

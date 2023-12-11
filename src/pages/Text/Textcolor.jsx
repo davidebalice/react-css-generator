@@ -34,7 +34,7 @@ export default function Textcolor() {
           <TitleContainer title="Color" />
           <Preview />
 
-          <div className="option_wraper">
+          <div className="optionWrapper">
             <div className="options">
               <div className="input_box">
                 <input

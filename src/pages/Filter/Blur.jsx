@@ -30,7 +30,7 @@ export default function Blur() {
           <TitleContainer title="Blur" />
           <Preview />
           
-          <div className="option_wraper">
+          <div className="optionWrapper">
             <div className="options">
               <div className="input_box">
                 <input onChange={(e) => blurHandler(e)} type="range" value={blur.replace('px','')}/>

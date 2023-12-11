@@ -45,7 +45,7 @@ export default function Flex() {
           <TitleContainer title="Flex" />
           <Preview />
 
-          <div className="option_wraper">
+          <div className="optionWrapper">
             <div className="options">
               <div className="input_box">
                 <label>Item</label>

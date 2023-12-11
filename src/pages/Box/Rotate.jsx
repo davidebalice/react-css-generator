@@ -29,7 +29,7 @@ export default function Rotate() {
           <TitleContainer title="Rotate" />
           <Preview />
           <div className="topBox"></div>
-          <div className="option_wraper">
+          <div className="optionWrapper">
             <div className="options">
               <div className="input_box">
                 <label>Size</label>

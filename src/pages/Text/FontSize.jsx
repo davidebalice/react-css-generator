@@ -30,7 +30,7 @@ export default function FontSize() {
           <TitleContainer title="Font size" />
           <Preview />
 
-          <div className="option_wraper">
+          <div className="optionWrapper">
             <div className="options">
               <div className="input_box">
                 <label>Size</label>

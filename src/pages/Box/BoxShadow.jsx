@@ -64,7 +64,7 @@ export default function BoxShadow() {
           <TitleContainer title="Box shadow" />
           <Preview />
 
-          <div className="option_wraper">
+          <div className="optionWrapper">
             <div className="options">
               <div className="input_box">
                 <label>Color</label>

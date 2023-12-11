@@ -34,7 +34,7 @@ export default function Skew() {
           <Preview />
 
           <div className="topBox"></div>
-          <div className="option_wraper">
+          <div className="optionWrapper">
             <div className="options">
               <div className="input_box">
                 <label>X</label>

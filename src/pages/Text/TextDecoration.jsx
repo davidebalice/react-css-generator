@@ -42,7 +42,7 @@ export default function TextDecoration() {
           <TitleContainer title="Text decoration" />
           <Preview />
 
-          <div className="option_wraper">
+          <div className="optionWrapper">
             <div className="options">
               <div className="input_box">
                 <select

@@ -29,7 +29,7 @@ export default function Contrast() {
           <TitleContainer title="Contrast" />
           <Preview />
 
-          <div className="option_wraper">
+          <div className="optionWrapper">
             <div className="options">
               <div className="input_box">
                 <input

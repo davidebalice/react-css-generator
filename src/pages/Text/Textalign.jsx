@@ -29,7 +29,7 @@ export default function Textalign() {
           
           <TitleContainer title="Text align" />
           <Preview />
-          <div className="option_wraper">
+          <div className="optionWrapper">
             <div className="options">
               <div className="input_box">
                 <label>Type</label>

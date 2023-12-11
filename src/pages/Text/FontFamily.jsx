@@ -30,7 +30,7 @@ export default function FontFamily() {
           <TitleContainer title="Font family" />
           <Preview />
           
-          <div className="option_wraper">
+          <div className="optionWrapper">
             <div className="options">
               <div className="input_box">
                 <select onChange={(e) => fontfamilyHandler(e)}>
