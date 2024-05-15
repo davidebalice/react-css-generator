@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import "../../style.css";
-import copyed from "../../func";
-import { Context } from "../Context/BoxContext";
 import { BiSolidCopy } from "react-icons/bi";
+import copyed from "../../func";
+import "../../style.css";
+import { Context } from "../Context/BoxContext";
 
 const Box = () => {
   const { copyClickText, btnCopyTextChange, state } = useContext(Context);
@@ -76,16 +76,16 @@ const Box = () => {
     }
 
     if (borderRadiusAngle[0] === 0 && borderRadiusAngle[1] >= 1) {
-      text += `border-top-left-radius: ${borderRadiusAngle[1]};px`;
+      text += `border-top-left-radius: ${borderRadiusAngle[1]}px;`;
     }
     if (borderRadiusAngle[0] === 0 && borderRadiusAngle[2] >= 1) {
-      text += `border-top-right-radius: ${borderRadiusAngle[2]};px`;
+      text += `border-top-right-radius: ${borderRadiusAngle[2]}px;`;
     }
     if (borderRadiusAngle[0] === 0 && borderRadiusAngle[3] >= 1) {
-      text += `border-bottom-left-radius: ${borderRadiusAngle[3]};px`;
+      text += `border-bottom-left-radius: ${borderRadiusAngle[3]}px;`;
     }
     if (borderRadiusAngle[0] === 0 && borderRadiusAngle[4] >= 1) {
-      text += `border-bottom-right-radius: ${borderRadiusAngle[4]};px`;
+      text += `border-bottom-right-radius: ${borderRadiusAngle[4]}px;`;
     }
 
     //opacity
