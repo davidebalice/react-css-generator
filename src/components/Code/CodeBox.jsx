@@ -7,8 +7,9 @@ import { Context } from "../Context/BoxContext";
 const Box = () => {
   const { copyClickText, btnCopyTextChange, state } = useContext(Context);
   const {
-    bgType,
-    bgColor,
+    backgroundType,
+    backgroundColor,
+    backgroundOpacity,
     gradientType,
     gradientAngle,
     gradientColorOne,
@@ -38,14 +39,34 @@ const Box = () => {
     rotate,
   } = state;
 
+  const hexToRgba = (hex, opacity) => {
+    let r = 0,
+      g = 0,
+      b = 0;
+    if (hex.length === 4) {
+      r = parseInt(hex[1] + hex[1], 16);
+      g = parseInt(hex[2] + hex[2], 16);
+      b = parseInt(hex[3] + hex[3], 16);
+    } else if (hex.length === 7) {
+      r = parseInt(hex[1] + hex[2], 16);
+      g = parseInt(hex[3] + hex[4], 16);
+      b = parseInt(hex[5] + hex[6], 16);
+    }
+    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+  };
+
   const copyHandler = async () => {
     let text = "";
 
     //background
     text +=
-      bgType === "linear"
-        ? `background-color: ${bgColor};`
-        : bgType === "gradient"
+      backgroundType === "linear"
+        ? `background-color: ${
+            backgroundOpacity < 1
+              ? hexToRgba(backgroundColor, backgroundOpacity)
+              : backgroundColor
+          };`
+        : backgroundType === "gradient"
         ? `background: ${gradientType}(${gradientAngle} ${gradientColorOne} ${gradientRateOne}, ${gradientColorTwo} ${gradientRateTwo});`
         : "";
 
@@ -116,14 +137,20 @@ const Box = () => {
       <div className="copyWraper">
         <div className="codeBox">
           <pre>
-            {bgType === "linear" ? (
+            {backgroundType === "linear" ? (
               <>
                 <span className="code_one">background-color</span>:{" "}
-                <span className="code_three">{bgColor}</span>;
+                <span className="code_three">
+                  {" "}
+                  {backgroundOpacity < 1
+                    ? hexToRgba(backgroundColor, backgroundOpacity)
+                    : backgroundColor}
+                </span>
+                ;
                 <br />
               </>
             ) : null}
-            {bgType === "gradient" ? (
+            {backgroundType === "gradient" ? (
               <>
                 <span className="code_one">background</span>
                 {": "}

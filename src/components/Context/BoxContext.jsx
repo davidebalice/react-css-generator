@@ -1,9 +1,10 @@
-import React, { createContext, useState, useReducer } from "react";
+import React, { createContext, useReducer, useState } from "react";
 export const Context = createContext();
 
 const initialState = {
-  bgType: "none",
-  bgColor: "#333",
+  backgroundType: "none",
+  backgroundColor: "#333",
+  backgroundOpacity: "1",
   gradientColorOne: "#000",
   gradientColorTwo: "#fff",
   gradientRateOne: "0%",
@@ -46,10 +47,12 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "RESET":
       return initialState;
-    case "SET_BG_TYPE":
-      return { ...state, bgType: action.payload };
-    case "SET_BGCOLOR":
-      return { ...state, bgColor: action.payload };
+    case "SET_BACKGROUND_TYPE":
+      return { ...state, backgroundType: action.payload };
+    case "SET_BACKGROUND_COLOR":
+      return { ...state, backgroundColor: action.payload };
+    case "SET_BACKGROUND_OPACITY":
+      return { ...state, backgroundOpacity: action.payload };
     case "SET_GRADIENT_COLOR_ONE":
       return { ...state, gradientColorOne: action.payload };
     case "SET_GRADIENT_COLOR_TWO":

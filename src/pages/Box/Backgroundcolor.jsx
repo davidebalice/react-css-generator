@@ -1,25 +1,32 @@
+import { motion } from "framer-motion";
 import React, { useContext } from "react";
-import Menu from "../../components/Menu/Menu";
-import Preview from "../../components/Preview/PreviewBox";
+import { CompactPicker } from "react-color";
 import Code from "../../components/Code/CodeBox";
 import { Context } from "../../components/Context/BoxContext";
-import { motion } from "framer-motion";
-import { CompactPicker } from "react-color";
 import Footer from "../../components/Footer/Footer";
+import Menu from "../../components/Menu/Menu";
+import Preview from "../../components/Preview/PreviewBox";
 import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function Backgroundcolor() {
   const { state, dispatch } = useContext(Context);
-  const { bgColor } = state;
+  const { backgroundColor, backgroundOpacity } = state;
 
   const handleChange = (e) => {
-    dispatch({ type: "SET_BGCOLOR", payload: e.target.value });
-    dispatch({ type: "SET_BG_TYPE", payload: "linear" });
+    dispatch({ type: "SET_BACKGROUND_COLOR", payload: e.target.value });
+    dispatch({ type: "SET_BACKGROUND_TYPE", payload: "linear" });
   };
 
   const handleChangeComplete = (newColor) => {
-    dispatch({ type: "SET_BGCOLOR", payload: newColor.hex });
-    dispatch({ type: "SET_BG_TYPE", payload: "linear" });
+    dispatch({ type: "SET_BACKGROUND_COLOR", payload: newColor.hex });
+    dispatch({ type: "SET_BACKGROUND_TYPE", payload: "linear" });
+  };
+
+  const backgroundOpacityHandler = (e) => {
+    dispatch({
+      type: "SET_BACKGROUND_OPACITY",
+      payload: `${e.target.value}`,
+    });
   };
 
   return (
@@ -44,16 +51,28 @@ export default function Backgroundcolor() {
                 <input
                   onChange={(e) => handleChange(e)}
                   type="color"
-                  value={bgColor}
+                  value={backgroundColor}
                 />
-                <span>{bgColor}</span>
+                <span>{backgroundColor}</span>
               </div>
               <div className="input_box">
                 <CompactPicker
-                  color={bgColor}
+                  color={backgroundColor}
                   onChangeComplete={(e) => handleChangeComplete(e)}
                 />
               </div>
+            </div>
+            <div className="input_box">
+              <label>Color opacity</label>
+              <input
+                onChange={(e) => backgroundOpacityHandler(e)}
+                type="range"
+                step={0.01}
+                min={0}
+                max={1}
+                value={backgroundOpacity}
+              />
+              <span>{backgroundOpacity}</span>
             </div>
           </div>
 

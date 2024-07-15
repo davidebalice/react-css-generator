@@ -4,8 +4,9 @@ import { Context } from "../Context/BoxContext";
 const Preview = () => {
   const { state } = useContext(Context);
   const {
-    bgType,
-    bgColor,
+    backgroundType,
+    backgroundColor,
+    backgroundOpacity,
     gradientType,
     gradientAngle,
     gradientColorOne,
@@ -35,23 +36,38 @@ const Preview = () => {
     rotate,
   } = state;
 
+  const hexToRgba = (hex, opacity) => {
+    let r = 0,
+      g = 0,
+      b = 0;
+    if (hex.length === 4) {
+      r = parseInt(hex[1] + hex[1], 16);
+      g = parseInt(hex[2] + hex[2], 16);
+      b = parseInt(hex[3] + hex[3], 16);
+    } else if (hex.length === 7) {
+      r = parseInt(hex[1] + hex[2], 16);
+      g = parseInt(hex[3] + hex[4], 16);
+      b = parseInt(hex[5] + hex[6], 16);
+    }
+    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+  };
+
   //background
   const backgroundStyle =
-    bgType === "linear"
-      ? { backgroundColor: bgColor }
-      : bgType === "gradient"
+    backgroundType === "linear"
+      ? {
+          backgroundColor:
+            backgroundOpacity < 1
+              ? hexToRgba(backgroundColor, backgroundOpacity)
+              : backgroundColor,
+        }
+      : backgroundType === "gradient"
       ? {
           background: `${gradientType}(${gradientAngle} ${gradientColorOne} ${gradientRateOne}, ${gradientColorTwo} ${gradientRateTwo})`,
         }
       : { backgroundColor: "#d1d1d1" };
 
   //border
-  /*
-  const borderStyle = borderActive && {
-    border: `${borderWidth} ${borderType} ${borderColor}`,
-    boxSizing: boxSizing,
-  };
-*/
 
   let borderStyle = null;
 

@@ -1,17 +1,16 @@
+import { motion } from "framer-motion";
 import React, { useContext } from "react";
-import Menu from "../../components/Menu/Menu";
-import Preview from "../../components/Preview/PreviewBox";
 import Code from "../../components/Code/CodeBox";
 import { Context } from "../../components/Context/BoxContext";
-import { motion } from "framer-motion";
 import Footer from "../../components/Footer/Footer";
+import Menu from "../../components/Menu/Menu";
+import Preview from "../../components/Preview/PreviewBox";
 import TitleContainer from "../../components/TitleContainer/TitleContainer";
 
 export default function Backgroundgradient() {
   const { state, dispatch } = useContext(Context);
 
   const {
-    bgType,
     gradientType,
     gradientAngle,
     gradientColorOne,
@@ -21,7 +20,7 @@ export default function Backgroundgradient() {
   } = state;
 
   const backgroundType = () => {
-    dispatch({ type: "SET_BG_TYPE", payload: "gradient" });
+    dispatch({ type: "SET_BACKGROUND_TYPE", payload: "gradient" });
   };
 
   const gradientColorOneChange = (e) => {
