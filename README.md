@@ -13,6 +13,6 @@ https://css-generator.davidebalice.dev/
 
 <br>
 
-![Screenshot](www.aroundweb.it/screenshot/css-editor1.jpg)
+![Screenshot](https://www.aroundweb.it/screenshot/css-editor1.jpg)
 
-![Screenshot](www.aroundweb.it/screenshot/css-editor2.jpg)
+![Screenshot](https://www.aroundweb.it/screenshot/css-editor2.jpg)
